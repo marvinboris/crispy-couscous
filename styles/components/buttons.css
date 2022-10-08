@@ -1,0 +1,16 @@
+.btn {
+    @apply inline-flex w-[192px] h-[60px] items-center justify-center rounded-full text-sm focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 transition-all duration-200;
+}
+
+.btn-icon {
+    @apply justify-between pl-5 pr-10 hover:pl-10 hover:pr-5;
+}
+
+.btn-sm {
+    @apply w-[139px] h-[46px];
+}
+
+.btn-primary {
+    @apply bg-primary-600 text-white hover:text-secondary-100 active:text-primary-100 focus-visible:outline-primary-600;
+}
+

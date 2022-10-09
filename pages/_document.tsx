@@ -6,7 +6,7 @@ export default function Document() {
     return (
         <Html>
             <Head>
-                <link href="https://rsms.me/inter/inter.css" rel="stylesheet" />
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/plus-jakarta-display.min.css" />
                 <link rel="icon" href="/images/logo-512x512.png" />
 
                 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />

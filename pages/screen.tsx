@@ -1,14 +1,13 @@
-import Link from 'next/link';
-import { useState } from 'react'
 import { ArrowRightIcon } from '@heroicons/react/20/solid';
+import Router from 'next/router';
+import { useState } from 'react'
 
+import { useLanguageContext } from '../app/contexts/language';
 import { useLanguagesContext } from "../app/contexts/languages";
+import { Head } from '../components/frontend/navigation/Layout';
 import LanguageBlock from "../components/frontend/ui/blocks/LanguageBlock";
 import Button from '../components/frontend/ui/form/Button';
 import Logo from "../components/ui/Logo";
-import { useLanguageContext } from '../app/contexts/language';
-import Router from 'next/router';
-import { Head } from '../components/frontend/navigation/Layout';
 
 const params = {
     link: '/screen',
@@ -27,7 +26,6 @@ export default function ScreenPage() {
         const language = languages?.find(l => l.abbr === abbr)
         if (language) {
             setLanguage(language)
-            localStorage.setItem('frontend_lang', abbr)
             Router.push('/')
         }
     }

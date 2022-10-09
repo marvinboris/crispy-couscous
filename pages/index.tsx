@@ -1,12 +1,15 @@
-import { ReactElement } from 'react'
-import { ArrowRightIcon, ChevronDoubleDownIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
+import { ReactElement, ChangeEvent, FormEvent, useState } from 'react'
+import { ArrowRightIcon, CheckCircleIcon, ChevronDoubleDownIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
+import { ArrowLeftIcon, EnvelopeIcon, KeyIcon, MapPinIcon, PaperAirplaneIcon, PhoneIcon, UserIcon } from '@heroicons/react/24/outline'
 
 import { NextPageWithLayout } from './_app'
 import Layout, { Head } from '../components/frontend/navigation/Layout'
-import { useLanguageContext } from '../app/contexts/language'
-import Router from 'next/router'
 import Button from '../components/frontend/ui/form/Button'
-import { EnvelopeIcon, MapPinIcon, PaperAirplaneIcon, PhoneIcon, UserIcon } from '@heroicons/react/24/outline'
+import CountrySelect from '../components/frontend/home/CountrySelect'
+import Input from '../components/frontend/ui/form/Input'
+import Switch from '../components/frontend/ui/form/Switch'
+import TextArea from '../components/frontend/ui/form/TextArea'
+import View from '../components/ui/View'
 
 const params = {
   link: '/',
@@ -14,12 +17,161 @@ const params = {
   description: "Your favorite e-commerce platform."
 }
 
-const HomePage: NextPageWithLayout = () => {
-  const { language } = useLanguageContext()
-  if (language === null) {
-    Router.push('/screen')
-    return <></>
+interface FormDataType {
+  first_name: string
+  last_name: string
+  email: string
+  code: string
+  phone: string
+  terms: boolean
+
+  otp: string
+}
+
+interface GetStartedProps {
+  context: {
+    page: number
+    setPage: (page: number) => void
+    value: FormDataType
+    setValue: (value: FormDataType) => void
+    onChange: (e: ChangeEvent<HTMLInputElement>) => void
+    onSubmit: (e: FormEvent) => void
   }
+}
+
+const Back = ({ onClick }: { onClick: () => void }) => <div className="absolute top-[51px] left-[87px] flex items-center cursor-pointer" onClick={onClick}>
+  <div className="w-10 h-10 flex items-center justify-center mr-2">
+    <ArrowLeftIcon className='text-primary-600 w-8' />
+  </div>
+
+  <div className="text-sm">Back</div>
+</div>
+
+const GetStarted = ({ context: { page, setPage, value, setValue, onChange, onSubmit } }: GetStartedProps) => {
+  const firstPageContent = <>
+    <div className="font-bold text-primary-600 text-3xl mb-[5px]">Create your account</div>
+
+    <div className='text-lg mb-[64.55px]'>shopping taken to another level. </div>
+
+    <div className="grid grid-cols-2 gap-x-[17.34px] gap-y-[13.63px] mb-[22.8px]">
+      <Input icon={UserIcon} name='first_name' placeholder='First Name' onChange={onChange} value={value.first_name} />
+      <Input icon={UserIcon} name='last_name' placeholder='Last Name' onChange={onChange} value={value.last_name} />
+      <Input icon={EnvelopeIcon} type='email' name='email' placeholder='E-mail Address' onChange={onChange} value={value.email} />
+      <Input addon={<div className='w-24 pl-[15.95px]'>
+        <CountrySelect value={value.code} onChange={(code: string) => setValue({ ...value, code })} />
+      </div>} type='tel' name='phone' placeholder='054 430 3333' onChange={onChange} value={value.phone} />
+    </div>
+
+    <div className="mb-auto">
+      <Switch checked={value.terms} onChange={() => setValue({ ...value, terms: !value.terms })} label={<>
+        By signing up, you agree to our terms
+        and conditions mentionned <span className='font-bold text-primary-600'>here</span>.
+      </>} />
+    </div>
+
+    <div className="text-center">
+      <Button onClick={() => setPage(2)}>Continue</Button>
+    </div>
+  </>
+
+  const secondPageContent = <>
+    <Back onClick={() => setPage(1)} />
+
+    <div className="mx-auto flex flex-col flex-1 items-center justify-between">
+      <div>
+        <div className="font-bold text-primary-600 text-3xl mb-[5px]">Let’s verify your number</div>
+
+        <div className='text-lg mb-[64.55px]'>Please provide the 6 digit code received </div>
+      </div>
+
+      <div className="w-[209px]">
+        <Input icon={KeyIcon} type='number' name='otp' placeholder='6 Digits code' onChange={onChange} value={value.otp} className='mb-[22px]' />
+
+        <div className='text-xs'>Didn’t get the code ? <span className='cursor-pointer font-bold text-primary-600'>Resend here</span></div>
+      </div>
+
+      <div className="text-center">
+        <Button onClick={() => setPage(3)}>Continue</Button>
+      </div>
+    </div>
+  </>
+
+  const thirdPageContent = <>
+    <Back onClick={() => setPage(2)} />
+
+    <div className="mx-auto flex flex-col flex-1 items-center justify-between">
+      <div>
+        <div className="font-bold text-primary-600 text-3xl mb-[5px]">Connect your social media</div>
+
+        <div className='text-lg mb-[64.55px]'>Connect, like & share to receive a free raffle ticket</div>
+      </div>
+
+      <div className="grid gap-2.5 grid-cols-4">
+        <div className="w-[60px] h-[60px] rounded-full flex items-center justify-center bg-secondary-100"><img src='/images/social-media/Facebook.svg' alt="Facebook" /></div>
+        <div className="w-[60px] h-[60px] rounded-full flex items-center justify-center bg-secondary-100"><img src='/images/social-media/Twitter.svg' alt="Twitter" /></div>
+        <div className="w-[60px] h-[60px] rounded-full flex items-center justify-center bg-secondary-100"><img src='/images/social-media/LinkedIn.svg' alt="LinkedIn" /></div>
+        <div className="w-[60px] h-[60px] rounded-full flex items-center justify-center bg-secondary-100"><img src='/images/social-media/Instagram.svg' alt="Instagram" /></div>
+      </div>
+
+      <div className="text-center">
+        <Button onClick={() => setPage(4)}>Continue</Button>
+      </div>
+    </div>
+  </>
+
+  const fourthPageContent = <>
+    <Back onClick={() => setPage(3)} />
+
+    <div className="mx-auto max-w-md text-center flex flex-col flex-1 items-center justify-between">
+      <div>
+        <div className="font-bold text-primary-600 text-3xl mb-[20px]">Congratulations !!!</div>
+
+        <div className='text-lg'>
+          Welcome on board. You have received a notification
+          by SMS & Mail. Your free ticket is available
+        </div>
+      </div>
+
+      <div>
+        <CheckCircleIcon className='w-24 text-green-700' />
+      </div>
+
+      <div className="text-center">
+        <Button>Finish</Button>
+      </div>
+    </div>
+  </>
+
+  return <View action={<Button icon={ArrowRightIcon}>Get Started</Button>}>
+    <form onSubmit={onSubmit} className='max-w-lg mx-auto h-[414px] flex flex-col'>
+      {page === 1 && firstPageContent}
+      {page === 2 && secondPageContent}
+      {page === 3 && thirdPageContent}
+      {page === 4 && fourthPageContent}
+    </form>
+  </View>
+}
+
+const HomePage: NextPageWithLayout = () => {
+  const [page, setPage] = useState(1)
+  const [value, setValue] = useState({
+    first_name: '',
+    last_name: '',
+    email: '',
+    code: '',
+    phone: '',
+    terms: false,
+
+    otp: '',
+  })
+
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => setValue({ ...value, [e.target.name]: e.target.value })
+
+  const onSubmit = (e: FormEvent) => {
+    e.preventDefault()
+  }
+
+  const context = { page, setPage, value, setValue, onChange, onSubmit }
 
   return <>
     <Head {...params} />
@@ -41,7 +193,7 @@ const HomePage: NextPageWithLayout = () => {
                 to win prizes from AED 10 to AED 20000.
               </div>
 
-              <Button icon={ArrowRightIcon}>Get Started</Button>
+              <GetStarted context={context} />
             </div>
 
             <div className='pt-[37px]'>
@@ -98,7 +250,7 @@ const HomePage: NextPageWithLayout = () => {
 
               </div>
 
-              <Button icon={ArrowRightIcon}>Get Started</Button>
+              <GetStarted context={context} />
             </div>
           </div>
 
@@ -146,7 +298,7 @@ const HomePage: NextPageWithLayout = () => {
 
               </div>
 
-              <Button icon={ArrowRightIcon}>Get Started</Button>
+              <GetStarted context={context} />
             </div>
           </div>
 
@@ -233,57 +385,11 @@ const HomePage: NextPageWithLayout = () => {
             <div>
               <form className="">
                 <div className='grid gap-6 grid-cols-2'>
-                  <div className="h-[60px] rounded-[300px] bg-secondary-100 flex items-center">
-                    <div>
-                      <div className="w-16 flex justify-center">
-                        <UserIcon className='w-6 text-primary-600/20' />
-                      </div>
-                    </div>
-
-                    <div className='pr-4'>
-                      <input type="text" name='first_name' className='border-none text-lg bg-transparent outline-none text-inherit w-full' placeholder='First Name' />
-                    </div>
-                  </div>
-
-                  <div className="h-[60px] rounded-[300px] bg-secondary-100 flex items-center">
-                    <div>
-                      <div className="w-16 flex justify-center">
-                        <UserIcon className='w-6 text-primary-600/20' />
-                      </div>
-                    </div>
-
-                    <div className='pr-4'>
-                      <input type="text" name='last_name' className='border-none text-lg bg-transparent outline-none text-inherit w-full' placeholder='Last Name' />
-                    </div>
-                  </div>
-
-                  <div className="h-[60px] rounded-[300px] bg-secondary-100 flex items-center">
-                    <div>
-                      <div className="w-16 flex justify-center">
-                        <EnvelopeIcon className='w-6 text-primary-600/20' />
-                      </div>
-                    </div>
-
-                    <div className='pr-4'>
-                      <input type="email" name='email' className='border-none text-lg bg-transparent outline-none text-inherit w-full' placeholder='E-mail Address' />
-                    </div>
-                  </div>
-
-                  <div className="h-[60px] rounded-[300px] bg-secondary-100 flex items-center">
-                    <div>
-                      <div className="w-16 flex justify-center">
-                        <PhoneIcon className='w-6 text-primary-600/20' />
-                      </div>
-                    </div>
-
-                    <div className='pr-4'>
-                      <input type="tel" name='phone' className='border-none text-lg bg-transparent outline-none text-inherit w-full' placeholder='Phone Number' />
-                    </div>
-                  </div>
-
-                  <div className="rounded-[45px] bg-secondary-100 col-span-2">
-                    <textarea className='border-none text-lg bg-transparent outline-none text-inherit w-full p-5 min-h-[223px]' placeholder='Your Message goes here' />
-                  </div>
+                  <Input icon={UserIcon} name='first_name' placeholder='First Name' />
+                  <Input icon={UserIcon} name='last_name' placeholder='Last Name' />
+                  <Input icon={EnvelopeIcon} type="email" name='email' placeholder='E-mail Address' />
+                  <Input icon={PhoneIcon} type="tel" name='phone' placeholder='Phone Number' />
+                  <TextArea className='col-span-2' name='message' placeholder='Your Message goes here' />
                 </div>
 
                 <div className="mt-20">

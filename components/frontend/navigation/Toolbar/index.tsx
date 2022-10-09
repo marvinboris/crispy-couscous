@@ -1,6 +1,5 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Fragment, ComponentProps } from 'react'
-import Router from 'next/router'
 import Link from 'next/link'
 import { Popover, Transition } from '@headlessui/react'
 import {
@@ -19,10 +18,7 @@ import Logo from '../../../ui/Logo'
 
 import Resource from './Resource'
 import NavItem from './NavItem'
-import Dropdown from './Dropdown'
-
-import { useThemeContext } from '../../../../app/contexts/theme'
-import { useLanguageContext } from '../../../../app/contexts/language'
+import LanguageSelect from './LanguageSelect'
 
 const mobileNavItems = [
     { name: 'Enseignements', href: '/lessons', icon: BookOpenIcon },
@@ -38,16 +34,8 @@ const renderMobileNavItem = (item: { name: string, href: string, icon: (props: C
 </Link>
 
 export default function Toolbar() {
-    const { setTheme } = useThemeContext()
-    const { language, setLanguage } = useLanguageContext()
-
-    if (!language) {
-        Router.push('/screen')
-        return <></>
-    }
-
     return (
-        <Popover className="fixed w-full top-0 z-50 bg-white dark:bg-secondary-900 backdrop-blur backdrop-filter">
+        <Popover className="fixed w-full top-0 z-40 bg-white dark:bg-secondary-900 backdrop-blur backdrop-filter">
             {({ close }) => <>
                 <div className="container">
                     <div className="flex items-center py-[10px]">
@@ -68,15 +56,7 @@ export default function Toolbar() {
                                 </Popover.Group>
                             </div>
 
-                            <div className="flex items-center rounded-full py-[7px] pl-[9px] pr-[20px] cursor-pointer bg-secondary-100">
-                                <div className='mr-2'>
-                                    <div className="w-8 h-8 rounded-full">
-                                        <img src={`/images/flags/1x1/${language!.flag}.svg`} alt="Flag" className="image-cover rounded-full" />
-                                    </div>
-                                </div>
-
-                                <div className="font-medium">{language!.name}</div>
-                            </div>
+                            <LanguageSelect />
 
                             <div className="md:hidden ml-4">
                                 <Popover.Button className="flex h-10 items-center justify-center rounded-md p-2 -m-2 focus:outline-none">

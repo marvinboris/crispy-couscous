@@ -23,7 +23,7 @@ main.page-main>header .bg-img {
 }
 
 .section {
-    @apply py-20 sm:py-32;
+    @apply py-12 sm:py-32;
 }
 
 main.page-main section {

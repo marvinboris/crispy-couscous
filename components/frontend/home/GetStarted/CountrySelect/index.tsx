@@ -2,7 +2,7 @@ import { Fragment, useState } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronDownIcon } from '@heroicons/react/20/solid'
 
-import { useCountriesContext } from '../../../../app/contexts/countries'
+import { useCountriesContext } from '../../../../../app/contexts/countries'
 
 interface CountrySelectProps {
     value: string

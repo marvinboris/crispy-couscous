@@ -3,13 +3,20 @@ import NextHead from 'next/head'
 
 import Toolbar from '../Toolbar'
 import Footer from '../Footer'
+import { useLanguageContext } from '../../../../app/contexts/language'
 
 interface LayoutProps {
     children: ReactNode
 }
 
 export default function Layout({ children }: LayoutProps) {
-    return <div className='min-h-screen flex flex-col'>
+    const { language } = useLanguageContext()
+
+    return language === null ? <div className='fixed inset-0 flex items-center justify-center'>
+        <img src="/images/bg-screen.svg" alt="BG Screen" className="absolute inset-0 image-cover -z-10" />
+
+        <div className="w-24 h-24 rounded-full border-[7px] border-primary-600 border-t-primary-600/20 animate-spin" />
+    </div> : <div className='min-h-screen flex flex-col'>
         <Toolbar />
 
         <div className="main-wrapper">

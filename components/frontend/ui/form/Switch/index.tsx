@@ -17,7 +17,7 @@ export default function Switch({ label, checked, onChange }: SwitchProps) {
                 </HSwitch>
             </div>
 
-            <div className="text-xs w-1/2">{label}</div>
+            <div className="text-xs md:w-1/2">{label}</div>
         </div>
     )
 }

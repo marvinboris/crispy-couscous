@@ -14,7 +14,7 @@ export default function Input({ icon, label, addon, id, type, name, value, onCha
 
         <div className="h-[60px] rounded-[300px] bg-secondary-100 flex items-center">
             <div>
-                <div className="w-16 flex justify-center">
+                <div className="w-12 lg:w-16 flex justify-center">
                     {Icon && <Icon className='w-6 text-primary-600/20' />}
                 </div>
                 {addon}

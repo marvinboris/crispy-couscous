@@ -7,7 +7,6 @@ import { Provider } from 'react-redux'
 
 import CountriesContext from '../app/contexts/countries'
 import LanguageContext from '../app/contexts/language'
-import LanguagesContext from '../app/contexts/languages'
 import ThemeContext from '../app/contexts/theme'
 import { getCountries } from '../app/resources/countries'
 import { getLanguages } from '../app/resources/languages'
@@ -29,6 +28,7 @@ type AppPropsWithLayout = AppProps & {
 export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page) => page);
   const [theme, setTheme] = useState<Theme | null>(null)
+  const [loaded, setLoaded] = useState(false)
   const [language, setJustLanguage] = useState<LanguageType | null>(null)
   const [languages, setLanguages] = useState<LanguageType[] | null>(null)
   const [countries, setCountries] = useState<CountryType[] | null>(null)
@@ -43,7 +43,7 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
       const initialTheme: Theme = localStorage.getItem('dark') ? Theme.DARK : Theme.LIGHT
       setTheme(initialTheme)
     }
-    if (language == null && languages !== null) {
+    if (language === null && languages !== null) {
       const abbr = localStorage.getItem('frontend_lang')
 
       if (abbr) {
@@ -51,7 +51,8 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 
         if (initialLanguage) setLanguage(initialLanguage)
         else Router.push('/screen')
-      }
+      } else Router.push('/screen')
+      setLoaded(true)
     }
   }, [theme, language, languages])
 
@@ -77,18 +78,16 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
-      <LanguageContext.Provider value={{ language, setLanguage }}>
-        <LanguagesContext.Provider value={{ languages, setLanguages }}>
-          <CountriesContext.Provider value={{ countries, setCountries }}>
-            <Head>
-              <meta name="theme-color" content={theme === Theme.DARK ? tailwindConfig.theme.extend.colors.secondary[900] : "#ffffff"} />
-            </Head>
+      <LanguageContext.Provider value={{ language, setLanguage, languages, setLanguages }}>
+        <CountriesContext.Provider value={{ countries, setCountries }}>
+          <Head>
+            <meta name="theme-color" content={theme === Theme.DARK ? tailwindConfig.theme.extend.colors.secondary[900] : "#ffffff"} />
+          </Head>
 
-            {theme !== null && <Provider store={store}>
-              {getLayout(<Component {...pageProps} />)}
-            </Provider>}
-          </CountriesContext.Provider>
-        </LanguagesContext.Provider>
+          {loaded && <Provider store={store}>
+            {getLayout(<Component {...pageProps} />)}
+          </Provider>}
+        </CountriesContext.Provider>
       </LanguageContext.Provider>
     </ThemeContext.Provider>
   )

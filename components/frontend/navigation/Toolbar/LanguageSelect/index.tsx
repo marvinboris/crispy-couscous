@@ -3,11 +3,9 @@ import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronDownIcon } from '@heroicons/react/20/solid'
 
 import { useLanguageContext } from '../../../../../app/contexts/language'
-import { useLanguagesContext } from '../../../../../app/contexts/languages'
 
 export default function LanguageSelect() {
-    const { language, setLanguage } = useLanguageContext()
-    const { languages } = useLanguagesContext()
+    const { language, setLanguage, languages } = useLanguageContext()
 
     const selected = language!
 

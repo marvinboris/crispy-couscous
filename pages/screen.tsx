@@ -3,7 +3,6 @@ import Router from 'next/router';
 import { useState } from 'react'
 
 import { useLanguageContext } from '../app/contexts/language';
-import { useLanguagesContext } from "../app/contexts/languages";
 import { Head } from '../components/frontend/navigation/Layout';
 import LanguageBlock from "../components/frontend/ui/blocks/LanguageBlock";
 import Button from '../components/frontend/ui/form/Button';
@@ -16,9 +15,8 @@ const params = {
 }
 
 export default function ScreenPage() {
-    const { languages } = useLanguagesContext()
-    const { setLanguage } = useLanguageContext()
-    const [abbr, setAbbr] = useState('')
+    const { setLanguage, languages } = useLanguageContext()
+    const [abbr, setAbbr] = useState(languages![0].abbr)
 
     const languagesContent = languages?.map(language => <LanguageBlock key={`language-${language.abbr}`} language={language} selected={language.abbr === abbr} select={setAbbr} />)
 
@@ -32,20 +30,23 @@ export default function ScreenPage() {
 
     return <div className="min-h-screen container flex flex-col items-center">
         <Head {...params} />
+
+        <img src="/images/bg-screen.svg" alt="BG Screen" className="absolute inset-0 image-cover -z-10" />
+
         <div className="w-full mt-[37px]">
             <Logo />
         </div>
 
         <div className="flex flex-1 flex-col items-center mt-[77px]">
-            <div className="text-6xl font-bold mb-[11px] relative">
+            <div className="text-6xl font-bold mb-7 lg:mb-[11px] relative">
                 Welcome to Valyou !
 
-                <img src="/images/curve.svg" alt="Courbe" className="absolute -right-12 -top-16 translate-x-full" />
+                <img src="/images/curve.svg" alt="Courbe" className="absolute -right-4 -top-6 lg:-right-12 lg:-top-16 lg:translate-x-full" />
             </div>
 
-            <div className="text-lg mb-[66px]">A rewarding shopping ! Please select a language to get started !</div>
+            <div className="text-lg mb-8 lg:mb-[66px]">A rewarding shopping ! Please select a language to get started !</div>
 
-            <div className="w-full max-w-lg grid gap-5 grid-cols-4 mb-[100px]">
+            <div className="lg:w-full max-w-lg grid gap-5 grid-cols-2 lg:grid-cols-4 mb-10 lg:mb-[100px]">
                 {languagesContent}
             </div>
 

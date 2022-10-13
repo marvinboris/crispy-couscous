@@ -2,24 +2,33 @@ import { ReactNode } from 'react'
 import NextHead from 'next/head'
 
 import Toolbar from '../Toolbar'
-import { useLanguageContext } from '../../../../app/contexts/language'
+import SideDrawer from './SideDrawer'
+import Footer from '../Footer'
+
+import { useAccountContext } from '../../../../app/contexts/account'
 
 interface LayoutProps {
     children: ReactNode
 }
 
 export default function Layout({ children }: LayoutProps) {
-    const { language } = useLanguageContext()
+    const { account } = useAccountContext()
 
-    return language === null ? <div className='fixed inset-0 flex items-center justify-center'>
+    return account === null ? <div className='fixed inset-0 flex items-center justify-center'>
         <img src="/images/bg-screen.svg" alt="BG Screen" className="absolute inset-0 image-cover -z-10" />
 
         <div className="w-24 h-24 rounded-full border-[7px] border-primary-600 border-t-primary-600/20 animate-spin" />
-    </div> : <div className='min-h-screen flex flex-col relative'>
-        <Toolbar />
+    </div> : <div className='min-h-screen flex relative'>
+        <div>
+            <SideDrawer />
+        </div>
 
-        <div className="main-wrapper">
-            {children}
+        <div className='flex-1 flex flex-col bg-secondary-100'>
+            <Toolbar />
+            <div className="flex-1">
+                {children}
+            </div>
+            <Footer />
         </div>
     </div>
 }

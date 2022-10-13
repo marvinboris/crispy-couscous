@@ -1,4 +1,4 @@
-import { ArrowLeftIcon, ArrowRightIcon, EnvelopeIcon, KeyIcon, UserIcon } from '@heroicons/react/24/outline'
+import { ArrowLeftIcon, ArrowRightIcon, CalendarIcon, EnvelopeIcon, KeyIcon, LockClosedIcon, UserIcon } from '@heroicons/react/24/outline'
 import { CheckCircleIcon } from '@heroicons/react/20/solid'
 import { ChangeEvent, FormEvent, useState } from 'react'
 
@@ -7,6 +7,7 @@ import Button from '../../ui/form/Button'
 import Input from '../../ui/form/Input'
 import Switch from '../../ui/form/Switch'
 import CountrySelect from './CountrySelect'
+import Link from 'next/link'
 
 interface GetStartedProps {
     onSubmit: (e: FormEvent) => void
@@ -30,6 +31,9 @@ export default function GetStarted({ onSubmit }: GetStartedProps) {
         email: '',
         code: '',
         phone: '',
+        password: '',
+        password_confirmation: '',
+        birthdate: '',
         terms: false,
 
         otp: '',
@@ -40,7 +44,7 @@ export default function GetStarted({ onSubmit }: GetStartedProps) {
     const firstPageContent = <>
         <div className="font-bold text-primary-600 text-3xl mb-[5px]">Create your account</div>
 
-        <div className='text-lg mb-6 md:mb-[64.55px]'>shopping taken to another level. </div>
+        <div className='text-lg mb-[22px]'>Shop & Win !</div>
 
         <div className="grid md:grid-cols-2 gap-x-[17.34px] gap-y-[13.63px] mb-[22.8px]">
             <Input icon={UserIcon} name='first_name' placeholder='First Name' onChange={onChange} value={value.first_name} />
@@ -49,9 +53,12 @@ export default function GetStarted({ onSubmit }: GetStartedProps) {
             <Input addon={<div className='w-24 pl-[15.95px]'>
                 <CountrySelect value={value.code} onChange={(code: string) => setValue({ ...value, code })} />
             </div>} type='tel' name='phone' placeholder='054 430 3333' onChange={onChange} value={value.phone} />
+            <Input icon={LockClosedIcon} type='password' name='password' placeholder='Password' onChange={onChange} value={value.password} />
+            <Input icon={LockClosedIcon} type='password' name='password' placeholder='Retype Password' onChange={onChange} value={value.password_confirmation} />
+            <Input icon={CalendarIcon} type='date' name='birthdate' placeholder='Date of birth' onChange={onChange} value={value.birthdate} />
         </div>
 
-        <div className="mb-6 md:mb-auto">
+        <div className="mb-6 md:mb-[33px]">
             <Switch checked={value.terms} onChange={() => setValue({ ...value, terms: !value.terms })} label={<>
                 By signing up, you agree to our terms
                 and conditions mentionned <span className='font-bold text-primary-600'>here</span>.
@@ -84,27 +91,6 @@ export default function GetStarted({ onSubmit }: GetStartedProps) {
     </>
 
     const thirdPageContent = <>
-        <div className="mx-auto flex flex-col flex-1 items-center justify-between">
-            <div>
-                <div className="font-bold text-primary-600 text-3xl mb-[5px]">Connect your social media</div>
-
-                <div className='text-lg mb-[64.55px]'>Connect, like & share to receive a free raffle ticket</div>
-            </div>
-
-            <div className="grid gap-2.5 grid-cols-4">
-                <div className="w-[60px] h-[60px] rounded-full flex items-center justify-center bg-secondary-100"><img src='/images/social-media/Facebook.svg' alt="Facebook" /></div>
-                <div className="w-[60px] h-[60px] rounded-full flex items-center justify-center bg-secondary-100"><img src='/images/social-media/Twitter.svg' alt="Twitter" /></div>
-                <div className="w-[60px] h-[60px] rounded-full flex items-center justify-center bg-secondary-100"><img src='/images/social-media/LinkedIn.svg' alt="LinkedIn" /></div>
-                <div className="w-[60px] h-[60px] rounded-full flex items-center justify-center bg-secondary-100"><img src='/images/social-media/Instagram.svg' alt="Instagram" /></div>
-            </div>
-
-            <div className="text-center">
-                <Button onClick={() => setPage(4)}>Continue</Button>
-            </div>
-        </div>
-    </>
-
-    const fourthPageContent = <>
         <div className="mx-auto max-w-md text-center flex flex-col flex-1 items-center justify-between">
             <div>
                 <div className="font-bold text-primary-600 text-3xl mb-[20px]">Congratulations !!!</div>
@@ -120,7 +106,11 @@ export default function GetStarted({ onSubmit }: GetStartedProps) {
             </div>
 
             <div className="text-center">
-                <Button>Finish</Button>
+                <Link href='/customer/dashboard'>
+                    <a>
+                        <Button>Finish</Button>
+                    </a>
+                </Link>
             </div>
         </div>
     </>
@@ -134,7 +124,6 @@ export default function GetStarted({ onSubmit }: GetStartedProps) {
             {page === 1 && firstPageContent}
             {page === 2 && secondPageContent}
             {page === 3 && thirdPageContent}
-            {page === 4 && fourthPageContent}
         </form>
     </View>
 }

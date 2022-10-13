@@ -33,24 +33,22 @@ export default function LanguageSelect() {
                         <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
                             {languages?.filter(l => l.abbr !== selected.abbr).map((l, index) => (
                                 <Listbox.Option key={index} className={({ active }) => `relative cursor-default select-none p-2 ${active ? 'bg-primary-100 text-primary-900' : 'text-secondary-900'}`} value={l}>
-                                    {({ selected }) => (
-                                        <>
-                                            <div className="flex items-center">
-                                                <div className='mr-[5.55px]'>
-                                                    <div className="w-[19.42px] h-[19.42px]">
-                                                        <img src={`/images/flags/1x1/${l.flag}.svg`} alt="Flag" className="image-cover rounded-full" />
-                                                    </div>
+                                    {({ selected }) => (<>
+                                        <div className="flex items-center">
+                                            <div className='mr-[5.55px]'>
+                                                <div className="w-[19.42px] h-[19.42px]">
+                                                    <img src={`/images/flags/1x1/${l.flag}.svg`} alt="Flag" className="image-cover rounded-full" />
                                                 </div>
-
-                                                <div className={`truncate ${selected ? 'font-medium' : 'font-normal'}`}>{l.name}</div>
                                             </div>
-                                            {selected ? (
-                                                <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-primary-600">
-                                                    <CheckIcon className="h-5 w-5" aria-hidden="true" />
-                                                </span>
-                                            ) : null}
-                                        </>
-                                    )}
+
+                                            <div className={`truncate ${selected ? 'font-medium' : 'font-normal'}`}>{l.name}</div>
+                                        </div>
+                                        {selected ? (
+                                            <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-primary-600">
+                                                <CheckIcon className="h-5 w-5" aria-hidden="true" />
+                                            </span>
+                                        ) : null}
+                                    </>)}
                                 </Listbox.Option>
                             ))}
                         </Listbox.Options>

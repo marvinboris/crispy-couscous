@@ -11,9 +11,16 @@ import {
 
 import Logo from '../../../ui/Logo'
 
-import Resource from './Resource'
 import NavItem from './NavItem'
 import LanguageSelect from './LanguageSelect'
+import Dropdown from './Dropdown'
+
+const listItems = [
+    { href: '/about/mission', label: 'Mission' },
+    { href: '/about/tutorials', label: 'Tutorials' },
+    { href: '/about/how-it-works', label: 'How it works' },
+    { href: '/about/about-the-raffle', label: 'About the raffle' },
+]
 
 const mobileNavItems = [
     { name: 'Home', href: '#banner', icon: HomeIcon },
@@ -34,7 +41,7 @@ export default function Toolbar() {
                 <div className="container">
                     <div className="flex items-center py-[10px]">
                         <div className="flex justify-start">
-                            <Link href="#banner">
+                            <Link href="/">
                                 <div className='cursor-pointer'>
                                     <span className="sr-only">Valyou</span>
                                     <Logo />
@@ -45,8 +52,10 @@ export default function Toolbar() {
                         <div className='ml-auto flex items-center'>
                             <div className="flex items-center mr-[77px]">
                                 <Popover.Group as="nav" className="hidden space-x-8 md:flex">
-                                    <NavItem href="#banner">Home</NavItem>
-                                    <NavItem href="#about">About Us</NavItem>
+                                    <NavItem href="/">Home</NavItem>
+                                    <Dropdown basePath='/about' list={listItems}>About Us</Dropdown>
+                                    <NavItem href="/contact">Contact Us</NavItem>
+                                    <NavItem href="/faq">FAQ</NavItem>
                                 </Popover.Group>
                             </div>
 

@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@headlessui/react": "^1.7.2",
+    "@headlessui/react": "^0.0.0-insiders.ab78fbd",
     "@heroicons/react": "^2.0.11",
     "@reduxjs/toolkit": "^1.8.5",
     "axios": "^1.0.0",

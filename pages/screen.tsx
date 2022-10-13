@@ -44,7 +44,10 @@ export default function ScreenPage() {
                 <img src="/images/curve.svg" alt="Courbe" className="absolute -right-4 -top-6 lg:-right-12 lg:-top-16 lg:translate-x-full" />
             </div>
 
-            <div className="text-lg mb-8 lg:mb-[66px]">A rewarding shopping ! Please select a language to get started !</div>
+            <div className="text-lg mb-8 lg:mb-[66px]">
+                A new shopping experience where your choices are highly rewarded
+                please select a language to get started.
+            </div>
 
             <div className="lg:w-full max-w-lg grid gap-5 grid-cols-2 lg:grid-cols-4 mb-10 lg:mb-[100px]">
                 {languagesContent}

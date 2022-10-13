@@ -1,4 +1,5 @@
 import axios from "axios";
+
 import CountryType from "../types/country";
 
 export const getCountries = async () => {

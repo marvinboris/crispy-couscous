@@ -3,10 +3,11 @@ import { AdjustmentsHorizontalIcon, ArrowRightOnRectangleIcon, DocumentDuplicate
 import NavItem from "./NavItem";
 
 import Logo from "../../../../ui/Logo";
+import Link from "next/link";
 
 export default function SideDrawer() {
-    return <div className="w-72 min-h-screen flex flex-col pt-[42px] pb-[95px] px-5 bg-primary-600/20">
-        <div className="mb-32"><Logo /></div>
+    return <div className="sticky top-0 z-50 w-72 min-h-screen flex flex-col pt-[42px] pb-[95px] px-5 bg-primary-600/20">
+        <div className="mb-32"><Link href='/'><a><Logo /></a></Link></div>
 
         <div className="flex-1 flex flex-col">
             <div>

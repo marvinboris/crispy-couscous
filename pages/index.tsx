@@ -47,7 +47,7 @@ const HomePage: NextPageWithLayout = () => {
                   <div className="absolute z-10 rounded-[45px] bg-white inset-0" />
                   <img src="/images/home-banner.svg" alt="Banner" className="absolute rounded-[45px] top-0 z-20 image-cover" />
                   <div className="absolute z-30 rounded-[45px] inset-0 bg-black/40 flex flex-col items-center justify-center">
-                    <div className="w-32 h-32 rounded-full bg-white/30 flex items-center justify-center">
+                    <div className="w-32 h-32 rounded-full bg-white/30 flex items-center justify-center animate-pulse">
                       <div className="w-20 h-20 rounded-full bg-white/30 flex items-center justify-center">
                         <PlayCircleIcon className='w-14 text-white' />
                       </div>

@@ -4,7 +4,7 @@ import { useAccountContext } from "../../../../app/contexts/account"
 export default function Toolbar() {
     const { account } = useAccountContext()
 
-    return <header className="bg-white flex items-center sticky top-0">
+    return <header className="bg-white flex items-center sticky top-0 z-50">
         <div className="flex-1 flex items-center px-[42px]">
             <div className="cursor-pointer"><Bars3BottomLeftIcon className='w-10' /></div>
 
@@ -25,6 +25,10 @@ export default function Toolbar() {
 
             <div className="relative">
                 <img src="/images/backend/user-pic-wrapper.svg" alt="User pic wrapper" />
+
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -ml-[1px] w-11 h-11 rounded-full overflow-hidden">
+                    <img src={account?.photo} alt="User pic" className="absolute inset-0 scale-[2] image-cover" />
+                </div>
             </div>
         </div>
     </header>

@@ -18,14 +18,12 @@ export default function Layout({ children }: LayoutProps) {
         <img src="/images/bg-screen.svg" alt="BG Screen" className="absolute inset-0 image-cover -z-10" />
 
         <div className="w-24 h-24 rounded-full border-[7px] border-primary-600 border-t-primary-600/20 animate-spin" />
-    </div> : <div className='min-h-screen flex relative'>
-        <div>
-            <SideDrawer />
-        </div>
+    </div> : <div className='h-screen flex relative overflow-hidden'>
+        <SideDrawer />
 
-        <div className='flex-1 flex flex-col bg-secondary-100'>
+        <div className='flex-1 h-screen flex flex-col bg-secondary-100 overflow-auto'>
             <Toolbar />
-            <div className="flex-1">
+            <div className="flex flex-col flex-1">
                 {children}
             </div>
             <Footer />

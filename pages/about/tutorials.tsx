@@ -27,7 +27,7 @@ const Tutorial = ({ photo, rank, title }: TutorialType) => <div>
         <div className="absolute z-10 rounded-[45px] bg-white inset-0" />
         <img src={photo} alt="Banner" className="absolute rounded-[45px] top-0 z-20 image-cover" />
         <div className="absolute z-30 rounded-[45px] inset-0 bg-black/40 flex flex-col items-center justify-center">
-            <div className="w-20 h-20 rounded-full bg-white/30 flex items-center justify-center">
+            <div className="w-20 h-20 rounded-full bg-white/30 flex items-center justify-center animate-pulse">
                 <div className="w-[52px] h-[52px] rounded-full bg-white flex items-center justify-center">
                     <PlayIcon className='w-5 text-orange-600' />
                 </div>

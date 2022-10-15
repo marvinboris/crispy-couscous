@@ -6,6 +6,7 @@ import { getLocations } from '../app/resources/locations'
 import LocationType from '../app/types/location'
 import Layout, { Head } from '../components/frontend/navigation/Layout'
 import SocialNetworks from '../components/frontend/navigation/Footer/SocialNetworks'
+import PageTitle from '../components/frontend/ui/title/page'
 
 const params = {
     link: '/contact',
@@ -14,16 +15,18 @@ const params = {
 }
 
 const Location = ({ address, city, days, hours, map, phone }: LocationType) => <div>
-    <div className="ratio-4by3 rounded-[27.759px] shadow-lg overflow-hidden mb-[18.51px]">
-        <img src={map} alt="Location image" className="absolute inset-0 scale-125 image-cover" />
-    </div>
+    <div className='w-[208px] md:w-auto'>
+        <div className="ratio-4by3 rounded-[27.759px] shadow-lg overflow-hidden mb-[18.51px]">
+            <iframe src={map} className="w-full h-full absolute inset-0" />
+        </div>
 
-    <div className="pr-[58.1px] space-y-2">
-        <div><span className="font-bold">{city}</span> - {address}</div>
+        <div className="md:pr-[58.1px] space-y-2">
+            <div><span className="font-bold">{city}</span> - {address}</div>
 
-        <div><span className="font-bold">Timings :</span><br />{days}<br />{hours}</div>
+            <div><span className="font-bold">Timings :</span><br />{days}<br />{hours}</div>
 
-        <div><span className="font-bold">Phone :</span><br />{phone}</div>
+            <div><span className="font-bold">Phone :</span><br />{phone}</div>
+        </div>
     </div>
 </div>
 
@@ -39,34 +42,20 @@ const ContactUsPage: NextPageWithLayout = () => {
     return <>
         <Head {...params} />
         <main>
-            <section id="contact" className="min-h-screen pt-[133px]">
+            <section id="contact" className="min-h-screen pt-[148px] md:pt-[133px]">
                 <div className="container">
-                    <div className='mb-[30px] -ml-[19px] relative flex items-center'>
-                        <div className='mr-[9px]'>
-                            <img src="/images/dots.svg" alt="Dots" />
-                        </div>
+                    <PageTitle title='Contact Us' />
 
-                        <div>
-                            <div className='font-bold mb-[5px] text-5xl'>
-                                Contact Us
-                            </div>
-
-                            <div>
-                                <span className='opacity-20'>Home /</span> Contact Us
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="flex justify-between">
-                        <div className="w-3/4">
+                    <div className="flex flex-wrap justify-between">
+                        <div className="order-2 md:order-1 w-full md:w-3/4 mt-[31px] md:mt-0 pb-[49px] md:pb-0">
                             <div className="text-2xl font-bold mb-5">Shop Location</div>
 
-                            <div className="grid gap-5 grid-cols-3">
+                            <div className="flex items-stretch -mx-6 px-6 md:mx-0 md:px-0 pb-5 md:pb-0 w-screen md:w-auto overflow-x-auto space-x-[22px] md:space-x-0 md:grid md:gap-5 md:grid-cols-3">
                                 {locationsContent}
                             </div>
                         </div>
 
-                        <div className="w-1/4 mt-[52px] pl-[90px]">
+                        <div className="order-1 md:order-2 w-full md:w-1/4 md:mt-[52px] md:pl-[90px]">
                             <div className='space-y-6'>
                                 <div className="flex">
                                     <div>

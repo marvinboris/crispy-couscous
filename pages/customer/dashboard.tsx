@@ -41,7 +41,7 @@ interface PrizeCardProps {
     claimed?: boolean
 }
 
-const PrizeCard = ({ claimed, title, valid_date }: PrizeCardProps) => <div className="bg-white rounded-[20px] pt-[11px] px-[18px] pb-[13px] space-y-[7px]">
+const PrizeCard = ({ claimed, title, valid_date }: PrizeCardProps) => <div className="bg-white shadow-lg w-[251px] md:w-auto rounded-[20px] pt-[11px] px-[18px] pb-[13px] space-y-[7px]">
     <div className="font-bold text-sm">{title}</div>
     <div className='text-xs'>Valid till: {valid_date}</div>
     <div className={classNames("py-[5px] px-[14px] text-xs rounded-3xl inline-block", claimed ? 'text-green-600 bg-green-600/30' : 'text-red-600 bg-red-600/30')}>{claimed ? 'Claimed' : 'Not Claimed'}</div>
@@ -53,32 +53,34 @@ interface StatCardProps {
     children: ReactNode
 }
 
-const StatCard = ({ color, title, children }: StatCardProps) => <div className='flex flex-col rounded-[12.625px] bg-white h-[100.92px] py-[13.25px] pl-[20.18px] pr-[10.72px] shadow-lg relative z-0'>
+const StatCard = ({ color, title, children }: StatCardProps) => <div className='flex flex-col rounded-[12.625px] bg-white h-[156.88px] md:h-[100.92px] py-[23px] md:py-[13.25px] pl-[26px] md:pl-[20.18px] pr-[22px] md:pr-[10.72px] shadow-lg relative z-0'>
     <img src={`/images/backend/mesh-${color}.svg`} alt="BG Stat card" className="absolute inset-0 image-cover -z-10" />
 
-    <div className="text-xs font-medium">{title}</div>
-    <div className='pt-[8.6px]'>
-        <div className={classNames(color === 'blue' ? 'bg-blue-600' : color === 'orange' ? 'bg-orange-600' : 'bg-primary-600', "block h-[3.15385px] w-[12.62px] rounded-xl")} />
+    <div className="text-lg md:text-xs font-medium">{title}</div>
+    <div className='pt-[14px] md:pt-[8.6px]'>
+        <div className={classNames(color === 'blue' ? 'bg-blue-600' : color === 'orange' ? 'bg-orange-600' : 'bg-primary-600', "block h-[3.15385px] w-[55px] md:w-[12.62px] rounded-xl")} />
     </div>
     <div>{children}</div>
 </div>
 
-const Tutorial = ({ photo, title, subtitle }: TutorialType) => <div className='px-4 pt-[18.5px] pb-[25.64px] shadow-md rounded-[17.3446px] bg-white'>
-    <div className="ratio-4by3">
-        <div className="absolute z-10 rounded-[11.563px] bg-white inset-0" />
-        <img src={photo} alt="Banner" className="absolute rounded-[11.563px] top-0 z-20 image-cover" />
-        <div className="absolute z-30 rounded-[11.563px] inset-0 bg-black/40 flex flex-col items-center justify-center">
-            <div className="w-20 h-20 rounded-full bg-white/30 flex items-center justify-center animate-pulse">
-                <div className="w-[52px] h-[52px] rounded-full bg-white flex items-center justify-center">
-                    <PlayIcon className='w-5 text-orange-600' />
+const Tutorial = ({ photo, title, subtitle }: TutorialType) => <div>
+    <div className='w-[205.35px] md:block md:w-auto h-full px-4 pt-[18.5px] pb-[25.64px] shadow-md rounded-[17.3446px] bg-white'>
+        <div className="ratio-4by3">
+            <div className="absolute z-10 rounded-[11.563px] bg-white inset-0" />
+            <img src={photo} alt="Banner" className="absolute rounded-[11.563px] top-0 z-20 image-cover" />
+            <div className="absolute z-30 rounded-[11.563px] inset-0 bg-black/40 flex flex-col items-center justify-center">
+                <div className="w-[47px] md:w-20 h-[47px] md:h-20 rounded-full bg-white/30 flex items-center justify-center animate-pulse">
+                    <div className="w-[30px] md:w-[52px] h-[30px] md:h-[52px] rounded-full bg-white flex items-center justify-center">
+                        <PlayIcon className='w-3 md:w-5 text-orange-600' />
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div className='mt-[21px]'>
-        <div className="mb-[4.66px] text-sm font-medium">{title}</div>
-        <div className="text-xs">{subtitle}</div>
+        <div className='mt-[20.24px] md:mt-[21px]'>
+            <div className="mb-[4.66px] text-xs md:text-sm font-medium">{title}</div>
+            <div className="text-xs">{subtitle}</div>
+        </div>
     </div>
 </div>
 
@@ -99,48 +101,65 @@ const CustomerDashboardPage: NextPageWithLayout = () => {
             <div className="flex-1">
                 <PageTitle icon={HomeIcon} title='Dashboard' subtitle={<>You just got a free raffle ticket ! <span className="font-bold">Stay tuned for the draw date</span></>} />
 
-                <div className="px-[42px] pt-[47px] pb-[54px]">
-                    <div className="grid gap-[19px] grid-cols-4 mb-[59px]">
+                <div className="px-[33px] md:px-[42px] pt-[29px] md:pt-[47px] pb-[54px]">
+                    <div className="grid gap-[10.12px] md:gap-[19px] md:grid-cols-4 mb-[51px] md:mb-[59px]">
                         <StatCard color='blue' title='Total Raffle Tickets'>
                             <div className="flex items-end justify-between">
-                                <div className='pb-[5px]'>
-                                    <span className="font-bold text-lg">01</span>
+                                <div className='pb-[7px] md:pb-[5px]'>
+                                    <span className="font-bold text-3xl md:text-lg">01</span>
                                 </div>
 
-                                <div><TicketIcon className='w-11 text-blue-600' /></div>
+                                <div><TicketIcon className='w-20 md:w-11 text-blue-600' /></div>
                             </div>
                         </StatCard>
+
                         <StatCard color='orange' title='Next Draw'>
-                            <div className="h-[7.57px] mt-[15.78px] relative overflow-hidden rounded-xl bg-primary-600/10">
+                            <div className="h-[15.56px] md:h-[7.57px] mt-[15.78px] relative overflow-hidden rounded-xl bg-primary-600/10">
                                 <div className="h-full rounded-xl bg-primary-600" style={{ width }} />
                             </div>
-                            <div className="mt-[5.05px] text-xs">
+
+                            <div className="mt-2.5 md:mt-[5.05px] text-lg md:text-xs">
                                 <span className="font-medium">310</span> <span className="font-bold">/ 1000</span>
                             </div>
                         </StatCard>
                     </div>
 
-                    <div className="px-8 py-6 bg-white rounded-[15px] flex items-center justify-between mb-[27px]">
-                        <div className='flex items-center'>
-                            <div><ClipboardDocumentIcon className='w-7 text-primary-600' /></div>
-                            <div className='ml-[11px] mr-[19px]'><div className="w-[6px] h-[6px] rounded-full bg-primary-600" /></div>
-                            <div className="text-lg font-medium">Tutorials</div>
+                    <div className='md:hidden mb-6'>
+                        <AsideTitle title={<>Prizes Won</>} subtitle='Check your prizes' />
+
+                        <div className="mt-[41px] space-x-[11px] flex items-stretch w-screen md:w-auto overflow-auto -mx-[33px] px-[33px] pb-5">
+                            <div>
+                                <PrizeCard claimed valid_date='12/09/2023' title={<><span className="text-primary-600">50 AED</span> Gift Card</>} />
+                            </div>
+
+                            <div>
+                                <PrizeCard valid_date='09/10/2023' title='iPhone 14 Pro' />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="md:px-8 md:py-6 md:bg-white rounded-[15px] flex items-center justify-between mb-[33px] md:mb-[27px]">
+                        <div className='md:flex items-center'>
+                            <div className='hidden md:block'><ClipboardDocumentIcon className='w-7 text-primary-600' /></div>
+                            <div className='hidden md:block ml-[11px] mr-[19px]'><div className="w-[6px] h-[6px] rounded-full bg-primary-600" /></div>
+                            <div className="text-xl md:text-lg font-bold md:font-medium">Tutorials</div>
+                            <div className="md:hidden text-sm">Get help</div>
                         </div>
 
                         <div className="flex items-center">
-                            <div><div className="h-[30px] border-l border-secondary-700/50" /></div>
-                            <div className="ml-[53px] mr-[28.59px] text-sm font-medium">View list</div>
+                            <div className='hidden md:block'><div className="h-[30px] border-l border-secondary-700/50" /></div>
+                            <div className="md:ml-[53px] mr-[6px] md:mr-[28.59px] text-sm md:font-medium">View list</div>
                             <div><ChevronRightIcon className='w-5' /></div>
                         </div>
                     </div>
 
-                    <div className="grid gap-2.5 grid-cols-3">
+                    <div className="flex items-stretch -mx-[33px] px-[33px] md:mx-0 md:px-0 pb-5 md:pb-0 w-screen md:w-auto overflow-x-auto space-x-[22px] md:space-x-0 md:grid md:gap-2.5 md:grid-cols-3">
                         {tutorialsContent}
                     </div>
                 </div>
             </div>
 
-            <div className="w-[300px] border-l border-secondary-700/10">
+            <div className="w-[300px] hidden md:block border-l border-secondary-700/10">
                 <div className="bg-primary-600/5">
                     <Aside>
                         <AsideTitle title={<>Target to raffle draw <InformationCircleIcon className='inline-block ml-3 w-6 text-primary-600' /></>} subtitle='Raffle ticket count' />

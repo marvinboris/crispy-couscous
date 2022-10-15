@@ -2,18 +2,14 @@
 import { Fragment, ComponentProps } from 'react'
 import Link from 'next/link'
 import { Popover, Transition } from '@headlessui/react'
-import {
-    EllipsisVerticalIcon,
-    XMarkIcon,
-    HomeIcon,
-    IdentificationIcon
-} from '@heroicons/react/24/outline'
+import { XMarkIcon, HomeIcon, IdentificationIcon, Bars3BottomRightIcon, PhoneIcon, QuestionMarkCircleIcon } from '@heroicons/react/24/outline'
 
 import Logo from '../../../ui/Logo'
 
 import NavItem from './NavItem'
 import LanguageSelect from './LanguageSelect'
 import Dropdown from './Dropdown'
+import Resource from './Resource'
 
 const listItems = [
     { href: '/about/mission', label: 'Mission' },
@@ -23,8 +19,16 @@ const listItems = [
 ]
 
 const mobileNavItems = [
-    { name: 'Home', href: '#banner', icon: HomeIcon },
-    { name: 'About Us', href: '#about', icon: IdentificationIcon },
+    { name: 'Home', href: '/', icon: HomeIcon },
+    { name: 'Contact', href: '/contact', icon: PhoneIcon },
+    { name: 'FAQ', href: '/faq', icon: QuestionMarkCircleIcon },
+]
+
+const resourceItems = [
+    { name: 'Mission', href: '/about/mission' },
+    { name: 'Tutorials', href: '/about/tutorials' },
+    { name: 'How it works', href: '/about/how-it-works' },
+    { name: 'About the raffle', href: '/about/about-the-raffle' },
 ]
 
 const renderMobileNavItem = (item: { name: string, href: string, icon: (props: ComponentProps<'svg'>) => JSX.Element }, close: () => void) => <Link key={item.name} href={item.href}>
@@ -34,12 +38,16 @@ const renderMobileNavItem = (item: { name: string, href: string, icon: (props: C
     </a>
 </Link>
 
+const renderResourceNavItem = (item: { name: string, href: string }, close: () => void) => <div key={`resource-${item.href}`} onClick={close}>
+    <Resource {...item} />
+</div>
+
 export default function Toolbar() {
     return (
         <Popover className="fixed w-full top-0 z-40 bg-white dark:bg-secondary-900">
             {({ close }) => <>
                 <div className="container">
-                    <div className="flex items-center py-[10px]">
+                    <div className="flex items-center py-[30px] md:py-[10px]">
                         <div className="flex justify-start">
                             <Link href="/">
                                 <div className='cursor-pointer'>
@@ -49,22 +57,24 @@ export default function Toolbar() {
                             </Link>
                         </div>
 
-                        <div className='ml-auto flex items-center'>
+                        <div className='flex-1 md:flex-initial md:ml-auto flex items-center'>
                             <div className="flex items-center mr-[77px]">
                                 <Popover.Group as="nav" className="hidden space-x-8 md:flex">
-                                    <NavItem href="/">Home</NavItem>
+                                    <NavItem href="/" icon={HomeIcon}>Home</NavItem>
                                     <Dropdown basePath='/about' list={listItems}>About Us</Dropdown>
                                     <NavItem href="/contact">Contact Us</NavItem>
                                     <NavItem href="/faq">FAQ</NavItem>
                                 </Popover.Group>
                             </div>
 
-                            <LanguageSelect />
+                            <div>
+                                <LanguageSelect />
+                            </div>
 
-                            <div className="md:hidden ml-4">
-                                <Popover.Button className="flex h-10 items-center justify-center rounded-md p-2 -m-2 focus:outline-none">
+                            <div className="md:hidden ml-auto md:ml-4">
+                                <Popover.Button className="flex h-10 items-center justify-center rounded-md p-2 text-primary-600 bg-primary-600/10 -m-2 focus:outline-none">
                                     <span className="sr-only">Ouvrir le menu</span>
-                                    <EllipsisVerticalIcon className="h-6 w-6" aria-hidden="true" />
+                                    <Bars3BottomRightIcon className="w-6" aria-hidden="true" />
                                 </Popover.Button>
                             </div>
                         </div>
@@ -86,10 +96,17 @@ export default function Toolbar() {
                         <div className="mt-[72px] container">
                             <div className="divide-y-2 divide-secondary-50 dark:divide-secondary-200/10 rounded-lg bg-white dark:bg-secondary-800 shadow-lg ring-1 ring-black/5 dark:ring-white/5">
                                 <div className="px-5 pt-5 pb-6">
-
                                     <div className="mt-6">
                                         <nav className="grid gap-y-8">
                                             {mobileNavItems.map(item => renderMobileNavItem(item, close))}
+                                        </nav>
+                                    </div>
+                                </div>
+
+                                <div className="px-5 pb-5 pt-6">
+                                    <div className="mb-6">
+                                        <nav className="grid gap-4 grid-cols-2">
+                                            {resourceItems.map(item => renderResourceNavItem(item, close))}
                                         </nav>
                                     </div>
                                 </div>

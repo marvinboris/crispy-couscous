@@ -1,21 +1,23 @@
 import { Bars3BottomLeftIcon, BellIcon, ChatBubbleOvalLeftEllipsisIcon, ClipboardDocumentListIcon } from "@heroicons/react/24/outline"
 import { useAccountContext } from "../../../../app/contexts/account"
+import { useSideDrawerContext } from "../../../../app/contexts/sideDrawer"
 
 export default function Toolbar() {
     const { account } = useAccountContext()
+    const { open, setOpen } = useSideDrawerContext()
 
     return <header className="bg-white flex items-center sticky top-0 z-50">
-        <div className="flex-1 flex items-center px-[42px]">
-            <div className="cursor-pointer"><Bars3BottomLeftIcon className='w-10' /></div>
+        <div className="flex-1 flex items-center pl-[33px] pr-4 md:px-[42px]">
+            <div className="cursor-pointer" onClick={() => setOpen(!open)}><Bars3BottomLeftIcon className='w-10 text-primary-600' /></div>
 
-            <div className="flex ml-auto space-x-8">
-                <div className="cursor-pointer relative z-0 after:block after:absolute after:w-4 after:h-4 after:rounded-full after:bg-primary-600 after:top-0 after:right-0"><BellIcon className="w-10" /></div>
-                <div className="cursor-pointer relative z-0 after:block after:absolute after:w-4 after:h-4 after:rounded-full after:bg-primary-600 after:top-0 after:right-0"><ChatBubbleOvalLeftEllipsisIcon className="w-10" /></div>
+            <div className="flex ml-auto space-x-3 md:space-x-8">
+                <div className="cursor-pointer relative z-0 after:block after:absolute after:w-4 after:h-4 after:rounded-full after:bg-green-600 md:after:bg-primary-600 after:top-0 after:right-0"><BellIcon className="w-[34px] md:w-10" /></div>
+                <div className="cursor-pointer relative z-0 after:block after:absolute after:w-4 after:h-4 after:rounded-full after:bg-green-600 md:after:bg-primary-600 after:top-0 after:right-0"><ChatBubbleOvalLeftEllipsisIcon className="w-[34px] md:w-10" /></div>
             </div>
         </div>
 
-        <div className="w-[300px] border-l border-secondary-700/10 h-[86px] flex items-center justify-between pl-3 pr-9">
-            <div>
+        <div className="md:w-[300px] md:border-l border-secondary-700/10 h-[111px] md:h-[86px] flex items-center justify-between pl-3 pr-9">
+            <div className="hidden md:block">
                 <div className="text-lg font-bold mb-[13px]">{account?.first_name} {account?.last_name}</div>
 
                 <div>

@@ -7,12 +7,13 @@ import { classNames } from '../../../../../../app/helpers/utils'
 interface NavItemProps {
     href: string
     children: ReactNode
+    main?: boolean
     icon: (props: ComponentProps<'svg'>) => JSX.Element
 }
 
-export default function NavItem({ href, icon: Icon, children }: NavItemProps) {
+export default function NavItem({ href, icon: Icon, main: active, children }: NavItemProps) {
     const router = useRouter()
-    const active = router.pathname === href
+    // const active = router.pathname === href
 
     return <Link href={href}>
         <a className={classNames("flex items-center rounded-[12.5106px] w-full truncate", active ? 'text-white bg-primary-600 relative py-4 font-bold shadow-lg after:absolute after:inset-y-3 after:left-2 after:w-1 after:bg-orange-600 after:rounded-xl after:shadow-md' : 'px-[11px] text-secondary-700 hover:text-primary-600')}>

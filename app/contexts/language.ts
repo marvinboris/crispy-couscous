@@ -2,16 +2,19 @@ import { createContext, useContext } from 'react'
 
 import LanguageType from '../types/language'
 
+type Type = LanguageType | null
+type Types = LanguageType[] | null
+
 const LanguageContext = createContext<{
-    language: LanguageType | null
-    setLanguage: (language: LanguageType | null) => void
-    languages: LanguageType[] | null,
-    setLanguages: (languages: LanguageType[]) => void
+    language: Type
+    setLanguage: (language: Type) => void
+    languages: Types,
+    setLanguages: (languages: Types) => void
 }>({
     language: null,
-    setLanguage: (language: LanguageType | null) => { },
+    setLanguage: (language: Type) => { },
     languages: null,
-    setLanguages: (languages: LanguageType[]) => { }
+    setLanguages: (languages: Types) => { }
 })
 
 export const useLanguageContext = () => useContext(LanguageContext);

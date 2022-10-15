@@ -25,7 +25,7 @@ export default function View({ action, children }: ViewProps) {
                 {/* Full-screen container to center the panel */}
                 <Transition.Child as={Fragment} enter="ease-out duration-300" enterFrom="opacity-0 scale-95" enterTo="opacity-100 scale-100" leave="ease-in duration-200" leaveFrom="opacity-100 scale-100" leaveTo="opacity-0 scale-95">
                     <div className="container">
-                        <Dialog.Panel className="mx-auto max-w-4xl w-full rounded-[40.8836px] relative bg-white text-secondary-700 pt-[51px] pb-[66px]">
+                        <Dialog.Panel className="mx-auto max-w-4xl w-full rounded-[40.8836px] relative bg-white text-secondary-700 pt-[44px] md:pt-[51px] pb-[50px] md:pb-[66px]">
                             <div className="absolute translate-x-full -translate-y-1/2 top-0 -right-10">
                                 <div onClick={() => setIsOpen(false)} className="w-20 h-20 rounded-full flex items-center justify-center cursor-pointer bg-white/20"><div><XMarkIcon className='w-10 text-white' /></div></div>
                             </div>

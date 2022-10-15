@@ -1,5 +1,5 @@
 export default function Footer() {
-    return <footer className="pl-9">
+    return <footer className="hidden md:block pl-9">
         <div className="flex items-center py-5 border-t border-secondary-700/20 pl-[76px]">
             <div className="text-2xl font-bold mr-4">&copy;</div>
 

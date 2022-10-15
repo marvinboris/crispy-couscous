@@ -14,14 +14,14 @@ export default function LanguageSelect() {
             <Listbox value={selected} onChange={setLanguage}>
                 <div className="relative mt-1">
                     <Listbox.Button className="relative w-full cursor-default text-left sm:text-sm">
-                        {selected && <div className="flex items-center rounded-full py-[7px] pl-[9px] w-36 cursor-pointer bg-secondary-100">
+                        {selected && <div className="flex items-center rounded-full py-[5px] md:py-[7px] pl-[6px] md:pl-[9px] w-[108px] md:w-36 cursor-pointer bg-secondary-100">
                             <div className='mr-2'>
-                                <div className="w-8 h-8 rounded-full">
+                                <div className="w-[23px] md:w-8 h-[23px] md:h-8 rounded-full">
                                     <img src={`/images/flags/1x1/${selected.flag}.svg`} alt="Flag" className="image-cover rounded-full" />
                                 </div>
                             </div>
 
-                            <div className="font-medium mr-3">{selected.name}</div>
+                            <div className="font-medium text-xs md:text-base mr-3">{selected.name}</div>
 
                             <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
                                 <ChevronDownIcon className="h-5 w-5 text-secondary-400" aria-hidden="true" />

@@ -2,7 +2,9 @@ import { createContext, useContext } from 'react'
 
 import CountryType from '../types/country'
 
-const CountriesContext = createContext<{ countries: CountryType[] | null, setCountries: (countries: CountryType[]) => void }>({ countries: null, setCountries: (countries: CountryType[]) => { } })
+type Type = CountryType[] | null
+
+const CountriesContext = createContext<{ countries: Type, setCountries: (countries: Type) => void }>({ countries: null, setCountries: (countries: Type) => { } })
 
 export const useCountriesContext = () => useContext(CountriesContext);
 

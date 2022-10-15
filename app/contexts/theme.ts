@@ -2,7 +2,9 @@ import { createContext, useContext } from 'react'
 
 import Theme from '../types/theme'
 
-const ThemeContext = createContext<{ theme: Theme | null, setTheme: (theme: Theme) => void }>({ theme: null, setTheme: (theme: Theme) => { } })
+type Type = Theme | null
+
+const ThemeContext = createContext<{ theme: Type, setTheme: (theme: Type) => void }>({ theme: null, setTheme: (theme: Type) => { } })
 
 export const useThemeContext = () => useContext(ThemeContext);
 

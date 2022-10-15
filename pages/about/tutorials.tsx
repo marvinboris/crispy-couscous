@@ -6,6 +6,8 @@ import { getTutorials } from '../../app/resources/tutorials'
 import TutorialType from '../../app/types/tutorial'
 import Layout, { Head } from '../../components/frontend/navigation/Layout'
 import Footer from '../../components/frontend/navigation/Footer'
+import PageTitle from '../../components/frontend/ui/title/page'
+import SocialNetworks from '../../components/frontend/navigation/Footer/SocialNetworks'
 
 const params = {
     link: '/about/tutorials',
@@ -23,22 +25,24 @@ const DirectionButton = ({ icon: Icon, onClick }: DirectionButtonProps) => <div 
 </div>
 
 const Tutorial = ({ photo, rank, title }: TutorialType) => <div>
-    <div className="ratio-4by3">
-        <div className="absolute z-10 rounded-[45px] bg-white inset-0" />
-        <img src={photo} alt="Banner" className="absolute rounded-[45px] top-0 z-20 image-cover" />
-        <div className="absolute z-30 rounded-[45px] inset-0 bg-black/40 flex flex-col items-center justify-center">
-            <div className="w-20 h-20 rounded-full bg-white/30 flex items-center justify-center animate-pulse">
-                <div className="w-[52px] h-[52px] rounded-full bg-white flex items-center justify-center">
-                    <PlayIcon className='w-5 text-orange-600' />
+    <div className='w-[266px] md:w-auto'>
+        <div className="ratio-4by3">
+            <div className="absolute z-10 rounded-[45px] bg-white inset-0" />
+            <img src={photo} alt="Banner" className="absolute rounded-[45px] top-0 z-20 image-cover" />
+            <div className="absolute z-30 rounded-[45px] inset-0 bg-black/40 flex flex-col items-center justify-center">
+                <div className="w-20 h-20 rounded-full bg-white/30 flex items-center justify-center animate-pulse">
+                    <div className="w-[52px] h-[52px] rounded-full bg-white flex items-center justify-center">
+                        <PlayIcon className='w-5 text-orange-600' />
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div className='mt-[21px] flex'>
-        <div className='mr-5 font-bold opacity-40 text-3xl'>{rank}.</div>
+        <div className='mt-6 md:mt-[21px] flex'>
+            <div className='mr-2.5 md:mr-5 font-bold opacity-40 text-3xl'>{rank}.</div>
 
-        <div className="pt-[11px] text-xl font-bold">{title}</div>
+            <div className="pt-[11px] text-sm md:text-xl font-bold">{title}</div>
+        </div>
     </div>
 </div>
 
@@ -56,43 +60,36 @@ const TutorialsPage: NextPageWithLayout = () => {
         <main>
             <section id="tutorials" className="min-h-screen py-[133px]">
                 <div className="container">
-                    <div className='mb-[30px] -ml-[19px] relative flex items-center'>
-                        <div className='mr-[9px]'>
-                            <img src="/images/dots.svg" alt="Dots" />
-                        </div>
-
-                        <div>
-                            <div className='font-bold mb-[5px] text-5xl'>
-                                Tutorials
-                            </div>
-
-                            <div>
-                                <span className='opacity-20'>Home / About Us /</span> Tutorials
-                            </div>
-                        </div>
-                    </div>
+                    <PageTitle title='Tutorials' breadcrumb='About Us /' />
                 </div>
 
                 <div className="flex items-center justify-center">
-                    <div>
+                    <div className='hidden md:block'>
                         <DirectionButton icon={ChevronLeftIcon} onClick={() => { }} />
                     </div>
 
                     <div>
                         <div className="container">
-                            <div className="grid gap-9 grid-cols-3">
+                            <div className="md:grid md:gap-9 md:grid-cols-3 flex items-stretch w-screen md:w-auto -mx-6 md:mx-0 px-6 md:px-0 overflow-auto space-x-[13.84px] md:space-x-0 pb-5 md:pb-0">
                                 {tutorialsContent}
                             </div>
                         </div>
                     </div>
 
-                    <div>
+                    <div className='hidden md:block'>
                         <DirectionButton icon={ChevronRightIcon} onClick={() => { }} />
                     </div>
                 </div>
+
+                <div className="mt-[102px] md:hidden flex justify-center">
+                    <SocialNetworks />
+                </div>
             </section>
         </main>
-        <Footer />
+
+        <div className='hidden md:block'>
+            <Footer />
+        </div>
     </>
 }
 

@@ -5,6 +5,7 @@ import { NextPageWithLayout } from './_app'
 import { getFaqs } from '../app/resources/faqs'
 import FaqType from '../app/types/faq'
 import Layout, { Head } from '../components/frontend/navigation/Layout'
+import PageTitle from '../components/frontend/ui/title/page'
 
 const params = {
     link: '/faq',
@@ -65,28 +66,14 @@ const ContactUsPage: NextPageWithLayout = () => {
         <main>
             <section id="contact" className="min-h-screen pt-[133px]">
                 <div className="container">
-                    <div className='mb-[30px] -ml-[19px] relative flex items-center'>
-                        <div className='mr-[9px]'>
-                            <img src="/images/dots.svg" alt="Dots" />
-                        </div>
-
-                        <div>
-                            <div className='font-bold mb-[5px] text-5xl'>
-                                Frequently asked questions
-                            </div>
-
-                            <div>
-                                <span className='opacity-20'>Home /</span> Frequently asked questions
-                            </div>
-                        </div>
-                    </div>
+                    <PageTitle title='Frequently asked questions' />
 
                     <div className="max-w-4xl mx-auto">
-                        <div className="grid gap-x-[30px] gap-y-[14px] grid-cols-3">
+                        <div className="grid gap-x-[30px] gap-y-[14px] md:grid-cols-3">
                             {faqsContent}
                         </div>
 
-                        <div className="mt-[52px] flex items-center justify-center space-x-6">
+                        <div className="mt-[52px] pb-[100px] md:pb-0 flex items-center justify-center space-x-6">
                             <div>
                                 <DirectionButton icon={ChevronLeftIcon} onClick={previousPage} />
                             </div>

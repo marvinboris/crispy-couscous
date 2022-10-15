@@ -2,9 +2,9 @@ import { createContext, useContext } from 'react'
 
 import CustomerAccountType from '../types/account/customer';
 
-type AccountType = CustomerAccountType | null
+type Type = CustomerAccountType | null
 
-const AccountContext = createContext<{ account: AccountType, setAccount: (account: AccountType) => void }>({ account: null, setAccount: (account: AccountType) => { } })
+const AccountContext = createContext<{ account: Type, setAccount: (account: Type) => void }>({ account: null, setAccount: (account: Type) => { } })
 
 export const useAccountContext = () => useContext(AccountContext);
 

@@ -37,7 +37,7 @@ const MissionPage: NextPageWithLayout = () => {
                                 footprint and using less plastic
                             </div>
 
-                            <div className="hidden mb:block">
+                            <div className="hidden md:block">
                                 <GetStarted onSubmit={getStartedSubmitHandler} />
                             </div>
                         </div>
@@ -45,12 +45,12 @@ const MissionPage: NextPageWithLayout = () => {
                         <div className='relative scale-75 md:scale-100'>
                             <div className="pb-8 lg:pb-[60px] pr-8 lg:pr-[63px] pt-12 lg:pt-24">
                                 <div className="ratio-4by3">
-                                    <div className="w-[22px] h-[22px] rounded-full bg-primary-600 absolute -top-12 -right-6 lg:-top-20 lg:-right-10" />
+                                    <div className="w-[22px] h-[22px] rounded-full bg-primary absolute -top-12 -right-6 lg:-top-20 lg:-right-10" />
                                     <img src="/images/curve-1.svg" alt="Curve" className="absolute top-7 -right-6 lg:-top-1 -translate-y-full rotate-90" />
                                     <img src="/images/home-mission.svg" alt="Mission" className="absolute z-10 inset-0 rounded-[45px] image-cover" />
                                 </div>
 
-                                <div className="absolute z-0 bottom-0 right-0 rounded-[45px] bg-primary-600/10 shadow-lg shadow-primary-600/10 ratio-4by3 w-3/5" />
+                                <div className="absolute z-0 bottom-0 right-0 rounded-[45px] bg-primary/10 shadow-lg shadow-primary/10 ratio-4by3 w-3/5" />
                             </div>
                         </div>
 

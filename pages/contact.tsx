@@ -60,7 +60,7 @@ const ContactUsPage: NextPageWithLayout = () => {
                                 <div className="flex">
                                     <div>
                                         <div className="w-12">
-                                            <MapPinIcon className='text-primary-600 w-7' />
+                                            <MapPinIcon className='text-primary w-7' />
                                         </div>
                                     </div>
 
@@ -74,7 +74,7 @@ const ContactUsPage: NextPageWithLayout = () => {
                                 <div className="flex">
                                     <div>
                                         <div className="w-12">
-                                            <EnvelopeIcon className='text-primary-600 w-7' />
+                                            <EnvelopeIcon className='text-primary w-7' />
                                         </div>
                                     </div>
 
@@ -84,7 +84,7 @@ const ContactUsPage: NextPageWithLayout = () => {
                                 <div className="flex">
                                     <div>
                                         <div className="w-12">
-                                            <PhoneIcon className='text-primary-600 w-7' />
+                                            <PhoneIcon className='text-primary w-7' />
                                         </div>
                                     </div>
 

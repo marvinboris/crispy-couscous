@@ -35,7 +35,7 @@ export default function Layout({ title, text, children }: LayoutProps) {
             <div className="hidden sm:contents lg:relative lg:block lg:flex-1">
                 <img alt="" src="/images/pinho-yjXAtMCPdGs-unsplash.jpg" decoding="async" data-nimg="future" className="absolute inset-0 image-cover z-0" loading="lazy" />
 
-                <div className="absolute inset-0 bg-primary-600/50 z-10 backdrop-blur" />
+                <div className="absolute inset-0 bg-primary/50 z-10 backdrop-blur" />
             </div>
         </div>
     </div>

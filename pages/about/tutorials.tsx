@@ -20,8 +20,8 @@ interface DirectionButtonProps {
     onClick: () => void
 }
 
-const DirectionButton = ({ icon: Icon, onClick }: DirectionButtonProps) => <div onClick={onClick} className="w-[50.58px] h-[50.58px] -translate-y-full rounded-full flex items-center justify-center bg-primary-600/20 cursor-pointer">
-    <Icon className='text-primary-600 w-5' />
+const DirectionButton = ({ icon: Icon, onClick }: DirectionButtonProps) => <div onClick={onClick} className="w-[50.58px] h-[50.58px] -translate-y-full rounded-full flex items-center justify-center bg-primary/20 cursor-pointer">
+    <Icon className='text-primary w-5' />
 </div>
 
 const Tutorial = ({ photo, rank, title }: TutorialType) => <div>
@@ -32,7 +32,7 @@ const Tutorial = ({ photo, rank, title }: TutorialType) => <div>
             <div className="absolute z-30 rounded-[45px] inset-0 bg-black/40 flex flex-col items-center justify-center">
                 <div className="w-20 h-20 rounded-full bg-white/30 flex items-center justify-center animate-pulse">
                     <div className="w-[52px] h-[52px] rounded-full bg-white flex items-center justify-center">
-                        <PlayIcon className='w-5 text-orange-600' />
+                        <PlayIcon className='w-5 text-orange' />
                     </div>
                 </div>
             </div>

@@ -14,7 +14,7 @@ export default function SuccessPage() {
     useEffect(() => {
         setTimeout(() => {
             Router.push('/customer/dashboard')
-        }, 3000);
+        }, 5000);
     }, [])
 
 
@@ -29,7 +29,7 @@ export default function SuccessPage() {
                 <Logo />
             </div>
 
-            <div className="flex flex-1 flex-col items-center mt-[226.98px] md:mt-[77px] relative">
+            <div className="flex flex-1 flex-col items-center mt-[126.98px] md:mt-[77px] relative">
                 <img src="/images/frontend/screen/112854-congratulations.gif" alt="Success" className='w-[151px] md:w-[263px] absolute -top-[132px] md:-top-[156px] left-0 md:-left-[179px] -z-20' />
                 <img src="/images/frontend/screen/112854-congratulations.gif" alt="Success" className='w-[151px] md:w-[263px] absolute top-[19px] md:top-[33px] left-0 md:-left-[99px] -z-20' />
                 <img src="/images/frontend/screen/112854-congratulations.gif" alt="Success" className='w-[151px] md:w-[263px] absolute -top-[132px] md:-top-[181px] right-0 md:-right-[177px] -z-20' />

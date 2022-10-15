@@ -53,7 +53,7 @@ export default function ScreenPage() {
                     please select a language to get started.
                 </div>
 
-                <div className="md:w-full max-w-lg grid gap-5 grid-cols-3 md:grid-cols-4 mb-[76px] md:mb-[100px]">
+                <div className="md:w-full max-w-lg grid gap-5 grid-cols-3 md:grid-cols-4 mb-8 md:mb-[100px]">
                     {languagesContent}
                 </div>
 

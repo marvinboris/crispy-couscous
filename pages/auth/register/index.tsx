@@ -41,7 +41,7 @@ const RegisterPage = () => {
         </div>
 
         <div className="col-span-full">
-            <button className="group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-primary-600 text-white hover:text-slate-100 hover:bg-primary-500 active:bg-primary-800 active:text-primary-100 focus-visible:outline-primary-600 w-full" type="submit">
+            <button className="group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-primary text-white hover:text-slate-100 hover:bg-primary-500 active:bg-primary-800 active:text-primary-100 focus-visible:outline-primary w-full" type="submit">
                 <span>Inscription <span aria-hidden="true">→</span></span>
             </button>
         </div>
@@ -50,7 +50,7 @@ const RegisterPage = () => {
 
 RegisterPage.getLayout = function getLayout(page: ReactElement) {
     return <Layout title="Commencer maintenant" text={<>
-        Vous avez déjà un compte? <Link href="/auth/login"><a className="font-medium text-primary-600 hover:underline">Connectez-vous</a></Link> à votre compte.
+        Vous avez déjà un compte? <Link href="/auth/login"><a className="font-medium text-primary hover:underline">Connectez-vous</a></Link> à votre compte.
     </>}>{page}</Layout>
 }
 

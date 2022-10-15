@@ -33,7 +33,7 @@ const resourceItems = [
 
 const renderMobileNavItem = (item: { name: string, href: string, icon: (props: ComponentProps<'svg'>) => JSX.Element }, close: () => void) => <Link key={item.name} href={item.href}>
     <a onClick={close} className="-m-3 flex items-center rounded-md p-3 hover:bg-secondary-50 dark:hover:bg-secondary-800">
-        <item.icon className="h-6 w-6 flex-shrink-0 text-primary-600" aria-hidden="true" />
+        <item.icon className="h-6 w-6 flex-shrink-0 text-primary" aria-hidden="true" />
         <span className="ml-3 text-base font-medium text-secondary-900 dark:text-white">{item.name}</span>
     </a>
 </Link>
@@ -72,7 +72,7 @@ export default function Toolbar() {
                             </div>
 
                             <div className="md:hidden ml-auto md:ml-4">
-                                <Popover.Button className="flex h-10 items-center justify-center rounded-md p-2 text-primary-600 bg-primary-600/10 -m-2 focus:outline-none">
+                                <Popover.Button className="flex h-10 items-center justify-center rounded-md p-2 text-primary bg-primary/10 -m-2 focus:outline-none">
                                     <span className="sr-only">Ouvrir le menu</span>
                                     <Bars3BottomRightIcon className="w-6" aria-hidden="true" />
                                 </Popover.Button>

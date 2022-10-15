@@ -11,6 +11,6 @@
 }
 
 .btn-primary {
-    @apply bg-primary-600 text-white hover:text-secondary-100 active:text-primary-100 focus-visible:outline-primary-600;
+    @apply bg-primary text-white hover:text-secondary-100 active:text-primary/10 focus-visible:outline-primary;
 }
 

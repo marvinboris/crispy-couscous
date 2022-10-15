@@ -14,18 +14,7 @@ module.exports = {
                 sans: ['Plus Jakarta Display', ...defaultTheme.fontFamily.sans],
             },
             colors: {
-                primary: {
-                    50: '#eff6ff',
-                    100: '#dbeafe',
-                    200: '#bfdbfe',
-                    300: '#93c5fd',
-                    400: '#60a5fa',
-                    500: '#3b82f6',
-                    600: '#634092',
-                    700: '#1d4ed8',
-                    800: '#1e40af',
-                    900: '#1e3a8a',
-                },
+                primary: '#634092',
                 secondary: {
                     50: '#fafafa',
                     100: '#f5f5f5',
@@ -38,6 +27,10 @@ module.exports = {
                     800: '#262626',
                     900: '#171717',
                 },
+                blue: '#0590DE',
+                green: '#70a334',
+                orange: '#F59C1C',
+                red: '#A10000',
             }
         },
     },

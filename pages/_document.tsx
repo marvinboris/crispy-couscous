@@ -16,7 +16,7 @@ export default function Document() {
                 <meta name="apple-mobile-web-app-title" content="Palais sur le Rocher" />
                 <meta name="application-name" content="Palais sur le Rocher" />
 
-                <meta name="msapplication-TileColor" content={tailwindConfig.theme.extend.colors.primary[600]} />
+                <meta name="msapplication-TileColor" content={tailwindConfig.theme.extend.colors.primary} />
 
                 <base href="/" />
 

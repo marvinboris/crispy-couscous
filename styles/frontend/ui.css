@@ -15,11 +15,11 @@ header, footer, main, section {
 }
 
 main.page-main>header {
-    @apply relative flex flex-col justify-end z-10 h-[314px] md:h-[330px] pb-6 after:absolute after:inset-0 after:bg-gradient-to-t after:from-primary-600 after:to-transparent after:-z-10;
+    @apply relative flex flex-col justify-end z-10 h-[314px] md:h-[330px] pb-6 after:absolute after:inset-0 after:bg-gradient-to-t after:from-primary after:to-transparent after:-z-10;
 }
 
 main.page-main>header .bg-img {
-    @apply absolute inset-0 z-0 after:absolute after:inset-0 after:bg-gradient-to-t after:from-primary-600 after:to-transparent;
+    @apply absolute inset-0 z-0 after:absolute after:inset-0 after:bg-gradient-to-t after:from-primary after:to-transparent;
 }
 
 .section {
@@ -93,7 +93,7 @@ main.page-main section {
 }
 
 .form-group input {
-    @apply block w-full appearance-none rounded-md border border-secondary-200 bg-secondary-50 px-3 py-2 text-secondary-900 placeholder-secondary-400 focus:border-primary-600 focus:bg-white focus:outline-none focus:ring-primary-600 sm:text-sm;
+    @apply block w-full appearance-none rounded-md border border-secondary-200 bg-secondary-50 px-3 py-2 text-secondary-900 placeholder-secondary-400 focus:border-primary focus:bg-white focus:outline-none focus:ring-primary sm:text-sm;
 }
 
 .ratio {

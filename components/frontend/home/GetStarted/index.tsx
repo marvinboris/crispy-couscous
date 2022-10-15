@@ -16,7 +16,7 @@ interface GetStartedProps {
 const Back = ({ onClick }: { onClick: () => void }) => <div className='px-5 md:px-0 relative md:absolute -top-4 md:top-[51px] md:left-[87px]'>
     <div className="flex items-center cursor-pointer" onClick={onClick}>
         <div className="w-10 h-10 flex items-center justify-center mr-2">
-            <ArrowLeftIcon className='text-primary-600 w-8' />
+            <ArrowLeftIcon className='text-primary w-8' />
         </div>
 
         <div className="text-sm">Back</div>
@@ -42,7 +42,7 @@ export default function GetStarted({ onSubmit }: GetStartedProps) {
     const onChange = (e: ChangeEvent<HTMLInputElement>) => setValue({ ...value, [e.target.name]: e.target.value })
 
     const firstPageContent = <>
-        <div className="font-bold text-primary-600 text-lg md:text-3xl text-center md:text-left mb-[17px] md:mb-[5px]">Create your account</div>
+        <div className="font-bold text-primary text-lg md:text-3xl text-center md:text-left mb-[17px] md:mb-[5px]">Create your account</div>
 
         <div className='text-sm md:text-lg text-center md:text-left mb-[30px] md:mb-[22px]'>Shop & Win !</div>
 
@@ -62,7 +62,7 @@ export default function GetStarted({ onSubmit }: GetStartedProps) {
             <div>
                 <Switch checked={value.terms} onChange={() => setValue({ ...value, terms: !value.terms })} label={<>
                     By signing up, you agree to our terms
-                    and conditions mentionned <span className='font-bold text-primary-600'>here</span>.
+                    and conditions mentionned <span className='font-bold text-primary'>here</span>.
                 </>} />
             </div>
         </div>
@@ -73,9 +73,9 @@ export default function GetStarted({ onSubmit }: GetStartedProps) {
     </>
 
     const secondPageContent = <>
-        <div className="mx-auto flex flex-col flex-1 items-center justify-between">
+        <div className="mx-auto flex flex-col flex-1 items-center">
             <div>
-                <div className="font-bold text-primary-600 text-lg md:text-3xl text-center md:text-left mb-[17px] md:mb-[5px]">Let’s verify your number</div>
+                <div className="font-bold text-primary text-lg md:text-3xl text-center md:text-left mb-[17px] md:mb-[5px]">Let’s verify your number</div>
 
                 <div className='text-sm md:text-lg text-center md:text-left mb-[64.55px]'>Please provide the 6 digit code received </div>
             </div>
@@ -83,10 +83,10 @@ export default function GetStarted({ onSubmit }: GetStartedProps) {
             <div className="w-[209px]">
                 <Input icon={KeyIcon} type='number' name='otp' placeholder='6 Digits code' onChange={onChange} value={value.otp} className='mb-[22px]' />
 
-                <div className='text-xs'>Didn’t get the code ? <span className='cursor-pointer font-bold text-primary-600'>Resend here</span></div>
+                <div className='text-xs'>Didn’t get the code ? <span className='cursor-pointer font-bold text-primary'>Resend here</span></div>
             </div>
 
-            <div className="text-center">
+            <div className="text-center mt-auto">
                 <Link href='/success'>
                     <a>
                         <Button>Finish</Button>

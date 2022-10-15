@@ -24,14 +24,14 @@ const HomePage: NextPageWithLayout = () => {
         <div className='container'>
           <div className='grid md:gap-12 md:grid-cols-2'>
             <div>
-              <div className="font-bold mb-[23px] md:mb-[13px] text-2xl md:text-4xl text-primary-600">Coming Soon</div>
+              <div className="font-bold mb-[23px] md:mb-[13px] text-2xl md:text-4xl text-primary">Coming Soon</div>
 
               <div className='font-bold mb-5 md:mb-[23px] text-3xl md:text-5xl'>
                 The best shop & win
                 online plateform
               </div>
 
-              <div className="mb-[46.89px] md:mb-[71px] md:pr-[70px]">
+              <div className="mb-[26.89px] md:mb-[71px] md:pr-[70px]">
                 We are devoted to bring your shopping experience
                 to the next level. Get registered today and stand a chance
                 to win prizes from AED 10 to AED 20000.
@@ -52,7 +52,7 @@ const HomePage: NextPageWithLayout = () => {
                     <div className="w-[96px] h-[96px] rounded-full bg-white/30 flex items-center justify-center animate-pulse">
                       <div className="w-[56px] h-[56px] rounded-full bg-white/30 flex items-center justify-center">
                         <div className="w-[36px] h-[36px] rounded-full flex items-center justify-center bg-white">
-                          <PlayIcon className='w-4 text-orange-600' />
+                          <PlayIcon className='w-4 text-orange' />
                         </div>
                       </div>
                     </div>
@@ -61,11 +61,11 @@ const HomePage: NextPageWithLayout = () => {
                   </div>
                 </div>
 
-                <div className="absolute z-0 bottom-0 left-0 rounded-[38.0488px] bg-orange-600/10 shadow-lg shadow-orange-600/10 ratio-4by3 w-2/5" />
-                <div className="absolute z-0 top-0 right-0 rounded-[45px] bg-primary-600/10 shadow-lg shadow-primary-600/10 ratio-4by3 w-3/5" />
+                <div className="absolute z-0 bottom-0 left-0 rounded-[38.0488px] bg-orange/10 shadow-lg shadow-orange/10 ratio-4by3 w-2/5" />
+                <div className="absolute z-0 top-0 right-0 rounded-[45px] bg-primary/10 shadow-lg shadow-primary/10 ratio-4by3 w-3/5" />
               </div>
 
-              <div className="text-center mt-[59.13px] md:hidden">
+              <div className="text-center mt-[39.13px] md:hidden">
                 <GetStarted onSubmit={getStartedSubmitHandler} />
               </div>
             </div>

@@ -18,8 +18,8 @@ interface DirectionButtonProps {
     onClick: () => void
 }
 
-const DirectionButton = ({ icon: Icon, onClick }: DirectionButtonProps) => <div onClick={onClick} className="w-[50.58px] h-[50.58px] rounded-full flex items-center justify-center bg-primary-600/20 cursor-pointer">
-    <Icon className='text-primary-600 w-5' />
+const DirectionButton = ({ icon: Icon, onClick }: DirectionButtonProps) => <div onClick={onClick} className="w-[50.58px] h-[50.58px] rounded-full flex items-center justify-center bg-primary/20 cursor-pointer">
+    <Icon className='text-primary w-5' />
 </div>
 
 interface PageButtonProps {
@@ -30,13 +30,13 @@ interface PageButtonProps {
 
 const classNames = (...c: string[]) => c.join(' ')
 
-const PageButton = ({ active, page, onClick }: PageButtonProps) => <div onClick={() => onClick(page)} className={classNames('text-lg', active ? "font-bold text-primary-600" : "")}>{page}</div>
+const PageButton = ({ active, page, onClick }: PageButtonProps) => <div onClick={() => onClick(page)} className={classNames('text-lg', active ? "font-bold text-primary" : "")}>{page}</div>
 
 const Faq = ({ question, answer }: FaqType) => <div className='rounded-3xl bg-secondary-100 py-[27px] px-[18px]'>
     <div className='font-bold'>{question}</div>
 
     <div className="mt-[13px] mb-2.5 w-[44px]">
-        <div className="rounded-xl h-1 bg-primary-600" />
+        <div className="rounded-xl h-1 bg-primary" />
     </div>
 
     <div className='text-sm'>{answer}</div>

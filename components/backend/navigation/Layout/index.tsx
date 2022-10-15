@@ -19,7 +19,7 @@ export default function Layout({ children }: LayoutProps) {
     return account === null ? <div className='fixed inset-0 flex items-center justify-center'>
         <img src="/images/bg-screen.svg" alt="BG Screen" className="absolute inset-0 image-cover -z-10" />
 
-        <div className="w-24 h-24 rounded-full border-[7px] border-primary-600 border-t-primary-600/20 animate-spin" />
+        <div className="w-24 h-24 rounded-full border-[7px] border-primary border-t-primary/20 animate-spin" />
     </div> : <SideDrawerContext.Provider value={{ open, setOpen }}>
         <div className='h-screen flex relative overflow-hidden'>
             <SideDrawer />

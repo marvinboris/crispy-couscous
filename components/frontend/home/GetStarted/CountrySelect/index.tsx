@@ -50,7 +50,7 @@ export default function CountrySelect({ value, onChange }: CountrySelectProps) {
                                                 <div className={`truncate ${selected ? 'font-medium' : 'font-normal'}`}>{country.name}</div>
                                             </div>
                                             {selected ? (
-                                                <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-primary-600">
+                                                <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-primary">
                                                     <CheckIcon className="h-5 w-5" aria-hidden="true" />
                                                 </span>
                                             ) : null}

@@ -6,11 +6,11 @@ type InputProps = InputHTMLAttributes<HTMLInputElement> & {
     addon?: ReactNode
 }
 
-export default function Input({ icon, label, addon, id, type, name, value, onChange, placeholder, className }: InputProps) {
+export default function Input({ icon, label, addon, className, ...rest }: InputProps) {
     const Icon = icon
 
     return <div className={className}>
-        {label && <label htmlFor={id ? id : name}>{label}</label>}
+        {label && <label htmlFor={rest.id ? rest.id : rest.name}>{label}</label>}
 
         <div className="h-[60px] rounded-[300px] bg-secondary-100 flex items-center">
             <div>
@@ -20,8 +20,8 @@ export default function Input({ icon, label, addon, id, type, name, value, onCha
                 {addon}
             </div>
 
-            <div className='pr-4'>
-                <input id={id} type={type} name={name} value={value} onChange={onChange} className={'border-none text-base md:text-lg bg-transparent outline-none text-inherit w-full'} placeholder={placeholder} />
+            <div className='pr-4 flex-1'>
+                <input {...rest} className={'border-none text-base md:text-lg bg-transparent outline-none text-inherit w-full'} />
             </div>
         </div>
     </div>

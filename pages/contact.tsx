@@ -42,7 +42,7 @@ const ContactUsPage: NextPageWithLayout = () => {
     return <>
         <Head {...params} />
         <main>
-            <section id="contact" className="min-h-screen pt-[148px] md:pt-[133px]">
+            <section id="contact" className="min-h-screen pt-[148px] md:pt-[133px] pb-5">
                 <div className="container">
                     <PageTitle title='Contact Us' />
 

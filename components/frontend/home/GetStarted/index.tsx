@@ -1,5 +1,4 @@
 import { ArrowLeftIcon, ArrowRightIcon, CalendarIcon, EnvelopeIcon, KeyIcon, LockClosedIcon, UserIcon } from '@heroicons/react/24/outline'
-import { CheckCircleIcon } from '@heroicons/react/20/solid'
 import { ChangeEvent, FormEvent, useState } from 'react'
 
 import View from '../../../ui/View'
@@ -38,6 +37,7 @@ export default function GetStarted({ onSubmit }: GetStartedProps) {
 
         otp: '',
     })
+    const [birthdateInputType, setBirthdateInputType] = useState('text')
 
     const onChange = (e: ChangeEvent<HTMLInputElement>) => setValue({ ...value, [e.target.name]: e.target.value })
 
@@ -55,8 +55,8 @@ export default function GetStarted({ onSubmit }: GetStartedProps) {
                     <CountrySelect value={value.code} onChange={(code: string) => setValue({ ...value, code })} />
                 </div>} type='tel' name='phone' placeholder='054 430 3333' onChange={onChange} value={value.phone} />
                 <Input icon={LockClosedIcon} type='password' name='password' placeholder='Password' onChange={onChange} value={value.password} />
-                <Input icon={LockClosedIcon} type='password' name='password' placeholder='Retype Password' onChange={onChange} value={value.password_confirmation} />
-                <Input icon={CalendarIcon} type='date' name='birthdate' placeholder='Date of birth' onChange={onChange} value={value.birthdate} />
+                <Input icon={LockClosedIcon} type='password' name='password_confirmation' placeholder='Retype Password' onChange={onChange} value={value.password_confirmation} />
+                <Input icon={CalendarIcon} type={birthdateInputType} onFocus={() => setBirthdateInputType('date')} name='birthdate' placeholder='Date of birth' onChange={onChange} value={value.birthdate} />
             </div>
 
             <div>

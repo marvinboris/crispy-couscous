@@ -21,7 +21,7 @@ export default function Input({ icon, label, addon, className, ...rest }: InputP
             </div>
 
             <div className='pr-4 flex-1'>
-                <input {...rest} className={'border-none text-base md:text-lg bg-transparent outline-none text-inherit w-full'} />
+                <input {...rest} className={'min-h-[48px] border-none text-base md:text-lg bg-transparent outline-none text-inherit w-full'} />
             </div>
         </div>
     </div>

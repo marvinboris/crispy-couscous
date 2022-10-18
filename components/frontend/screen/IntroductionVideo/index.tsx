@@ -3,15 +3,22 @@ import { ArrowRightIcon, PlayIcon, XMarkIcon } from '@heroicons/react/24/outline
 import { useRouter } from 'next/router'
 import { Fragment, useEffect, useRef, useState } from 'react'
 
+import { useLanguageContext } from '../../../../app/contexts/language'
+
+import LanguageType from '../../../../app/types/language'
+
 import Button from '../../ui/form/Button'
 
 interface IntroductionVideoProps {
     isOpen: boolean
     setIsOpen: (isOpen: boolean) => void
+    language: LanguageType | null
 }
 
-export default function IntroductionVideo({ isOpen, setIsOpen }: IntroductionVideoProps) {
+export default function IntroductionVideo({ isOpen, setIsOpen, language }: IntroductionVideoProps) {
     const router = useRouter()
+
+    const { setLanguage } = useLanguageContext()
 
     const [video, setVideo] = useState<HTMLVideoElement | null>(null)
     const [length, setLength] = useState(0);
@@ -20,13 +27,12 @@ export default function IntroductionVideo({ isOpen, setIsOpen }: IntroductionVid
     const [rate, setRate] = useState(1);
     const [end, setEnd] = useState(false);
 
-    const videoElement = useRef() as React.MutableRefObject<HTMLVideoElement>
-
     const close = () => {
         if (end) setIsOpen(false)
     }
 
     const leave = () => {
+        setLanguage(language)
         router.push('/')
     }
 

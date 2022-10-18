@@ -20,7 +20,7 @@ const HomePage: NextPageWithLayout = () => {
   return <>
     <Head {...params} />
     <main>
-      <section id='home' className="min-h-screen flex items-center pt-[133px] pb-5">
+      <section id='home' className="min-h-screen flex items-center pt-[133px] pb-12">
         <div className='container'>
           <div className='grid md:gap-12 md:grid-cols-2'>
             <div>

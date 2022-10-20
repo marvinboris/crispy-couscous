@@ -28,14 +28,12 @@ const HomePage: NextPageWithLayout = () => {
               <div className="font-bold mb-[23px] md:mb-[13px] text-2xl md:text-4xl text-primary">Coming Soon</div>
 
               <div className='font-bold mb-5 md:mb-[23px] text-3xl md:text-5xl'>
-                The best shop & win
-                online plateform
+                A new shopping experience where your choices are highly rewarded!
               </div>
 
               <div className="mb-[26.89px] md:mb-[71px] md:pr-[70px]">
-                We are devoted to bring your shopping experience
-                to the next level. Get registered today and stand a chance
-                to win prizes from AED 10 to AED 20000.
+                Thank you for registering!
+                Stay tuned and stand a chance to win prizes from AED 10 to AED 20,000
               </div>
 
               <div className="hidden md:block">

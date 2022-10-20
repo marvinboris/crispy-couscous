@@ -11,8 +11,8 @@ export default function Toolbar() {
             <div className="cursor-pointer" onClick={() => setOpen(!open)}><Bars3BottomLeftIcon className='w-10 text-primary' /></div>
 
             <div className="flex ml-auto space-x-3 md:space-x-8">
-                <div className="cursor-pointer relative z-0 after:block after:absolute after:w-4 after:h-4 after:rounded-full after:bg-green md:after:bg-primary after:top-0 after:right-0"><BellIcon className="w-[34px] md:w-10" /></div>
-                <div className="cursor-pointer relative z-0 after:block after:absolute after:w-4 after:h-4 after:rounded-full after:bg-green md:after:bg-primary after:top-0 after:right-0"><ChatBubbleOvalLeftEllipsisIcon className="w-[34px] md:w-10" /></div>
+                <div className="cursor-pointer relative z-0 after:block after:absolute after:w-[13.71px] after:h-[13.71px] after:rounded-full after:bg-green md:after:bg-primary after:top-0 after:right-0"><BellIcon className="w-[34px] md:w-10" /></div>
+                <div className="cursor-pointer relative z-0 after:block after:absolute after:w-[13.71px] after:h-[13.71px] after:rounded-full after:bg-green md:after:bg-primary after:top-0 after:right-0"><ChatBubbleOvalLeftEllipsisIcon className="w-[34px] md:w-10" /></div>
             </div>
         </div>
 

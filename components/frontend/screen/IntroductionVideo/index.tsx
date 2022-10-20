@@ -91,7 +91,7 @@ export default function IntroductionVideo({ isOpen, setIsOpen, language }: Intro
                                 <div className="absolute z-10 rounded-[45px] bg-white inset-0" />
 
                                 <div className="absolute z-30 rounded-[45px] inset-0 bg-secondary-800 flex flex-col items-center justify-center">
-                                    <video ref={setVideoRef} autoPlay src="/videos/120772-processing-success.mp4" className='w-full aspect-[4/3] md:aspect-video' />
+                                    <video ref={setVideoRef} autoPlay src="/videos/Raffle Draw Motion Graphics.mp4" className='w-full aspect-[4/3] md:aspect-video' />
                                 </div>
                             </div>
                         </Dialog.Panel>

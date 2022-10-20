@@ -49,6 +49,7 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
       setTheme(initialTheme)
     }
     if (language === null && languages !== null) {
+      localStorage.removeItem('frontend_lang')
       const abbr = localStorage.getItem('frontend_lang')
 
       if (abbr) {

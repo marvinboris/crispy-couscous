@@ -100,8 +100,8 @@ export default function IntroductionVideo({ isOpen, setIsOpen, language }: Intro
             </Dialog>
         </Transition>
 
-        {isOpen && end && <div className="fixed z-[100] left-1/2 -translate-x-1/2 bottom-12" onClick={() => setLanguage(language)}>
-            <GetStarted onSubmit={getStartedSubmitHandler} color="white" />
+        {end && <div className="fixed z-[100] left-1/2 -translate-x-1/2 bottom-12" onClick={() => setLanguage(language)}>
+            <GetStarted screen condition={isOpen} onSubmit={getStartedSubmitHandler} color="white" />
         </div>}
     </div>
 }

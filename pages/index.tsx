@@ -46,7 +46,7 @@ const HomePage: NextPageWithLayout = () => {
             <div className='md:pt-[37px]'>
               <div className='relative pl-[34.79px] pr-[36.81px] pt-[46px] pb-[38px]'>
                 <div className="aspect-[4/3] md:aspect-video relative">
-                  <View action={<>
+                  <View empty action={<>
                     <img src="/images/curve-1.svg" alt="Curve" className="absolute -top-6 -left-9" />
                     <div className="absolute z-10 rounded-[45px] bg-white inset-0" />
                     <img src="/images/home-banner.svg" alt="Banner" className="absolute rounded-[45px] top-0 z-20 image-cover" />

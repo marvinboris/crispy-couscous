@@ -28,7 +28,7 @@ const DirectionButton = ({ icon: Icon, onClick }: DirectionButtonProps) => <div 
 const Tutorial = ({ photo, rank, title }: TutorialType) => <div>
     <div className='w-[266px] md:w-auto'>
         <div className="ratio-4by3">
-            <View action={<>
+            <View empty action={<>
                 <div className="absolute z-10 rounded-[45px] bg-white inset-0" />
                 <img src={photo} alt="Banner" className="absolute rounded-[45px] top-0 z-20 image-cover" />
                 <div className="absolute z-30 rounded-[45px] inset-0 bg-black/40 flex flex-col items-center justify-center">

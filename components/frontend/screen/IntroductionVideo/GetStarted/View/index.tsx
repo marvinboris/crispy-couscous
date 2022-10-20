@@ -1,17 +1,18 @@
 import { useState, Fragment, ReactNode } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
-import { classNames } from '../../../app/helpers/utils'
+
+import { classNames } from '../../../../../../app/helpers/utils'
 
 interface ViewProps {
+    isOpen: boolean
+    setIsOpen: (isOpen: boolean) => void
     action: ReactNode
     empty?: boolean
     children: ReactNode
 }
 
-export default function View({ action, empty, children }: ViewProps) {
-    let [isOpen, setIsOpen] = useState<boolean>(false)
-
+export default function View({ isOpen, setIsOpen, action, empty, children }: ViewProps) {
     return <div>
         <div className='inline-block' onClick={() => setIsOpen(true)}>
             {action}

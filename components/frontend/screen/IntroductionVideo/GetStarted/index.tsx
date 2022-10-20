@@ -1,12 +1,13 @@
 import { ArrowLeftIcon, ArrowRightIcon, CalendarIcon, EnvelopeIcon, KeyIcon, LockClosedIcon, UserIcon } from '@heroicons/react/24/outline'
+import Link from 'next/link'
 import { ChangeEvent, FormEvent, useState } from 'react'
 
-import View from '../../../ui/View'
-import Button from '../../ui/form/Button'
-import Input from '../../ui/form/Input'
-import Switch from '../../ui/form/Switch'
 import CountrySelect from './CountrySelect'
-import Link from 'next/link'
+import View from './View'
+
+import Button from '../../../ui/form/Button'
+import Input from '../../../ui/form/Input'
+import Switch from '../../../ui/form/Switch'
 
 interface GetStartedProps {
     color?: string
@@ -24,6 +25,8 @@ const Back = ({ onClick }: { onClick: () => void }) => <div className='px-5 md:p
 </div>
 
 export default function GetStarted({ color = 'primary', onSubmit }: GetStartedProps) {
+    let [isOpen, setIsOpen] = useState<boolean>(false)
+
     const [page, setPage] = useState(1)
     const [value, setValue] = useState({
         first_name: '',
@@ -97,7 +100,7 @@ export default function GetStarted({ color = 'primary', onSubmit }: GetStartedPr
         </div>
     </>
 
-    return <View action={<Button icon={ArrowRightIcon} color={color}>Get Started</Button>}>
+    return <View isOpen={isOpen} setIsOpen={setIsOpen} action={isOpen ? <></> : <Button icon={ArrowRightIcon} color={color}>Get Started</Button>}>
         <img src="/images/bg-get-started.svg" alt="BG Get Started" className="absolute inset-0 image-cover z-0" />
 
         {page > 1 && <Back onClick={() => setPage(page - 1)} />}

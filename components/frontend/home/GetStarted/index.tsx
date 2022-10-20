@@ -9,6 +9,7 @@ import CountrySelect from './CountrySelect'
 import Link from 'next/link'
 
 interface GetStartedProps {
+    color?: string
     onSubmit: (e: FormEvent) => void
 }
 
@@ -22,7 +23,7 @@ const Back = ({ onClick }: { onClick: () => void }) => <div className='px-5 md:p
     </div>
 </div>
 
-export default function GetStarted({ onSubmit }: GetStartedProps) {
+export default function GetStarted({ color = 'primary', onSubmit }: GetStartedProps) {
     const [page, setPage] = useState(1)
     const [value, setValue] = useState({
         first_name: '',
@@ -96,7 +97,7 @@ export default function GetStarted({ onSubmit }: GetStartedProps) {
         </div>
     </>
 
-    return <View action={<Button icon={ArrowRightIcon}>Get Started</Button>}>
+    return <View action={<Button icon={ArrowRightIcon} color={color}>Get Started</Button>}>
         <img src="/images/bg-get-started.svg" alt="BG Get Started" className="absolute inset-0 image-cover z-0" />
 
         {page > 1 && <Back onClick={() => setPage(page - 1)} />}

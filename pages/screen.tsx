@@ -59,7 +59,9 @@ export default function ScreenPage() {
                     {languagesContent}
                 </div>
 
-                <Button onClick={onClick} icon={ArrowRightIcon}>Get Started</Button>
+                <div className="absolute left-1/2 -translate-x-1/2 bottom-12">
+                    <Button onClick={onClick} icon={ArrowRightIcon}>Get Started</Button>
+                </div>
             </div>
         </div>
     </div>

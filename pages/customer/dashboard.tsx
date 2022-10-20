@@ -7,8 +7,9 @@ import Layout, { Head } from '../../components/backend/navigation/Layout'
 
 import TutorialType from '../../app/types/tutorial'
 
-import PageTitle from '../../components/backend/ui/title/page'
 import { getTutorials } from '../../app/resources/tutorials'
+import PageTitle from '../../components/backend/ui/title/page'
+import View from '../../components/ui/View'
 
 const params = {
     link: '/customer/dashboard',
@@ -66,15 +67,20 @@ const StatCard = ({ color, title, children }: StatCardProps) => <div className='
 const Tutorial = ({ photo, title, subtitle }: TutorialType) => <div>
     <div className='w-[205.35px] md:block md:w-auto h-full px-4 pt-[18.5px] pb-[25.64px] shadow-md rounded-[20px] md:rounded-[17.3446px] bg-white'>
         <div className="ratio-4by3">
-            <div className="absolute z-10 rounded-[20px] md:rounded-[17.3446px] bg-white inset-0" />
-            <img src={photo} alt="Banner" className="absolute rounded-[20px] md:rounded-[17.3446px] top-0 z-20 image-cover" />
-            <div className="absolute z-30 rounded-[20px] md:rounded-[17.3446px] inset-0 bg-black/40 flex flex-col items-center justify-center">
-                <div className="w-[47px] md:w-20 h-[47px] md:h-20 rounded-full bg-white/30 flex items-center justify-center animate-pulse">
-                    <div className="w-[30px] md:w-[52px] h-[30px] md:h-[52px] rounded-full bg-white flex items-center justify-center">
-                        <PlayIcon className='w-3 md:w-5 text-orange' />
+            <View action={<>
+                <div className="absolute z-10 rounded-[20px] md:rounded-[17.3446px] bg-white inset-0" />
+                <img src={photo} alt="Banner" className="absolute rounded-[20px] md:rounded-[17.3446px] top-0 z-20 image-cover" />
+                <div className="absolute z-30 rounded-[20px] md:rounded-[17.3446px] inset-0 bg-black/40 flex flex-col items-center justify-center">
+                    <div className="w-[47px] md:w-20 h-[47px] md:h-20 rounded-full bg-white/30 flex items-center justify-center animate-pulse">
+                        <div className="w-[30px] md:w-[52px] h-[30px] md:h-[52px] rounded-full bg-white flex items-center justify-center">
+                            <PlayIcon className='w-3 md:w-5 text-orange' />
+                        </div>
                     </div>
                 </div>
-            </div>
+            </>
+            }>
+                <iframe src="https://www.youtube.com/embed/bOwewGxrIZk" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className='w-full aspect-video' />
+            </View>
         </div>
 
         <div className='mt-[20.24px] md:mt-[21px]'>

@@ -1,5 +1,7 @@
 import React, { type ReactNode } from 'react'
 
+import { classNames } from '../../../../../app/helpers/utils'
+
 interface ButtonProps {
     color?: string
     size?: '' | 'sm' | 'lg' | 'xl'
@@ -7,8 +9,6 @@ interface ButtonProps {
     children: ReactNode,
     onClick?: () => void
 }
-
-const classNames = (...c: string[]) => c.join(' ')
 
 export default function Button({ color = 'primary', size = '', icon, children, onClick }: ButtonProps) {
     const Icon = icon
@@ -18,11 +18,11 @@ export default function Button({ color = 'primary', size = '', icon, children, o
 
         {Icon && <span className='inline-flex items-center'>
             {size !== 'sm' && <div>
-                <div className="w-1 h-1 rounded-full bg-white/40 mr-[5px]" />
+                <div className={classNames(color === 'white' ? "bg-primary/40" : "bg-white/40", "w-1 h-1 rounded-full mr-[5px]")} />
             </div>}
 
             <div>
-                <Icon className='text-white/40 group-hover:text-white w-6 transition-all duration-200' />
+                <Icon className={classNames(color === 'white' ? "text-primary/40 group-hover:text-primary" : "text-white/40 group-hover:text-white", 'w-6 transition-all duration-200')} />
             </div>
         </span>}
     </button>

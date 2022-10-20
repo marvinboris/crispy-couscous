@@ -14,3 +14,7 @@
     @apply bg-primary text-white hover:text-secondary-100 active:text-primary/10 focus-visible:outline-primary;
 }
 
+.btn-white {
+    @apply bg-white text-primary focus-visible:outline-white;
+}
+

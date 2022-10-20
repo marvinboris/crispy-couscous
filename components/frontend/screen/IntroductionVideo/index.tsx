@@ -1,13 +1,11 @@
 import { Dialog, Transition } from '@headlessui/react'
-import { ArrowRightIcon, PlayIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import { useRouter } from 'next/router'
-import { Fragment, useEffect, useRef, useState } from 'react'
+import { XMarkIcon } from '@heroicons/react/24/outline'
+import { FormEvent, Fragment, useEffect, useState } from 'react'
 
 import { useLanguageContext } from '../../../../app/contexts/language'
 
 import LanguageType from '../../../../app/types/language'
-
-import Button from '../../ui/form/Button'
+import GetStarted from '../../home/GetStarted'
 
 interface IntroductionVideoProps {
     isOpen: boolean
@@ -16,8 +14,6 @@ interface IntroductionVideoProps {
 }
 
 export default function IntroductionVideo({ isOpen, setIsOpen, language }: IntroductionVideoProps) {
-    const router = useRouter()
-
     const { setLanguage } = useLanguageContext()
 
     const [video, setVideo] = useState<HTMLVideoElement | null>(null)
@@ -29,11 +25,6 @@ export default function IntroductionVideo({ isOpen, setIsOpen, language }: Intro
 
     const close = () => {
         if (end) setIsOpen(false)
-    }
-
-    const leave = () => {
-        setLanguage(language)
-        router.push('/')
     }
 
     useEffect(() => {
@@ -76,6 +67,10 @@ export default function IntroductionVideo({ isOpen, setIsOpen, language }: Intro
         }
     }
 
+    const getStartedSubmitHandler = (e: FormEvent) => {
+        e.preventDefault()
+    }
+
     return <div>
         <Transition show={isOpen} as={Fragment}>
             <Dialog onClose={close} className="fixed inset-0 z-50 flex items-center">
@@ -86,7 +81,7 @@ export default function IntroductionVideo({ isOpen, setIsOpen, language }: Intro
 
                 {/* Full-screen container to center the panel */}
                 <Transition.Child as={Fragment} enter="ease-out duration-300" enterFrom="opacity-0 scale-95" enterTo="opacity-100 scale-100" leave="ease-in duration-200" leaveFrom="opacity-100 scale-100" leaveTo="opacity-0 scale-95">
-                    <div className="container relative">
+                    <div className="container">
                         <Dialog.Panel className="mx-auto max-w-xs md:max-w-4xl w-full rounded-[40.8836px] relative">
                             {end && <div className="absolute -translate-y-full -top-[120px] md:-top-[51px] right-0 md:-right-[14px] md:translate-x-full">
                                 <div onClick={() => setIsOpen(false)} className="w-[60px] h-[60px] rounded-full flex items-center justify-center cursor-pointer bg-white/20"><div><XMarkIcon className='w-10 text-white' /></div></div>
@@ -100,13 +95,13 @@ export default function IntroductionVideo({ isOpen, setIsOpen, language }: Intro
                                 </div>
                             </div>
                         </Dialog.Panel>
-
-                        {end && <div className="absolute -bottom-[120px] md:-bottom-[81px] left-1/2 -translate-x-1/2 translate-y-full">
-                            <Button onClick={leave} icon={ArrowRightIcon}>Get Started</Button>
-                        </div>}
                     </div>
                 </Transition.Child>
             </Dialog>
         </Transition>
+
+        {end && <div className="fixed z-[100] left-1/2 -translate-x-1/2 bottom-12" onClick={() => setLanguage(language)}>
+            <GetStarted onSubmit={getStartedSubmitHandler} color="white" />
+        </div>}
     </div>
 }

@@ -5,6 +5,7 @@ import { NextPageWithLayout } from './_app'
 import Layout, { Head } from '../components/frontend/navigation/Layout'
 import GetStarted from '../components/frontend/home/GetStarted'
 import Footer from '../components/frontend/navigation/Footer'
+import View from '../components/ui/View'
 
 const params = {
   link: '/',
@@ -44,21 +45,26 @@ const HomePage: NextPageWithLayout = () => {
 
             <div className='md:pt-[37px]'>
               <div className='relative pl-[34.79px] pr-[36.81px] pt-[46px] pb-[38px]'>
-                <div className="ratio-4by3">
-                  <img src="/images/curve-1.svg" alt="Curve" className="absolute -top-6 -left-9" />
-                  <div className="absolute z-10 rounded-[45px] bg-white inset-0" />
-                  <img src="/images/home-banner.svg" alt="Banner" className="absolute rounded-[45px] top-0 z-20 image-cover" />
-                  <div className="absolute z-30 rounded-[45px] inset-0 bg-black/40 flex flex-col items-center justify-center">
-                    <div className="w-[96px] h-[96px] rounded-full bg-white/30 flex items-center justify-center animate-pulse">
-                      <div className="w-[56px] h-[56px] rounded-full bg-white/30 flex items-center justify-center">
-                        <div className="w-[36px] h-[36px] rounded-full flex items-center justify-center bg-white">
-                          <PlayIcon className='w-4 text-orange' />
+                <div className="aspect-[4/3] md:aspect-video relative">
+                  <View action={<>
+                    <img src="/images/curve-1.svg" alt="Curve" className="absolute -top-6 -left-9" />
+                    <div className="absolute z-10 rounded-[45px] bg-white inset-0" />
+                    <img src="/images/home-banner.svg" alt="Banner" className="absolute rounded-[45px] top-0 z-20 image-cover" />
+                    <div className="absolute z-30 rounded-[45px] inset-0 bg-black/40 flex flex-col items-center justify-center">
+                      <div className="w-[96px] h-[96px] rounded-full bg-white/30 flex items-center justify-center animate-pulse">
+                        <div className="w-[56px] h-[56px] rounded-full bg-white/30 flex items-center justify-center">
+                          <div className="w-[36px] h-[36px] rounded-full flex items-center justify-center bg-white">
+                            <PlayIcon className='w-4 text-orange' />
+                          </div>
                         </div>
                       </div>
-                    </div>
 
-                    <div className="text-xs text-white absolute bottom-[30px]">Watch the video</div>
-                  </div>
+                      <div className="text-xs text-white absolute bottom-[30px]">Watch the video</div>
+                    </div>
+                  </>
+                  }>
+                    <iframe src="https://www.youtube.com/embed/bOwewGxrIZk" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className='w-full aspect-video' />
+                  </View>
                 </div>
 
                 <div className="absolute z-0 bottom-0 left-0 rounded-[38.0488px] bg-orange/10 shadow-lg shadow-orange/10 ratio-4by3 w-2/5" />

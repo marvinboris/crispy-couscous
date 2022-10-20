@@ -16,6 +16,8 @@ interface IntroductionVideoProps {
 export default function IntroductionVideo({ isOpen, setIsOpen, language }: IntroductionVideoProps) {
     const { setLanguage } = useLanguageContext()
 
+    const [getStarted, setGetStarted] = useState(false)
+
     const [video, setVideo] = useState<HTMLVideoElement | null>(null)
     const [length, setLength] = useState(0);
     const [time, setTime] = useState(0);
@@ -101,7 +103,7 @@ export default function IntroductionVideo({ isOpen, setIsOpen, language }: Intro
         </Transition>
 
         {end && <div className="fixed z-[100] left-1/2 -translate-x-1/2 bottom-12" onClick={() => setLanguage(language)}>
-            <GetStarted screen condition={isOpen} onSubmit={getStartedSubmitHandler} color="white" />
+            <div onClick={() => setGetStarted(true)}><GetStarted screen condition={isOpen && !getStarted} onSubmit={getStartedSubmitHandler} color="white" /></div>
         </div>}
     </div>
 }

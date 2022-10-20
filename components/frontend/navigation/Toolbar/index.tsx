@@ -14,8 +14,7 @@ import Resource from './Resource'
 const listItems = [
     { href: '/about/mission', label: 'Mission' },
     { href: '/about/tutorials', label: 'Tutorials' },
-    { href: '/about/how-it-works', label: 'How it works' },
-    { href: '/about/about-the-raffle', label: 'About the raffle' },
+    { href: '/about/how-to-win', label: 'How to win' },
 ]
 
 const mobileNavItems = [
@@ -27,8 +26,7 @@ const mobileNavItems = [
 const resourceItems = [
     { name: 'Mission', href: '/about/mission' },
     { name: 'Tutorials', href: '/about/tutorials' },
-    { name: 'How it works', href: '/about/how-it-works' },
-    { name: 'About the raffle', href: '/about/about-the-raffle' },
+    { name: 'How to win', href: '/about/how-to-win' },
 ]
 
 const renderMobileNavItem = (item: { name: string, href: string, icon: (props: ComponentProps<'svg'>) => JSX.Element }, close: () => void) => <Link key={item.name} href={item.href}>

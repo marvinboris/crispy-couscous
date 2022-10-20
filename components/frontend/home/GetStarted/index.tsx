@@ -99,7 +99,7 @@ export default function GetStarted({ color = 'primary', screen, condition, onSub
         </div>
     </>
 
-    return <View action={screen ? (condition && <Button icon={ArrowRightIcon} color={color}>Get Started</Button>)
+    return <View action={screen ? (condition ? <Button icon={ArrowRightIcon} color={color}>Get Started</Button> : <></>)
         : <Button icon={ArrowRightIcon} color={color}>Get Started</Button>}>
         <img src="/images/bg-get-started.svg" alt="BG Get Started" className="absolute inset-0 image-cover z-0" />
 

@@ -24,7 +24,7 @@ export default function IntroductionVideo({ isOpen, setIsOpen, language }: Intro
     const [end, setEnd] = useState(false);
 
     const close = () => {
-        if (end) setIsOpen(false)
+        // if (end) setIsOpen(false)
     }
 
     useEffect(() => {

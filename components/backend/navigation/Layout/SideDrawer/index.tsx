@@ -10,6 +10,8 @@ import Logo from "../../../../ui/Logo";
 import { useSideDrawerContext } from "../../../../../app/contexts/sideDrawer";
 import { useWindowSize } from "../../../../../app/hooks";
 
+import SocialNetworks from "../../../../frontend/navigation/Footer/SocialNetworks";
+
 export default function SideDrawer() {
     const { width } = useWindowSize()
     const { open, setOpen } = useSideDrawerContext()
@@ -17,7 +19,7 @@ export default function SideDrawer() {
     return <Transition show={open || (width !== undefined && width > 768)} as={Fragment}>
         <div className='fixed inset-0 md:relative top-0 z-40 min-h-screen md:block'>
             <Transition.Child as={Fragment} enter="ease-out duration-300" enterFrom="opacity-0 scale-95" enterTo="opacity-100 scale-100" leave="ease-in duration-200" leaveFrom="opacity-100 scale-100" leaveTo="opacity-0 scale-95">
-                <div className="absolute md:relative w-72 z-0 h-full flex flex-col pt-[42px] pb-[95px] px-5 bg-white after:absolute after:inset-0 after:bg-primary/20 after:-z-10">
+                <div className="absolute md:relative w-[230px] z-0 h-full flex flex-col pt-[42px] pb-[95px] px-5 bg-white after:absolute after:inset-0 after:bg-secondary-500/10 after:-z-10">
                     <div className="mb-32"><Link href='/'><a><Logo /></a></Link></div>
 
                     <div className="flex-1 flex flex-col">
@@ -35,10 +37,14 @@ export default function SideDrawer() {
                         </div>
 
                         <div className="mt-auto">
+                            <div className="mb-[69.4px] flex justify-center scale-90">
+                                <SocialNetworks />
+                            </div>
+
                             <div className="flex items-center cursor-pointer">
                                 <div className="mr-6"><ArrowRightOnRectangleIcon className="w-6 text-primary" /></div>
 
-                                <div className="text-lg font-bold">Logout</div>
+                                <div className="text-lg font-bold text-primary">Logout</div>
                             </div>
                         </div>
                     </div>

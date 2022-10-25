@@ -14,8 +14,6 @@ export default function SectionTitle({ title, description, icon: Icon, children 
             <div className="md:hidden text-sm">{description}</div>
         </div>
 
-        {children && <div className="flex items-center">
-            {children}
-        </div>}
+        {children}
     </div>
 }

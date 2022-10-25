@@ -1,4 +1,4 @@
-import { ChevronRightIcon, ClipboardDocumentIcon, HomeIcon, InformationCircleIcon, PlayIcon, TicketIcon } from '@heroicons/react/24/outline'
+import { ChevronLeftIcon, ChevronRightIcon, ClipboardDocumentIcon, HomeIcon, InformationCircleIcon, PlayIcon, TicketIcon, WalletIcon } from '@heroicons/react/24/outline'
 import { ReactElement, ReactNode, useEffect, useState } from 'react'
 
 import { NextPageWithLayout } from '../_app'
@@ -24,11 +24,11 @@ interface AsideTitleProps {
 }
 
 const AsideTitle = ({ title, subtitle }: AsideTitleProps) => <div>
-    <div className="text-xl md:text-base font-bold">{title}</div>
+    <div className="text-xl md:text-base font-medium">{title}</div>
 
     <div className="text-sm mb-2">{subtitle}</div>
 
-    <div className="w-[27.18px] h-[5px] bg-primary rounded-xl" />
+    <div className="w-[27.18px] h-[5px] bg-secondary-600 rounded-xl" />
 </div>
 
 interface AsideProps {
@@ -50,24 +50,24 @@ const PrizeCard = ({ claimed, title, valid_date }: PrizeCardProps) => <div class
 </div>
 
 interface StatCardProps {
-    color: 'blue' | 'orange'
+    color: 'sky' | 'blue' | 'green'
     title: string
     children: ReactNode
 }
 
-const StatCard = ({ color, title, children }: StatCardProps) => <div className='flex flex-col rounded-[25px] md:rounded-[12.625px] bg-white h-[156.88px] md:h-[100.92px] py-[23px] md:py-[13.25px] pl-[26px] md:pl-[20.18px] pr-[22px] md:pr-[10.72px] shadow-lg relative z-0'>
-    <img src={`/images/backend/mesh-${color}.svg`} alt="BG Stat card" className="absolute inset-0 image-cover -z-10" />
+const StatCard = ({ color, title, children }: StatCardProps) => <div className={classNames(color === 'blue' ? "bg-blue/[.15]" : color === 'sky' ? "bg-sky/[.15]" : "bg-green text-white", 'flex flex-col rounded-[25px] md:rounded-[12.625px] h-[156.88px] md:h-[100.92px] py-[23px] md:py-[13.25px] pl-[26px] md:pl-[20.18px] pr-[22px] md:pr-[10.72px] shadow-lg relative z-0')}>
+    {(color === 'blue' || color === 'sky') && <img src={`/images/backend/mesh-${color}.svg`} alt="BG Stat card" className="absolute inset-0 image-cover -z-10" />}
 
     <div className="text-lg md:text-xs font-medium">{title}</div>
     <div className='pt-[14px] md:pt-[8.6px]'>
-        <div className={classNames(color === 'blue' ? 'bg-blue' : color === 'orange' ? 'bg-orange' : 'bg-primary', "block h-[3.15385px] w-[55px] md:w-[12.62px] rounded-xl")} />
+        <div className={classNames(color === 'blue' ? 'bg-secondary-500/10' : color === 'sky' ? 'bg-sky' : color === 'green' ? 'bg-white/30' : 'bg-primary', "block h-[3.15385px] w-[55px] md:w-[17px] rounded-xl")} />
     </div>
     <div>{children}</div>
 </div>
 
 const Tutorial = ({ photo, title, subtitle }: TutorialType) => <div>
     <div className='w-[205.35px] md:block md:w-auto h-full px-4 pt-[18.5px] pb-[25.64px] shadow-md rounded-[20px] md:rounded-[17.3446px] bg-white'>
-        <div className="ratio-4by3">
+        <div className="ratio-16by9">
             <View empty action={<>
                 <div className="absolute z-10 rounded-[20px] md:rounded-[17.3446px] bg-white inset-0" />
                 <img src={photo} alt="Banner" className="absolute rounded-[20px] md:rounded-[17.3446px] top-0 z-20 image-cover" />
@@ -85,8 +85,7 @@ const Tutorial = ({ photo, title, subtitle }: TutorialType) => <div>
         </div>
 
         <div className='mt-[20.24px] md:mt-[21px]'>
-            <div className="mb-[4.66px] text-xs md:text-sm font-medium">{title}</div>
-            <div className="text-xs">{subtitle}</div>
+            <div className="text-xs md:text-sm font-medium">{title}</div>
         </div>
     </div>
 </div>
@@ -110,7 +109,7 @@ const CustomerDashboardPage: NextPageWithLayout = () => {
 
                 <div className="px-[33px] md:px-[42px] pt-[29px] md:pt-[47px] pb-[54px]">
                     <div className="grid gap-5 md:grid-cols-4 mb-[51px] md:mb-[59px]">
-                        <StatCard color='blue' title='Total Raffle Tickets'>
+                        <StatCard color='sky' title='Total Raffle Tickets'>
                             <div className="flex items-end justify-between">
                                 <div className='pb-[7px] md:pb-[5px]'>
                                     <span className="font-bold text-3xl md:text-lg">01</span>
@@ -120,13 +119,23 @@ const CustomerDashboardPage: NextPageWithLayout = () => {
                             </div>
                         </StatCard>
 
-                        <StatCard color='orange' title='Next Draw'>
-                            <div className="h-[15.56px] md:h-[7.57px] mt-[15.78px] relative overflow-hidden rounded-xl bg-primary/10">
-                                <div className="h-full rounded-xl bg-primary" style={{ width }} />
+                        <StatCard color='blue' title='Next Draw'>
+                            <div className="h-[15.56px] md:h-[7.57px] mt-[15.78px] relative overflow-hidden rounded-xl bg-blue/10">
+                                <div className="h-full rounded-xl bg-blue" style={{ width }} />
                             </div>
 
                             <div className="mt-2.5 md:mt-[5.05px] text-lg md:text-xs">
                                 <span className="font-medium">310</span> <span className="font-bold">/ 1000</span>
+                            </div>
+                        </StatCard>
+
+                        <StatCard color='green' title='My wallet balance'>
+                            <div className="flex items-end justify-between">
+                                <div className='pb-[7px] md:pb-[5px]'>
+                                    <span className="font-bold text-3xl md:text-lg">52.25</span> <span className='text-[12.63px] opacity-40'>AED</span>
+                                </div>
+
+                                <div><WalletIcon className='w-20 md:w-11 text-black/10' /></div>
                             </div>
                         </StatCard>
                     </div>
@@ -136,7 +145,7 @@ const CustomerDashboardPage: NextPageWithLayout = () => {
 
                         <div className="mt-[41px] space-x-[11px] flex items-stretch w-screen md:w-auto overflow-auto -mx-[33px] px-[33px] pb-5">
                             <div>
-                                <PrizeCard claimed valid_date='12/09/2023' title={<><span className="text-primary">50 AED</span> Gift Card</>} />
+                                <PrizeCard claimed valid_date='12/09/2023' title={<><span className="text-blue">50 AED</span> Gift Card</>} />
                             </div>
 
                             <div>
@@ -145,11 +154,10 @@ const CustomerDashboardPage: NextPageWithLayout = () => {
                         </div>
                     </div>
 
-                    <SectionTitle icon={ClipboardDocumentIcon} title='Tutorials' description='Get help'>
-                        <div className='hidden md:block'><div className="h-[30px] border-l border-secondary-700/50" /></div>
-                        <div className="md:ml-[53px] mr-[6px] md:mr-[28.59px] text-sm md:font-medium">View list</div>
-                        <div className='pr-4'><ChevronRightIcon className='w-5' /></div>
-                    </SectionTitle>
+                    <div className='mb-8'>
+                        <div className="text-2xl font-bold">Tutorials</div>
+                        <div>Learn how the system works.</div>
+                    </div>
 
                     <div className="flex items-stretch -mx-[33px] px-[33px] md:mx-0 md:px-0 pb-5 md:pb-0 w-screen md:w-auto overflow-auto md:overflow-visible space-x-[22px] md:space-x-0 md:grid md:gap-2.5 md:grid-cols-3">
                         {tutorialsContent}
@@ -157,18 +165,18 @@ const CustomerDashboardPage: NextPageWithLayout = () => {
                 </div>
             </div>
 
-            <div className="w-[300px] hidden md:block border-l border-secondary-700/10">
+            <div className="w-[300px] hidden md:flex border-l border-secondary-700/10 flex-col">
                 <div className="bg-primary/5">
                     <Aside>
-                        <AsideTitle title={<>Target to raffle draw <InformationCircleIcon className='inline-block ml-3 w-6 text-primary' /></>} subtitle='Raffle ticket count' />
+                        <AsideTitle title={<>Target to raffle draw <InformationCircleIcon className='inline-block ml-3 w-6 text-orange' /></>} subtitle='Raffle ticket count' />
 
                         <div className="mt-4 flex justify-center">
                             <div>
                                 <div className="w-[117px] h-[117px] relative flex flex-col items-center justify-center space-y-0.5 text-xs z-0">
                                     <img src="/images/backend/next-draw.svg" alt="Next draw ellipsis" className="absolute inset-0 -z-10" />
 
-                                    <TicketIcon className='w-7 text-primary/20' />
-                                    <div><span className="font-medium">247</span> <span className="font-bold text-primary">/ 1000</span></div>
+                                    <TicketIcon className='w-7 text-green/20' />
+                                    <div><span className="font-medium">247</span> <span className="font-bold text-green">/ 1000</span></div>
                                     <div>To next draw</div>
                                 </div>
                             </div>
@@ -176,14 +184,25 @@ const CustomerDashboardPage: NextPageWithLayout = () => {
                     </Aside>
                 </div>
 
-                <Aside>
-                    <AsideTitle title={<>Prizes Won</>} subtitle='Check your prizes' />
+                <div className="bg-secondary-400/20 flex-1">
+                    <Aside>
+                        <div className="flex justify-between">
+                            <div>
+                                <AsideTitle title={<>Prizes Won</>} subtitle='Check your prizes' />
+                            </div>
 
-                    <div className="mt-[26px] space-y-[17px]">
-                        <PrizeCard claimed valid_date='12/09/2023' title={<><span className="text-primary">50 AED</span> Gift Card</>} />
-                        <PrizeCard valid_date='09/10/2023' title='iPhone 14 Pro' />
-                    </div>
-                </Aside>
+                            <div className="flex items-center space-x-2.5">
+                                <div className="w-8 h-8 rounded-full bg-secondary-300 flex items-center justify-center cursor-pointer"><ChevronLeftIcon className='w-4' /></div>
+                                <div className="w-8 h-8 rounded-full bg-secondary-800 flex items-center justify-center cursor-pointer"><ChevronRightIcon className='w-4 text-white' /></div>
+                            </div>
+                        </div>
+
+                        <div className="mt-[26px] space-y-[17px]">
+                            <PrizeCard claimed valid_date='12/09/2023' title={<><span className="text-blue">50 AED</span> Gift Card</>} />
+                            <PrizeCard valid_date='09/10/2023' title='iPhone 14 Pro' />
+                        </div>
+                    </Aside>
+                </div>
             </div>
         </main>
     </>

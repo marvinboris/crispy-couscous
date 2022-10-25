@@ -1,6 +1,9 @@
 import { Bars3BottomLeftIcon, BellIcon, ChatBubbleOvalLeftEllipsisIcon, ClipboardDocumentListIcon } from "@heroicons/react/24/outline"
+
 import { useAccountContext } from "../../../../app/contexts/account"
 import { useSideDrawerContext } from "../../../../app/contexts/sideDrawer"
+
+import LanguageSelect from "./LanguageSelect"
 
 export default function Toolbar() {
     const { account } = useAccountContext()
@@ -10,18 +13,19 @@ export default function Toolbar() {
         <div className="flex-1 flex items-center pl-[33px] pr-4 md:px-[42px]">
             <div className="cursor-pointer" onClick={() => setOpen(!open)}><Bars3BottomLeftIcon className='w-10 text-primary' /></div>
 
-            <div className="flex ml-auto space-x-3 md:space-x-8">
-                <div className="cursor-pointer relative z-0 after:block after:absolute after:w-[13.71px] after:h-[13.71px] after:rounded-full after:bg-green after:top-0 after:right-0"><BellIcon className="w-[34px] md:w-10" /></div>
-                <div className="cursor-pointer relative z-0 after:block after:absolute after:w-[13.71px] after:h-[13.71px] after:rounded-full after:bg-green after:top-0 after:right-0"><ChatBubbleOvalLeftEllipsisIcon className="w-[34px] md:w-10" /></div>
+            <div className="flex ml-auto">
+                <div className="mr-0.5 md:mr-[51.69px]"><LanguageSelect /></div>
+                <div className="cursor-pointer relative z-0 after:block after:absolute after:w-[12.72px] after:h-[12.72px] after:rounded-full after:bg-green after:top-0 after:right-0 mr-3"><BellIcon className="w-[31px]" /></div>
+                <div className="cursor-pointer relative z-0 after:block after:absolute after:w-[12.72px] after:h-[12.72px] after:rounded-full after:bg-green after:top-0 after:right-0"><ChatBubbleOvalLeftEllipsisIcon className="w-[31px]" /></div>
             </div>
         </div>
 
         <div className="md:w-[300px] md:border-l border-secondary-700/10 h-[111px] md:h-[86px] flex items-center justify-between pl-3 pr-9">
             <div className="hidden md:block">
-                <div className="text-lg font-bold mb-1">{account?.first_name} {account?.last_name}</div>
+                <div className="text-lg font-medium mb-1">{account?.first_name} {account?.last_name}</div>
 
                 <div>
-                    <span className="text-primary"><span className="font-bold">ID :</span> {account?.aid}</span> <span><ClipboardDocumentListIcon className="inline-block w-6" /></span>
+                    <span className="text-green">ID : <span className="font-bold">{account?.aid}</span></span> <span><img src="/images/backend/copy-id.svg" alt="Copy icon" className="inline-block" /></span>
                 </div>
             </div>
 

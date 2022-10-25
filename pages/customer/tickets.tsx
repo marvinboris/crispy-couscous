@@ -80,9 +80,12 @@ const MyTicketsPage: NextPageWithLayout = () => {
 
             <div className="px-[33px] md:px-[42px] pt-[29px] md:pt-[47px] pb-[54px]">
                 <SectionTitle icon={ClipboardDocumentIcon} title='My purchases' description='All tickets, free and from purchases'>
-                    <div><Input type="search" icon={DocumentMagnifyingGlassIcon} placeholder="Search Ticket" /></div>
-                
-                    <div><Button icon={DocumentMagnifyingGlassIcon} color='green'>View History</Button></div>
+                    <div className='hidden md:block'><Input type="search" icon={DocumentMagnifyingGlassIcon} placeholder="Search Ticket" /></div>
+
+                    <div className='pl-3 space-y-3'>
+                        <div><Input type="search" icon={DocumentMagnifyingGlassIcon} placeholder="Search Ticket" /></div>
+                        <div><Button icon={DocumentMagnifyingGlassIcon} color='green'>View History</Button></div>
+                    </div>
                 </SectionTitle>
 
                 <div className='mb-[42.58px]'>

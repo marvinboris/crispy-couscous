@@ -20,7 +20,7 @@ export default function LanguageSelect() {
     return language === null ? <></> : (
         <div className="w-full">
             <Listbox value={selected} onChange={changeLanguage}>
-                <div className="relative mt-1">
+                <div className="relative">
                     <Listbox.Button className="relative w-full cursor-default text-left">
                         {selected && <div className="flex items-center rounded-full py-[5px] pl-[6px] w-[108px] cursor-pointer bg-secondary-100">
                             <div className='mr-2'>

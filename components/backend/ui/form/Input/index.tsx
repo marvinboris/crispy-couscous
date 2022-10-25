@@ -14,14 +14,14 @@ export default function Input({ icon, label, addon, className, ...rest }: InputP
 
         <div className="h-12 rounded-[8px] bg-white md:bg-secondary-100 flex items-center">
             <div>
-                <div className="w-[33px] md:w-[47px] flex justify-center">
+                <div className="w-[47px] flex justify-center">
                     {Icon && <Icon className='w-[18px]' />}
                 </div>
                 {addon}
             </div>
 
             <div className='pr-4 flex-1'>
-                <input {...rest} className={'min-h-[33px] border-none text-xs md:text-sm bg-transparent outline-none text-inherit w-full'} />
+                <input {...rest} className={'min-h-[33px] border-none text-sm bg-transparent outline-none text-inherit w-full'} />
             </div>
         </div>
     </div>

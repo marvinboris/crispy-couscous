@@ -14,13 +14,13 @@ export default function Toolbar() {
             <div className="cursor-pointer" onClick={() => setOpen(!open)}><Bars3BottomLeftIcon className='w-10 text-primary' /></div>
 
             <div className="flex ml-auto">
-                <div className="mr-0.5 md:mr-[51.69px]"><LanguageSelect /></div>
+                <div className="mr-5 md:mr-[51.69px]"><LanguageSelect /></div>
                 <div className="cursor-pointer relative z-0 after:block after:absolute after:w-[12.72px] after:h-[12.72px] after:rounded-full after:bg-green after:top-0 after:right-0 mr-3"><BellIcon className="w-[31px]" /></div>
                 <div className="cursor-pointer relative z-0 after:block after:absolute after:w-[12.72px] after:h-[12.72px] after:rounded-full after:bg-green after:top-0 after:right-0"><ChatBubbleOvalLeftEllipsisIcon className="w-[31px]" /></div>
             </div>
         </div>
 
-        <div className="md:w-[300px] md:border-l border-secondary-700/10 h-[111px] md:h-[86px] flex items-center justify-between pl-3 pr-9">
+        <div className="md:w-[300px] md:border-l border-secondary-700/10 h-[111px] md:h-[86px] flex items-center justify-between md:pl-3 pr-9">
             <div className="hidden md:block">
                 <div className="text-lg font-medium mb-1">{account?.first_name} {account?.last_name}</div>
 

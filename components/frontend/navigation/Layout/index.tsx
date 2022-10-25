@@ -24,7 +24,7 @@ export default function Layout({ children }: LayoutProps) {
     </div>
 }
 
-export interface PageParams {
+interface PageParams {
     link: string
     title: string
     description: string

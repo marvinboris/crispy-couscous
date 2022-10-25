@@ -1,10 +1,11 @@
-import { PlayIcon } from '@heroicons/react/24/outline'
+import { ArrowRightIcon, PlayIcon } from '@heroicons/react/24/outline'
+import Link from 'next/link'
 import { ReactElement, FormEvent } from 'react'
 
 import { NextPageWithLayout } from './_app'
-import Layout, { Head } from '../components/frontend/navigation/Layout'
-import GetStarted from '../components/frontend/home/GetStarted'
 import Footer from '../components/frontend/navigation/Footer'
+import Layout, { Head } from '../components/frontend/navigation/Layout'
+import Button from '../components/frontend/ui/form/Button'
 import View from '../components/ui/View'
 
 const params = {
@@ -14,10 +15,6 @@ const params = {
 }
 
 const HomePage: NextPageWithLayout = () => {
-  const getStartedSubmitHandler = (e: FormEvent) => {
-    e.preventDefault()
-  }
-
   return <>
     <Head {...params} />
     <main>
@@ -28,16 +25,21 @@ const HomePage: NextPageWithLayout = () => {
               <div className="font-bold mb-[23px] md:mb-[13px] text-2xl md:text-4xl text-primary">Coming Soon</div>
 
               <div className='font-bold mb-5 md:mb-[23px] text-3xl md:text-5xl'>
-                A new shopping experience where your choices are highly rewarded!
+                Welcome to Valyou
               </div>
 
               <div className="mb-[26.89px] md:mb-[71px] md:pr-[70px]">
+                A new shopping experience where your choices are highly rewarded!<br /><br />
                 Thank you for registering!
                 Stay tuned and stand a chance to win prizes from AED 10 to AED 20,000
               </div>
 
               <div className="hidden md:block">
-                <GetStarted onSubmit={getStartedSubmitHandler} />
+                <Link href='/customer/dashboard'>
+                  <a>
+                    <Button icon={ArrowRightIcon}>My account</Button>
+                  </a>
+                </Link>
               </div>
             </div>
 
@@ -70,7 +72,11 @@ const HomePage: NextPageWithLayout = () => {
               </div>
 
               <div className="text-center mt-[39.13px] md:hidden">
-                <GetStarted onSubmit={getStartedSubmitHandler} />
+                <Link href='/customer/dashboard'>
+                  <a>
+                    <Button icon={ArrowRightIcon}>My account</Button>
+                  </a>
+                </Link>
               </div>
             </div>
           </div>

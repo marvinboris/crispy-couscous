@@ -1,10 +1,12 @@
+import { ArrowRightIcon } from '@heroicons/react/24/outline'
+import Link from 'next/link'
 import { FormEvent, ReactElement } from 'react'
 
 import { NextPageWithLayout } from '../_app'
-import Layout, { Head } from '../../components/frontend/navigation/Layout'
 import Footer from '../../components/frontend/navigation/Footer'
+import Layout, { Head } from '../../components/frontend/navigation/Layout'
+import Button from '../../components/frontend/ui/form/Button'
 import PageTitle from '../../components/frontend/ui/title/page'
-import GetStarted from '../../components/frontend/home/GetStarted'
 
 const params = {
     link: '/about/how-to-win',
@@ -33,7 +35,11 @@ const HowItWorksPage: NextPageWithLayout = () => {
                             </div>
 
                             <div className="hidden md:block">
-                                <GetStarted onSubmit={getStartedSubmitHandler} />
+                                <Link href='/customer/dashboard'>
+                                    <a>
+                                        <Button icon={ArrowRightIcon}>My account</Button>
+                                    </a>
+                                </Link>
                             </div>
                         </div>
 
@@ -50,7 +56,11 @@ const HowItWorksPage: NextPageWithLayout = () => {
                         </div>
 
                         <div className='md:hidden text-center'>
-                            <GetStarted onSubmit={getStartedSubmitHandler} />
+                            <Link href='/customer/dashboard'>
+                                <a>
+                                    <Button icon={ArrowRightIcon}>My account</Button>
+                                </a>
+                            </Link>
                         </div>
                     </div>
                 </div>

@@ -11,7 +11,7 @@ interface PageTitleProps {
 
 export default function PageTitle({ title, subtitle: defaultSubtitle, animated, animationSubtitle, icon: Icon }: PageTitleProps) {
     const [hightlighted, setHightlighted] = useState(animated)
-    const subtitle = hightlighted ? animationSubtitle : defaultSubtitle
+    const subtitle = (hightlighted && animationSubtitle) ? animationSubtitle : defaultSubtitle
 
     useEffect(() => {
         if (animated) setTimeout(() => {

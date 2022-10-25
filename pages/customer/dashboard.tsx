@@ -9,6 +9,7 @@ import TutorialType from '../../app/types/tutorial'
 
 import { getTutorials } from '../../app/resources/tutorials'
 import PageTitle from '../../components/backend/ui/title/page'
+import SectionTitle from '../../components/backend/ui/title/section'
 import View from '../../components/ui/View'
 
 const params = {
@@ -144,20 +145,11 @@ const CustomerDashboardPage: NextPageWithLayout = () => {
                         </div>
                     </div>
 
-                    <div className="md:px-8 md:py-6 md:bg-white rounded-[15px] flex items-center justify-between mb-[33px] md:mb-[27px]">
-                        <div className='md:flex items-center'>
-                            <div className='hidden md:block'><ClipboardDocumentIcon className='w-7 text-primary' /></div>
-                            <div className='hidden md:block ml-[11px] mr-[19px]'><div className="w-[6px] h-[6px] rounded-full bg-primary" /></div>
-                            <div className="text-xl md:text-lg font-bold md:font-medium">Tutorials</div>
-                            <div className="md:hidden text-sm">Get help</div>
-                        </div>
-
-                        <div className="flex items-center">
-                            <div className='hidden md:block'><div className="h-[30px] border-l border-secondary-700/50" /></div>
-                            <div className="md:ml-[53px] mr-[6px] md:mr-[28.59px] text-sm md:font-medium">View list</div>
-                            <div><ChevronRightIcon className='w-5' /></div>
-                        </div>
-                    </div>
+                    <SectionTitle icon={ClipboardDocumentIcon} title='Tutorials' description='Get help'>
+                        <div className='hidden md:block'><div className="h-[30px] border-l border-secondary-700/50" /></div>
+                        <div className="md:ml-[53px] mr-[6px] md:mr-[28.59px] text-sm md:font-medium">View list</div>
+                        <div className='pr-4'><ChevronRightIcon className='w-5' /></div>
+                    </SectionTitle>
 
                     <div className="flex items-stretch -mx-[33px] px-[33px] md:mx-0 md:px-0 pb-5 md:pb-0 w-screen md:w-auto overflow-auto md:overflow-visible space-x-[22px] md:space-x-0 md:grid md:gap-2.5 md:grid-cols-3">
                         {tutorialsContent}

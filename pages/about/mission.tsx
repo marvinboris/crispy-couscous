@@ -1,9 +1,11 @@
+import { ArrowRightIcon } from '@heroicons/react/24/outline'
+import Link from 'next/link'
 import { ReactElement, FormEvent } from 'react'
 
 import { NextPageWithLayout } from '../_app'
-import Layout, { Head } from '../../components/frontend/navigation/Layout'
-import GetStarted from '../../components/frontend/home/GetStarted'
 import Footer from '../../components/frontend/navigation/Footer'
+import Layout, { Head } from '../../components/frontend/navigation/Layout'
+import Button from '../../components/frontend/ui/form/Button'
 import PageTitle from '../../components/frontend/ui/title/page'
 
 const params = {
@@ -13,10 +15,6 @@ const params = {
 }
 
 const MissionPage: NextPageWithLayout = () => {
-    const getStartedSubmitHandler = (e: FormEvent) => {
-        e.preventDefault()
-    }
-
     return <>
         <Head {...params} />
         <main>
@@ -38,7 +36,11 @@ const MissionPage: NextPageWithLayout = () => {
                             </div>
 
                             <div className="hidden md:block">
-                                <GetStarted onSubmit={getStartedSubmitHandler} />
+                                <Link href='/customer/dashboard'>
+                                    <a>
+                                        <Button icon={ArrowRightIcon}>My account</Button>
+                                    </a>
+                                </Link>
                             </div>
                         </div>
 
@@ -55,7 +57,11 @@ const MissionPage: NextPageWithLayout = () => {
                         </div>
 
                         <div className='md:hidden text-center'>
-                            <GetStarted onSubmit={getStartedSubmitHandler} />
+                            <Link href='/customer/dashboard'>
+                                <a>
+                                    <Button icon={ArrowRightIcon}>My account</Button>
+                                </a>
+                            </Link>
                         </div>
                     </div>
                 </div>

@@ -15,7 +15,7 @@ const SettingsPage: NextPageWithLayout = () => {
     return <>
         <Head {...params} />
         <main className='flex-1'>
-            <PageTitle animated icon={AdjustmentsHorizontalIcon} title='Settings' subtitle='View and edit settings' />
+            <PageTitle animated icon={AdjustmentsHorizontalIcon} title='Settings' subtitle='Manage your account details' />
 
             <div className="px-[33px] md:px-[42px] pt-[29px] md:pt-[47px] pb-[54px]">
                 

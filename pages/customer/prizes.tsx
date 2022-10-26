@@ -15,7 +15,7 @@ const MyPrizesPage: NextPageWithLayout = () => {
     return <>
         <Head {...params} />
         <main className='flex-1'>
-            <PageTitle animated icon={DocumentPlusIcon} title='My Prizes' subtitle='View your raffle prizes' />
+            <PageTitle animated icon={DocumentPlusIcon} title='My Prizes' subtitle='Check your prizes here' />
 
             <div className="px-[33px] md:px-[42px] pt-[29px] md:pt-[47px] pb-[54px]">
                 

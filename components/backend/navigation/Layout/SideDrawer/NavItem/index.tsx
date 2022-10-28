@@ -13,9 +13,9 @@ interface NavItemProps {
     icon: (props: ComponentProps<'svg'>) => JSX.Element
 }
 
-export default function NavItem({ href, icon: Icon, main: active, children }: NavItemProps) {
+export default function NavItem({ href, icon: Icon, main, children }: NavItemProps) {
     const router = useRouter()
-    // const active = router.pathname === href
+    const active = router.pathname === href
 
     const { width } = useWindowSize()
     const { setOpen } = useSideDrawerContext()
@@ -25,8 +25,8 @@ export default function NavItem({ href, icon: Icon, main: active, children }: Na
     }
 
     return <Link href={href}>
-        <a onClick={hideSideDrawer} className={classNames("flex items-center rounded-[12.5106px] w-full truncate", active ? 'text-white bg-primary relative py-4 font-medium shadow-lg after:absolute after:inset-y-3 after:left-2 after:w-1 after:bg-orange after:rounded-xl after:shadow-md' : 'px-[11px] text-secondary-700 hover:text-primary')}>
-            <div className={classNames(active ? 'mr-[11.68px] pl-[29.19px]' : 'mr-[22px]')}><Icon className={classNames(active ? 'text-white/20 w-4' : 'text-primary/50 w-6')} /></div>
+        <a onClick={hideSideDrawer} className={classNames("flex items-center rounded-[12.5106px] w-full truncate transition-all duration-200", main ? 'text-white bg-primary relative py-4 font-medium shadow-lg after:absolute after:inset-y-3 after:left-2 after:w-1 after:bg-orange after:rounded-xl after:shadow-md' : active ? 'bg-primary/10 text-primary font-bold py-2 mr-6 px-[11px]' : 'text-secondary-700 hover:text-primary px-[11px]')}>
+            <div className={classNames(main ? 'mr-[11.68px] pl-[29.19px]' : 'mr-[22px]')}><Icon className={classNames(main ? 'text-white/20 w-4' : 'text-primary/50 w-6')} /></div>
 
             <div>{children}</div>
         </a>

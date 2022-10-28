@@ -21,3 +21,7 @@
 .btn-green {
     @apply bg-green text-white hover:text-secondary-100 active:text-green/10 focus-visible:outline-green;
 }
+
+.btn-night {
+    @apply bg-night text-white hover:text-secondary-100 active:text-night/10 focus-visible:outline-night;
+}

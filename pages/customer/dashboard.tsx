@@ -155,7 +155,7 @@ const CustomerDashboardPage: NextPageWithLayout = () => {
 
                         <div className="mt-[41px] space-x-[11px] flex items-stretch w-screen md:w-auto overflow-auto -mx-[33px] px-[33px] pb-5">
                             <div>
-                                <PrizeCard claimed valid_date='12/09/2023' title={<><span className="text-blue">50 AED</span> Gift Card</>} />
+                                <PrizeCard claimed valid_date='12/09/2023' title={<><span className="text-night">50 AED</span> Gift Card</>} />
                             </div>
 
                             <div>
@@ -215,7 +215,7 @@ const CustomerDashboardPage: NextPageWithLayout = () => {
                         </div>
 
                         <div className="mt-[26px] space-y-[17px]">
-                            <PrizeCard claimed valid_date='12/09/2023' title={<><span className="text-blue">50 AED</span> Gift Card</>} />
+                            <PrizeCard claimed valid_date='12/09/2023' title={<><span className="text-night">50 AED</span> Gift Card</>} />
                             <PrizeCard valid_date='09/10/2023' title='iPhone 14 Pro' />
                         </div>
                     </Aside>

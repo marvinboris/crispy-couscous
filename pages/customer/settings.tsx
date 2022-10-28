@@ -1,4 +1,4 @@
-import { AdjustmentsHorizontalIcon, ArrowDownOnSquareIcon, CalendarIcon, DocumentMagnifyingGlassIcon, EnvelopeIcon, LockClosedIcon, PencilSquareIcon, UserIcon } from '@heroicons/react/24/outline'
+import { AdjustmentsHorizontalIcon, ArrowDownOnSquareIcon, CalendarIcon, DocumentMagnifyingGlassIcon, EnvelopeIcon, EyeIcon, LockClosedIcon, PencilSquareIcon, UserIcon } from '@heroicons/react/24/outline'
 import { ChangeEvent, ReactElement, useState } from 'react'
 
 import { NextPageWithLayout } from '../_app'
@@ -15,6 +15,7 @@ const params = {
 }
 
 const SettingsPage: NextPageWithLayout = () => {
+    const [editing, setEditing] = useState(false)
     const [value, setValue] = useState({
         first_name: '',
         last_name: '',
@@ -44,7 +45,7 @@ const SettingsPage: NextPageWithLayout = () => {
                         </div>
 
                         <div className="flex items-center">
-                            <Button pill icon={ArrowDownOnSquareIcon} color='green'>Save Settings</Button>
+                            <Button type={editing ? 'submit' : 'button'} onClick={() => setEditing(editing => !editing)} pill icon={ArrowDownOnSquareIcon} color={editing ? 'green' : 'night'}>{editing ? 'Save' : 'Edit'} Settings</Button>
                         </div>
                     </div>
 
@@ -57,8 +58,8 @@ const SettingsPage: NextPageWithLayout = () => {
                                 <Input inputSize='sm' addon={<div className='w-[88px] pl-[14.76px]'>
                                     <CountrySelect value={value.code} onChange={(code: string) => setValue({ ...value, code })} />
                                 </div>} type='tel' name='phone' placeholder='054 430 3333' onChange={onChange} value={value.phone} />
-                                <Input inputSize='sm' icon={LockClosedIcon} type='password' name='password' placeholder='Password' onChange={onChange} value={value.password} />
-                                <Input inputSize='sm' icon={LockClosedIcon} type='password' name='password_confirmation' placeholder='Retype Password' onChange={onChange} value={value.password_confirmation} />
+                                <Input inputSize='sm' icon={LockClosedIcon} append={<EyeIcon className='w-6 text-green cursor-pointer' />} type='password' name='password' placeholder='Password' onChange={onChange} value={value.password} />
+                                <Input inputSize='sm' icon={LockClosedIcon} append={<EyeIcon className='w-6 text-green cursor-pointer' />} type='password' name='password_confirmation' placeholder='Retype Password' onChange={onChange} value={value.password_confirmation} />
                                 <Input inputSize='sm' icon={CalendarIcon} type={birthdateInputType} onFocus={() => setBirthdateInputType('date')} name='birthdate' placeholder='Date of birth' onChange={onChange} value={value.birthdate} />
                             </div>
 

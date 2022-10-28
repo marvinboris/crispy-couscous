@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import Router from 'next/router'
+import Script from 'next/script'
 import { ReactElement, ReactNode, useState, useEffect } from 'react'
 import { Provider } from 'react-redux'
 import AccountContext from '../app/contexts/account'
@@ -90,6 +91,10 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
           <AccountContext.Provider value={{ account, setAccount }}>
             <Head>
               <meta name="theme-color" content={theme === Theme.DARK ? tailwindConfig.theme.extend.colors.secondary[900] : "#ffffff"} />
+              <Script
+                src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver"
+                strategy="beforeInteractive"
+              />
             </Head>
 
             {getLayout(<Component {...pageProps} />)}

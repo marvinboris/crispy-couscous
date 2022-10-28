@@ -2,12 +2,13 @@ import { ArrowLeftIcon, ArrowRightIcon, CalendarIcon, EnvelopeIcon, KeyIcon, Loc
 import Link from 'next/link'
 import { ChangeEvent, FormEvent, useState } from 'react'
 
-import CountrySelect from './CountrySelect'
 import View from './View'
 
 import Button from '../../../ui/form/Button'
 import Input from '../../../ui/form/Input'
 import Switch from '../../../ui/form/Switch'
+
+import CountrySelect from '../../../../ui/CountrySelect'
 
 interface GetStartedProps {
     color?: string

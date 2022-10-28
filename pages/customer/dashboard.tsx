@@ -28,7 +28,7 @@ const AsideTitle = ({ title, subtitle }: AsideTitleProps) => <div>
 
     <div className="text-sm mb-2">{subtitle}</div>
 
-    <div className="w-[27.18px] h-[5px] bg-secondary-600 rounded-xl" />
+    <div className="w-[27.18px] h-[5px] bg-secondary-600/30 rounded-xl" />
 </div>
 
 interface AsideProps {
@@ -107,8 +107,8 @@ const CustomerDashboardPage: NextPageWithLayout = () => {
             <div className="flex-1">
                 <PageTitle animated icon={HomeIcon} title='Dashboard' subtitle='Welcome!' animationSubtitle={<>You just got a free raffle ticket ! <span className="font-bold">Stay tuned for the draw date</span></>} />
 
-                <div className="px-[33px] md:px-[42px] pt-[29px] md:pt-[47px] pb-[54px]">
-                    <div className="grid gap-5 md:grid-cols-4 mb-[51px] md:mb-[59px]">
+                <div className="pl-[33px] md:pl-[42px] pr-[33px] md:pr-[90px] pt-[29px] md:pt-[47px] pb-[54px]">
+                    <div className="grid gap-2.5 md:grid-cols-4 mb-[51px] md:mb-[59px]">
                         <StatCard color='sky' title='Total Raffle Tickets'>
                             <div className="flex items-end justify-between">
                                 <div className='pb-[7px] md:pb-[5px]'>
@@ -126,6 +126,16 @@ const CustomerDashboardPage: NextPageWithLayout = () => {
 
                             <div className="mt-2.5 md:mt-[5.05px] text-lg md:text-xs">
                                 <span className="font-medium">310</span> <span className="font-bold">/ 1000</span>
+                            </div>
+                        </StatCard>
+
+                        <StatCard color='sky' title='Total Referal'>
+                            <div className="flex items-end justify-between">
+                                <div className='pb-[7px] md:pb-[5px]'>
+                                    <span className="font-bold text-3xl md:text-lg">240</span>
+                                </div>
+
+                                <div><TicketIcon className='w-20 md:w-11 text-transparent' /></div>
                             </div>
                         </StatCard>
 
@@ -159,14 +169,21 @@ const CustomerDashboardPage: NextPageWithLayout = () => {
                         <div>Learn how the system works.</div>
                     </div>
 
+                    <div className="md:px-[57px] relative">
+                        <div className="absolute left-0 top-1/2 -translate-y-1/2 rounded-full flex items-center justify-center w-8 h-8 bg-secondary-500 bg-opacity-10 hover:bg-opacity-20 transition-all duration-200 cursor-pointer"><ChevronLeftIcon className='w-4' /></div>
+                        <div className="absolute right-0 top-1/2 -translate-y-1/2 rounded-full flex items-center justify-center w-8 h-8 bg-secondary-500 bg-opacity-10 hover:bg-opacity-20 transition-all duration-200 cursor-pointer"><ChevronRightIcon className='w-4' /></div>
+
+                        <div className="grid gap-2.5 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+                            {tutorialsContent}
+                        </div>
+                    </div>
                     <div className="flex items-stretch -mx-[33px] px-[33px] md:mx-0 md:px-0 pb-5 md:pb-0 w-screen md:w-auto overflow-auto md:overflow-visible space-x-[22px] md:space-x-0 md:grid md:gap-2.5 md:grid-cols-3">
-                        {tutorialsContent}
                     </div>
                 </div>
             </div>
 
             <div className="w-[300px] hidden md:flex border-l border-secondary-700/10 flex-col">
-                <div className="bg-primary/5">
+                <div className="bg-green/10">
                     <Aside>
                         <AsideTitle title={<>Target to raffle draw <InformationCircleIcon className='inline-block ml-3 w-6 text-orange' /></>} subtitle='Raffle ticket count' />
 
@@ -176,7 +193,7 @@ const CustomerDashboardPage: NextPageWithLayout = () => {
                                     <img src="/images/backend/next-draw.svg" alt="Next draw ellipsis" className="absolute inset-0 -z-10" />
 
                                     <TicketIcon className='w-7 text-green/20' />
-                                    <div><span className="font-medium">247</span> <span className="font-bold text-green">/ 1000</span></div>
+                                    <div><span className="font-bold">247</span> <span className="font-medium text-green">/ 1000</span></div>
                                     <div>To next draw</div>
                                 </div>
                             </div>
@@ -192,8 +209,8 @@ const CustomerDashboardPage: NextPageWithLayout = () => {
                             </div>
 
                             <div className="flex items-center space-x-2.5">
-                                <div className="w-8 h-8 rounded-full bg-secondary-300 flex items-center justify-center cursor-pointer"><ChevronLeftIcon className='w-4' /></div>
-                                <div className="w-8 h-8 rounded-full bg-secondary-800 flex items-center justify-center cursor-pointer"><ChevronRightIcon className='w-4 text-white' /></div>
+                                <div className="w-8 h-8 rounded-full bg-secondary-300 bg-opacity-100 hover:bg-opacity-80 transition-all duration-200 flex items-center justify-center cursor-pointer"><ChevronLeftIcon className='w-4' /></div>
+                                <div className="w-8 h-8 rounded-full bg-secondary-800 bg-opacity-100 hover:bg-opacity-80 transition-all duration-200 flex items-center justify-center cursor-pointer"><ChevronRightIcon className='w-4 text-white' /></div>
                             </div>
                         </div>
 

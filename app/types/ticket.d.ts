@@ -1,6 +1,6 @@
 export default interface TicketType {
     num: string
-    status: 'pending' | 'won' | 'incoming' | 'claimed'
+    status: 'pending' | 'won' | 'incoming' | 'claimed' | 'failed'
     expiry: Date | null
     draw: Date
     target: number

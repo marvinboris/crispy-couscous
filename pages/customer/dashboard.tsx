@@ -66,7 +66,7 @@ const StatCard = ({ color, title, children }: StatCardProps) => <div className={
 </div>
 
 const Tutorial = ({ photo, title, subtitle }: TutorialType) => <div>
-    <div className='w-[205.35px] md:block md:w-auto h-full px-4 pt-[18.5px] pb-[25.64px] rounded-[20px] md:rounded-[17.3446px] bg-white'>
+    <div className='w-[205.35px] md:block md:w-auto h-full px-4 pt-[18.5px] pb-[25.64px] rounded-[24px] md:rounded-[20px] bg-white'>
         <div className="ratio-16by9 rounded-[20px] md:rounded-[17.3446px] overflow-hidden">
             <View empty action={<>
                 <div className="absolute z-10 bg-white inset-0" />

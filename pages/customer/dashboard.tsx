@@ -67,11 +67,11 @@ const StatCard = ({ color, title, children }: StatCardProps) => <div className={
 
 const Tutorial = ({ photo, title, subtitle }: TutorialType) => <div>
     <div className='w-[205.35px] md:block md:w-auto h-full px-4 pt-[18.5px] pb-[25.64px] rounded-[20px] md:rounded-[17.3446px] bg-white'>
-        <div className="ratio-16by9">
+        <div className="ratio-16by9 rounded-[20px] md:rounded-[17.3446px] overflow-hidden">
             <View empty action={<>
-                <div className="absolute z-10 rounded-[20px] md:rounded-[17.3446px] bg-white inset-0" />
-                <img src={photo} alt="Banner" className="absolute rounded-[20px] md:rounded-[17.3446px] top-0 z-20 image-cover" />
-                <div className="absolute z-30 rounded-[20px] md:rounded-[17.3446px] inset-0 bg-black/40 flex flex-col items-center justify-center">
+                <div className="absolute z-10 bg-white inset-0" />
+                <img src={photo} alt="Banner" className="absolute top-0 z-20 image-cover scale-110" />
+                <div className="absolute z-30 inset-0 bg-black/40 flex flex-col items-center justify-center">
                     <div className="w-[47px] md:w-20 h-[47px] md:h-20 rounded-full bg-white/30 flex items-center justify-center animate-pulse">
                         <div className="w-[30px] md:w-[52px] h-[30px] md:h-[52px] rounded-full bg-white flex items-center justify-center">
                             <PlayIcon className='w-3 md:w-5 text-orange' />

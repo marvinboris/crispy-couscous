@@ -20,7 +20,7 @@ export default function SideDrawer() {
         <div className='fixed inset-0 md:relative top-0 z-40 min-h-screen md:block'>
             <Transition.Child as={Fragment} enter="ease-out duration-300" enterFrom="opacity-0 scale-95" enterTo="opacity-100 scale-100" leave="ease-in duration-200" leaveFrom="opacity-100 scale-100" leaveTo="opacity-0 scale-95">
                 <div className="absolute md:relative w-[230px] z-0 h-full flex flex-col pt-[18px] pb-[95px] px-5 bg-white after:absolute after:inset-0 after:bg-secondary-500/10 after:-z-10">
-                    <div className="mb-32 w-[130px]"><Link href='/'><a><Logo /></a></Link></div>
+                    <div className="mb-[114px] w-[130px] h-[79px] flex items-center"><Link href='/'><a><Logo /></a></Link></div>
 
                     <div className="flex-1 flex flex-col">
                         <div>

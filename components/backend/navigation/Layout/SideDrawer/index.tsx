@@ -36,7 +36,7 @@ export default function SideDrawer() {
                             </div>
                         </div>
 
-                        <div className="mt-auto">
+                        <div className="mt-[100px]">
                             <div className="mb-[69.4px] flex justify-center scale-90">
                                 <SocialNetworks />
                             </div>

@@ -65,10 +65,13 @@ const MyTicketsPage: NextPageWithLayout = () => {
                                 <div className="flex items-center divide-x-[0.5px] divide-x-secondary-300 text-xs">
                                     <div className="w-[59px] h-[39px] flex items-center justify-center">Show</div>
 
-                                    <div className="w-[59px] h-[39px] flex items-center justify-center">
-                                        <div className="font-bold mr-1.5">05</div>
-
-                                        <ChevronDownIcon className='w-4' />
+                                    <div className="w-[59px] h-[39px] flex items-center justify-center relative">
+                                        <select name="show" id="show" defaultValue='05' className='font-bold bg-transparent outline-none border-0 p-0'>
+                                            <option value="5">05</option>
+                                            <option value="10">10</option>
+                                            <option value="25">25</option>
+                                            <option value="All">All</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>

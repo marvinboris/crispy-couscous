@@ -85,7 +85,7 @@ const Tutorial = ({ photo, title, subtitle }: TutorialType) => <div>
         </div>
 
         <div className='mt-[20.24px] md:mt-[21px]'>
-            <div className="text-xs md:text-sm font-medium">{title}</div>
+            <div className="text-xs md:text-sm">{title}</div>
         </div>
     </div>
 </div>

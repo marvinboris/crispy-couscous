@@ -43,7 +43,7 @@ interface PrizeCardProps {
     claimed?: boolean
 }
 
-const PrizeCard = ({ claimed, title, valid_date }: PrizeCardProps) => <div className="bg-white shadow-lg w-[251px] md:w-auto rounded-[20px] pt-[11px] px-[18px] pb-[13px] space-y-[7px]">
+const PrizeCard = ({ claimed, title, valid_date }: PrizeCardProps) => <div className="bg-white w-[251px] md:w-auto rounded-[20px] pt-[11px] px-[18px] pb-[13px] space-y-[7px]">
     <div className="font-bold text-sm">{title}</div>
     <div className='text-xs'>Valid till: {valid_date}</div>
     <div className={classNames("py-[5px] px-[14px] text-xs rounded-3xl inline-block", claimed ? 'text-green bg-green/30' : 'text-red bg-red/30')}>{claimed ? 'Claimed' : 'Not Claimed'}</div>
@@ -55,7 +55,7 @@ interface StatCardProps {
     children: ReactNode
 }
 
-const StatCard = ({ color, title, children }: StatCardProps) => <div className={classNames(color === 'blue' ? "bg-blue/[.15]" : color === 'sky' ? "bg-sky/[.15]" : "bg-green text-white", 'flex flex-col rounded-[25px] md:rounded-[12.625px] h-[156.88px] md:h-[100.92px] py-[23px] md:py-[13.25px] pl-[26px] md:pl-[20.18px] pr-[22px] md:pr-[10.72px] shadow-lg relative z-0')}>
+const StatCard = ({ color, title, children }: StatCardProps) => <div className={classNames(color === 'blue' ? "bg-blue/[.15]" : color === 'sky' ? "bg-sky/[.15]" : "bg-green text-white", 'flex flex-col rounded-[25px] md:rounded-[12.625px] h-[156.88px] md:h-[100.92px] py-[23px] md:py-[13.25px] pl-[26px] md:pl-[20.18px] pr-[22px] md:pr-[10.72px] relative z-0')}>
     {(color === 'blue' || color === 'sky') && <img src={`/images/backend/mesh-${color}.svg`} alt="BG Stat card" className="absolute inset-0 image-cover -z-10" />}
 
     <div className="text-lg md:text-xs font-medium">{title}</div>

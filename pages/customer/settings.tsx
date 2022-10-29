@@ -1,4 +1,4 @@
-import { AdjustmentsHorizontalIcon, ArrowDownOnSquareIcon, CalendarIcon, DocumentMagnifyingGlassIcon, EnvelopeIcon, EyeIcon, LockClosedIcon, PencilSquareIcon, UserIcon } from '@heroicons/react/24/outline'
+import { AdjustmentsHorizontalIcon, ArrowDownOnSquareIcon, CalendarIcon, DocumentMagnifyingGlassIcon, EnvelopeIcon, EyeIcon, LockClosedIcon, PencilIcon, PencilSquareIcon, UserIcon } from '@heroicons/react/24/outline'
 import { ChangeEvent, ReactElement, useState } from 'react'
 
 import { NextPageWithLayout } from '../_app'
@@ -14,21 +14,43 @@ const params = {
     description: "Your favorite e-commerce platform: your settings."
 }
 
+const readURL = (input: EventTarget & HTMLInputElement) => {
+    if (input.files && input.files[0]) {
+        const file = input.files[0];
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+            const embed = document.getElementById(`embed-${input.name}`)! as HTMLImageElement
+            embed.src = e.target!.result as string;
+            // embed.querySelector(".file-selected")!.innerHTML = file.name;
+        }
+
+        reader.readAsDataURL(file); // convert to base64 string
+    }
+};
+
 const SettingsPage: NextPageWithLayout = () => {
     const [editing, setEditing] = useState(false)
     const [value, setValue] = useState({
-        first_name: '',
-        last_name: '',
-        email: '',
-        code: '',
-        phone: '',
+        first_name: 'Pope',
+        last_name: 'Schwarz',
+        email: 'popes@demo.com',
+        code: '971',
+        phone: '054 430 3333',
         password: '',
         password_confirmation: '',
-        birthdate: '',
+        birthdate: '12/03/1998',
+        photo: "/images/backend/settings.svg",
     })
     const [birthdateInputType, setBirthdateInputType] = useState('text')
 
-    const onChange = (e: ChangeEvent<HTMLInputElement>) => setValue({ ...value, [e.target.name]: e.target.value })
+    const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+        const { name, value: val, files } = e.target
+        if (files) readURL(e.target)
+        setValue({ ...value, [name]: files ? files[0] : val })
+    }
+
+    const handlePhotoChange = () => document.getElementById('photo')?.click()
 
     return <>
         <Head {...params} />
@@ -45,7 +67,7 @@ const SettingsPage: NextPageWithLayout = () => {
                         </div>
 
                         <div className="flex items-center order-1 md:order-2 ml-auto md:ml-0 mb-8 md:mb-0">
-                            <Button type={editing ? 'submit' : 'button'} onClick={() => setEditing(editing => !editing)} pill icon={ArrowDownOnSquareIcon} color={editing ? 'green' : 'night'}>{editing ? 'Save' : 'Edit'} Settings</Button>
+                            <Button type={editing ? 'submit' : 'button'} onClick={() => setEditing(editing => !editing)} pill icon={editing ? ArrowDownOnSquareIcon : PencilIcon} color={editing ? 'green' : 'night'}>{editing ? 'Save' : 'Edit'} Settings</Button>
                         </div>
                     </div>
 
@@ -63,13 +85,15 @@ const SettingsPage: NextPageWithLayout = () => {
                                 <Input inputSize='sm' icon={CalendarIcon} type={birthdateInputType} onFocus={() => setBirthdateInputType('date')} name='birthdate' placeholder='Date of birth' onChange={onChange} value={value.birthdate} />
                             </div>
 
-                            <div className="aspect-[5/2] md:w-40 md:aspect-square mt-[14px] md:mt-0 rounded-[15px] md:rounded-3xl relative flex flex-col items-center justify-center overflow-hidden text-white">
-                                <img src="/images/backend/settings.svg" alt="User profile pic" className="absolute z-0 inset-0 image-cover" />
+                            <div onClick={handlePhotoChange} className="aspect-[5/2] md:w-40 md:aspect-square cursor-pointer mt-[14px] md:mt-0 rounded-[15px] md:rounded-3xl relative flex flex-col items-center justify-center overflow-hidden text-white">
+                                <img id="embed-photo" src={value.photo} alt="User profile pic" className="absolute z-0 inset-0 image-cover" />
                                 <div className="absolute z-10 inset-0 bg-black/40" />
                                 <div className="relative z-20 w-9 md:w-14 h-9 md:h-14 mb-1 md:mb-1.5 rounded-full flex items-center justify-center bg-black/30"><PencilSquareIcon className='w-4 md:w-6' /></div>
                                 <div className="relative z-20 font-medium md:font-bold text-[14.81px]">Change</div>
                             </div>
                         </div>
+
+                        <input type="file" name="photo" id="photo" className='hidden' onChange={onChange} accept='image/*' />
                     </form>
                 </div>
             </div>

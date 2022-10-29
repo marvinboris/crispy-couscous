@@ -10,7 +10,7 @@ export default function TicketCard({ draw, expiry, num, status, target }: Ticket
             <div className={classNames(status === 'won' ? "text-green bg-green/10 font-bold" : status === 'claimed' ? "text-red bg-red/10 font-bold" : "bg-blue/10", status === 'pending' ? "text-blue" : "", 'py-1 w-[104.26px] h-[21.06px] md:h-[17.26px] rounded-[3.79121px] inline-flex items-center justify-center text-[9.36px] md:text-[7.58px] mb-[6.32px]')}>
                 {status === 'won' ? "You Won !!!" :
                     status === 'claimed' ? "Already Claimed" :
-                        status === 'pending' ? <div className='font-medium'>
+                        status === 'pending' || status === 'incoming' ? <div className='font-medium'>
                             <span className="mr-[3.79px]">
                                 <div className="inline-block w-[7px] h-[7px] rounded-full border-blue border border-t-transparent animate-spin" />
                             </span> Pending draw

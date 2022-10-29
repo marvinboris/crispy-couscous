@@ -6,9 +6,7 @@ type InputProps = InputHTMLAttributes<HTMLInputElement> & {
     addon?: ReactNode
 }
 
-export default function Input({ icon, label, addon, className, ...rest }: InputProps) {
-    const Icon = icon
-
+export default function Input({ icon: Icon, label, addon, className, ...rest }: InputProps) {
     return <div className={className}>
         {label && <label htmlFor={rest.id ? rest.id : rest.name}>{label}</label>}
 

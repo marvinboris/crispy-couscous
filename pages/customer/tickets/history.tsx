@@ -143,7 +143,7 @@ const MyTicketsPage: NextPageWithLayout = () => {
                     {ticketsHistory.map((item, index) => <div key={`tickets-history-item${item.num}-${index}`} className={classNames('px-8 pt-[15px] pb-[19px]', item.status === 'won' || item.status === 'claimed' ? 'bg-green/10' : '')}>
                         <div className="flex h-9 items-center justify-between">
                             <div className='font-bold'>{item.num}</div>
-                            {item.status === 'won' && <div><Button justify='center' size='sm' color='green' className='font-bold'>Claim</Button></div>}
+                            {item.status === 'won' || item.status === 'claimed' && <div><Button justify='center' size='sm' color='green' className='font-bold'>Claim</Button></div>}
                         </div>
                         <div className="space-y-2.5 text-sm">
                             <div className='space-x-1.5 flex items-center'><CalendarIcon className='w-5 opacity-20' /><span>Exp : {item.expiry && item.expiry.toLocaleDateString()}</span></div>

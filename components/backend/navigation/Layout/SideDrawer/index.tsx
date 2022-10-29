@@ -40,12 +40,6 @@ export default function SideDrawer() {
                             <div className="mb-[69.4px] flex justify-center scale-90">
                                 <SocialNetworks />
                             </div>
-
-                            <div className="flex items-center cursor-pointer">
-                                <div className="mr-6"><ArrowRightOnRectangleIcon className="w-6 text-primary" /></div>
-
-                                <div className="text-lg font-bold text-primary">Logout</div>
-                            </div>
                         </div>
                     </div>
                 </div>

@@ -33,11 +33,9 @@ const MyPrizesPage: NextPageWithLayout = () => {
             <PageTitle animated icon={DocumentPlusIcon} title='My Prizes' subtitle='Check your prizes here' />
 
             <div className="px-[33px] md:px-[42px] pt-[29px] md:pt-[47px] pb-[54px]">
-                <SectionTitle icon={ClipboardDocumentIcon} title='Tickets / History' description='All tickets, free and from purchases'>
-                    <div className='hidden md:block'><Input type="search" icon={DocumentMagnifyingGlassIcon} placeholder="Search Prize" /></div>
-
-                    <div className='pl-3 space-y-3 md:pl-0 md:space-y-0'>
-                        <div className='md:hidden'><Input type="search" icon={DocumentMagnifyingGlassIcon} placeholder="Search Prize" /></div>
+                <SectionTitle icon={ClipboardDocumentIcon} title='Prizes / History' description='All tickets, free and from purchases'>
+                    <div className='flex space-x-2.5 md:space-x-[26px]'>
+                        <div><Input type="search" icon={DocumentMagnifyingGlassIcon} placeholder="Search Prize" /></div>
                         <Link href='/customer/prizes/history'><a><Button icon={DocumentMagnifyingGlassIcon} color='green'>View History</Button></a></Link>
                     </div>
                 </SectionTitle>

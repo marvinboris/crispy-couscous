@@ -12,6 +12,8 @@ module.exports = {
         extend: {
             fontFamily: {
                 sans: ['Plus Jakarta Display', ...defaultTheme.fontFamily.sans],
+                body: ['Euclid Circular A', ...defaultTheme.fontFamily.sans],
+                display: ['Euclid Circular B', 'Euclid Circular A', ...defaultTheme.fontFamily.sans],
             },
             colors: {
                 primary: '#634092',
@@ -22,8 +24,8 @@ module.exports = {
                     300: '#d4d4d4',
                     400: '#a3a3a3',
                     500: '#737373',
-                    600: '#525252',
-                    700: '#404040',
+                    600: '#5A657D',
+                    700: '#4A5568',
                     800: '#262626',
                     900: '#171717',
                 },

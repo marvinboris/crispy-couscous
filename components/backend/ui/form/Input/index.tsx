@@ -12,7 +12,7 @@ export default function Input({ icon, label, addon, className, ...rest }: InputP
     return <div className={className}>
         {label && <label htmlFor={rest.id ? rest.id : rest.name}>{label}</label>}
 
-        <div className="h-12 rounded-[8px] bg-white md:bg-secondary-100 flex items-center">
+        <div className="h-12 rounded-[8px] bg-secondary-700/10 md:bg-secondary-100 flex items-center">
             <div>
                 <div className="w-[47px] flex justify-center">
                     {Icon && <Icon className='w-[18px]' />}

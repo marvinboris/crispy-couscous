@@ -1,4 +1,4 @@
-import { ChevronLeftIcon, ChevronRightIcon, ClipboardDocumentIcon, HomeIcon, InformationCircleIcon, PlayIcon, TicketIcon, WalletIcon } from '@heroicons/react/24/outline'
+import { ChevronLeftIcon, ChevronRightIcon, ClipboardDocumentIcon, ComputerDesktopIcon, DocumentTextIcon, HomeIcon, InformationCircleIcon, PlayIcon, TicketIcon, UserGroupIcon, WalletIcon } from '@heroicons/react/24/outline'
 import { ReactElement, ReactNode, useEffect, useState } from 'react'
 
 import { NextPageWithLayout } from '../_app'
@@ -50,31 +50,31 @@ const PrizeCard = ({ claimed, title, valid_date }: PrizeCardProps) => <div class
 </div>
 
 interface StatCardProps {
-    color: 'sky' | 'blue' | 'green'
+    color: 'sky' | 'blue' | 'green' | 'orange'
     title: string
     children: ReactNode
 }
 
-const StatCard = ({ color, title, children }: StatCardProps) => <div className={classNames(color === 'blue' ? "bg-blue/[.15]" : color === 'sky' ? "bg-sky/[.15]" : "bg-green text-white", 'flex flex-col rounded-[25px] md:rounded-[12.625px] h-[156.88px] md:h-[100.92px] py-[23px] md:py-[13.25px] pl-[26px] md:pl-[20.18px] pr-[22px] md:pr-[10.72px] relative z-0')}>
-    {(color === 'blue' || color === 'sky') && <img src={`/images/backend/mesh-${color}.svg`} alt="BG Stat card" className="absolute inset-0 image-cover -z-10" />}
-
+const StatCard = ({ color, title, children }: StatCardProps) => <div className={classNames(color === 'blue' ? "bg-blue/[.15]" : color === 'sky' ? "bg-sky/[.15]" : color === 'orange' ? 'bg-orange/20' : "bg-green text-white", 'flex font-display flex-col rounded-[25px] md:rounded-[12.625px] h-[156.88px] md:h-[100.92px] py-[23px] md:py-[13.25px] pl-[26px] md:pl-[20.18px] pr-[22px] md:pr-[10.72px] relative z-0')}>
     <div className="text-lg md:text-xs font-medium">{title}</div>
     <div className='pt-[14px] md:pt-[8.6px]'>
-        <div className={classNames(color === 'blue' ? 'bg-secondary-500/10' : color === 'sky' ? 'bg-sky' : color === 'green' ? 'bg-white/30' : 'bg-primary', "block h-[3.15385px] w-[55px] md:w-[17px] rounded-xl")} />
+        <div className={classNames(color === 'green' ? 'bg-white/30' : 'bg-secondary-500/10', "block h-[3.15385px] w-[55px] md:w-[17px] rounded-xl")} />
     </div>
     <div>{children}</div>
 </div>
 
 const Tutorial = ({ photo, title, subtitle }: TutorialType) => <div>
-    <div className='w-[205.35px] md:block md:w-auto h-full px-4 pt-[18.5px] pb-[25.64px] rounded-[24px] md:rounded-[20px] bg-white'>
+    <div className='w-[205.35px] cursor-pointer md:w-auto h-full px-4 group pt-[18.5px] pb-[25.64px] rounded-[24px] md:rounded-[20px] bg-white border border-secondary-700/10 shadow-none hover:shadow-lg hover:border-transparent transition-all duration-200'>
         <div className="ratio-16by9 rounded-[20px] md:rounded-[17.3446px] overflow-hidden">
             <View empty action={<>
                 <div className="absolute z-10 bg-white inset-0" />
                 <img src={photo} alt="Banner" className="absolute top-0 z-20 image-cover scale-110" />
                 <div className="absolute z-30 inset-0 bg-black/40 flex flex-col items-center justify-center">
-                    <div className="w-[47px] md:w-20 h-[47px] md:h-20 rounded-full bg-white/30 flex items-center justify-center animate-pulse">
-                        <div className="w-[30px] md:w-[52px] h-[30px] md:h-[52px] rounded-full bg-white flex items-center justify-center">
-                            <PlayIcon className='w-3 md:w-5 text-orange' />
+                    <div className='opacity-0 group-hover:opacity-100 transition-all duration-200'>
+                        <div className="w-[47px] h-[47px] rounded-full bg-white/30 flex items-center justify-center animate-pulse">
+                            <div className="w-[30px] h-[30px] rounded-full bg-white/30 flex items-center justify-center">
+                                <PlayIcon className='w-3 text-white' />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -108,24 +108,30 @@ const CustomerDashboardPage: NextPageWithLayout = () => {
                 <PageTitle animated icon={HomeIcon} title='Dashboard' subtitle='Welcome!' animationSubtitle={<>You just got a free raffle ticket ! <span className="font-bold">Stay tuned for the draw date</span></>} />
 
                 <div className="pl-[33px] md:pl-[42px] pr-[33px] md:pr-[90px] pt-[29px] md:pt-[47px] pb-[54px]">
-                    <div className="grid gap-2.5 md:grid-cols-4 mb-[51px] md:mb-[59px]">
-                        <StatCard color='sky' title='Total Raffle Tickets'>
+                    <div className="grid gap-2.5 md:grid-cols-4 mb-[51px] md:mb-[35.08px]">
+                        <StatCard color='orange' title='Total Raffle Tickets'>
                             <div className="flex items-end justify-between">
                                 <div className='pb-[7px] md:pb-[5px]'>
                                     <span className="font-bold text-3xl md:text-lg">01</span>
                                 </div>
 
-                                <div><TicketIcon className='w-20 md:w-11 text-blue/10' /></div>
+                                <div><DocumentTextIcon className='w-20 md:w-11 text-orange/20' /></div>
                             </div>
                         </StatCard>
 
                         <StatCard color='blue' title='Next Draw'>
-                            <div className="h-[15.56px] md:h-[7.57px] mt-[15.78px] relative overflow-hidden rounded-xl bg-blue/10">
-                                <div className="h-full rounded-xl bg-blue" style={{ width }} />
-                            </div>
+                            <div className="flex items-center space-x-5">
+                                <div className='flex-1'>
+                                    <div className="h-[15.56px] md:h-[7.57px] mt-[15.78px] relative overflow-hidden rounded-xl bg-blue/10">
+                                        <div className="h-full rounded-xl bg-blue" style={{ width }} />
+                                    </div>
 
-                            <div className="mt-2.5 md:mt-[5.05px] text-lg md:text-xs">
-                                <span className="font-medium">310</span> <span className="font-bold">/ 1000</span>
+                                    <div className="mt-2.5 md:mt-[5.05px] text-lg md:text-xs">
+                                        <span className="font-medium">310</span> <span className="font-bold">/ 1000</span>
+                                    </div>
+                                </div>
+
+                                <div><TicketIcon className='w-20 md:w-11 text-blue/20' /></div>
                             </div>
                         </StatCard>
 
@@ -135,7 +141,7 @@ const CustomerDashboardPage: NextPageWithLayout = () => {
                                     <span className="font-bold text-3xl md:text-lg">240</span>
                                 </div>
 
-                                <div><TicketIcon className='w-20 md:w-11 text-transparent' /></div>
+                                <div><UserGroupIcon className='w-20 md:w-11 text-sky/20' /></div>
                             </div>
                         </StatCard>
 
@@ -164,16 +170,23 @@ const CustomerDashboardPage: NextPageWithLayout = () => {
                         </div>
                     </div>
 
-                    <div className='mb-8'>
-                        <div className="text-2xl font-bold">Tutorials</div>
-                        <div>Learn how the system works.</div>
-                    </div>
+                    <div className="md:bg-white bg-transparent md:pt-[31px] pt-0 md:pr-[72px] pr-0 md:pl-[33px] pl-0 md:pb-[24.43px] pb-0 rounded-[35px]">
+                        <div className='mb-[29px] flex items-center'>
+                            <div className='flex font-display items-center space-x-[18px]'>
+                                <div className='bg-primary/10 rounded-lg flex h-12 w-12 items-center justify-center'><ComputerDesktopIcon className='w-6 text-primary' /></div>
+                                <div>
+                                    <div className="text-2xl font-bold">Tutorials</div>
+                                    <div>Learn how the system works.</div>
+                                </div>
+                            </div>
 
-                    <div className="md:px-[57px] relative">
-                        <div className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 rounded-full items-center justify-center w-8 h-8 bg-secondary-500 bg-opacity-10 hover:bg-opacity-20 transition-all duration-200 cursor-pointer"><ChevronLeftIcon className='w-4' /></div>
-                        <div className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 rounded-full items-center justify-center w-8 h-8 bg-secondary-500 bg-opacity-10 hover:bg-opacity-20 transition-all duration-200 cursor-pointer"><ChevronRightIcon className='w-4' /></div>
+                            <div className='flex ml-auto space-x-[15px]'>
+                                <div className="hidden md:flex rounded-full items-center justify-center w-8 h-8 bg-secondary-500 bg-opacity-10 hover:bg-opacity-20 transition-all duration-200 cursor-pointer"><ChevronLeftIcon className='w-4' /></div>
+                                <div className="hidden md:flex rounded-full items-center justify-center w-8 h-8 bg-secondary-500 bg-opacity-10 hover:bg-opacity-20 transition-all duration-200 cursor-pointer"><ChevronRightIcon className='w-4' /></div>
+                            </div>
+                        </div>
 
-                        <div className="w-screen -mx-[33px] px-[33px] md:w-auto md:mx-0 md:px-0 pb-5 md:pb-0 flex overflow-x-auto md:grid gap-2.5 grid-cols-3">
+                        <div className="w-screen -mx-[33px] px-[33px] md:w-auto md:mx-0 md:px-0 pb-5 flex overflow-x-auto md:grid gap-2.5 md:gap-[30px] grid-cols-3">
                             {tutorialsContent}
                         </div>
                     </div>
@@ -181,7 +194,7 @@ const CustomerDashboardPage: NextPageWithLayout = () => {
             </div>
 
             <div className="w-[300px] hidden md:flex border-l border-secondary-700/10 flex-col">
-                <div className="bg-green/10">
+                <div className="bg-blue/[0.01]">
                     <Aside>
                         <AsideTitle title={<>Target to raffle draw <InformationCircleIcon className='inline-block ml-3 w-6 text-orange' /></>} subtitle='Raffle ticket count' />
 
@@ -199,7 +212,7 @@ const CustomerDashboardPage: NextPageWithLayout = () => {
                     </Aside>
                 </div>
 
-                <div className="bg-secondary-400/20 flex-1">
+                <div className="bg-secondary-300/20 flex-1">
                     <Aside>
                         <div className="flex justify-between">
                             <div>

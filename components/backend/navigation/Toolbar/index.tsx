@@ -1,4 +1,4 @@
-import { AdjustmentsHorizontalIcon, ArrowRightOnRectangleIcon, Bars3BottomLeftIcon, BellIcon, ChatBubbleOvalLeftEllipsisIcon, ClipboardDocumentListIcon, WalletIcon } from "@heroicons/react/24/outline"
+import { AdjustmentsHorizontalIcon, ArrowRightOnRectangleIcon, ArrowTopRightOnSquareIcon, Bars3BottomLeftIcon, BellIcon, ChatBubbleOvalLeftEllipsisIcon, ClipboardDocumentListIcon, WalletIcon } from "@heroicons/react/24/outline"
 
 import { useAccountContext } from "../../../../app/contexts/account"
 import { useSideDrawerContext } from "../../../../app/contexts/sideDrawer"
@@ -14,9 +14,21 @@ export default function Toolbar() {
             <div className="cursor-pointer" onClick={() => setOpen(!open)}><Bars3BottomLeftIcon className='w-10 text-primary' /></div>
 
             <div className="flex ml-auto">
-                <div className="hidden md:block mr-[42px]"><div className="bg-secondary-500/10 rounded-lg py-2.5 px-[27.5px] text-sm">https://www.valyouae.com/ref=?FHKO57</div></div>
+                <div className="hidden md:block mr-[42px]"><div className="bg-secondary-500/10 rounded-lg py-2.5 px-[14px] flex md:items-center md:space-x-2.5 text-sm"><div>https://www.valyouae.com/ref=?FHKO57</div><ArrowTopRightOnSquareIcon className="text-green w-6" /></div></div>
                 <div className="mr-5 md:mr-[51.69px]"><LanguageSelect /></div>
-                <div className="cursor-pointer relative z-0 after:block after:absolute after:w-[12.72px] after:h-[12.72px] after:rounded-full after:bg-green after:top-0 after:right-0 mr-3"><BellIcon className="w-[31px]" /></div>
+                <div className="cursor-pointer relative z-0 group after:block after:absolute after:w-[12.72px] after:h-[12.72px] after:rounded-full after:bg-green after:top-0 after:right-0 mr-3">
+                    <BellIcon className="w-[31px]" />
+
+                    <div className="absolute scale-0 group-hover:scale-100 opacity-0 group-hover:opacity-100 pt-1 top-full right-0 origin-top-right transition-all duration-200">
+                        <div className="bg-white shadow-sm rounded-[14px] p-3 text-xs truncate">
+                            <div className="space-y-2.5">
+                                <div className="flex cursor-pointer items-center space-x-1.5">
+                                    <span><BellIcon className="w-3 text-green" /></span><span>You got a winning ticket</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div className="cursor-pointer relative z-0 after:block after:absolute after:w-[12.72px] after:h-[12.72px] after:rounded-full after:bg-green after:top-0 after:right-0"><ChatBubbleOvalLeftEllipsisIcon className="w-[31px]" /></div>
             </div>
         </div>
@@ -37,7 +49,7 @@ export default function Toolbar() {
                     <img src={account?.photo} alt="User pic" className="absolute inset-0 scale-[2] image-cover" />
                 </div>
 
-                <div className="absolute md:hidden scale-0 group-hover:scale-100 opacity-0 group-hover:opacity-100 pt-1.5 top-full right-0 origin-top-right transition-all duration-200">
+                <div className="absolute scale-0 group-hover:scale-100 opacity-0 group-hover:opacity-100 pt-1.5 top-full right-0 origin-top-right transition-all duration-200">
                     <div className="w-40 bg-white shadow-sm rounded-[14px] px-[7px] pt-[7px] pb-6 text-sm">
                         <div className="bg-green/10 rounded-lg pt-[6px] pb-[5px] pr-[11px] pl-[15px] text-green mb-[13px] flex justify-between">
                             <div className="space-y-0.5">
@@ -49,16 +61,16 @@ export default function Toolbar() {
                         </div>
 
                         <div className="space-y-2.5 px-[13px]">
-                            <div className="flex items-center justify-between">
+                            <div className="flex cursor-pointer md:hidden items-center justify-between">
                                 <span className="text-green">ID : <span className="font-bold">{account?.aid}</span></span><span><img src="/images/backend/copy-id.svg" alt="Copy icon" className="inline-block" /></span>
                             </div>
-                            <div className="flex items-center justify-between">
+                            <div className="flex cursor-pointer md:hidden items-center justify-between">
                                 <span className="text-night font-medium">Referal Link</span><span><img src="/images/backend/copy-link.svg" alt="Copy icon" className="inline-block" /></span>
                             </div>
-                            <div className="flex items-center space-x-[7px]">
+                            <div className="flex cursor-pointer items-center space-x-[7px]">
                                 <span><AdjustmentsHorizontalIcon className="w-4 opacity-20" /></span><span>Settings</span>
                             </div>
-                            <div className="flex items-center space-x-[7px] text-red">
+                            <div className="flex cursor-pointer items-center space-x-[7px] text-red">
                                 <span><ArrowRightOnRectangleIcon className="w-4" /></span><span className="font-bold">Logout</span>
                             </div>
                         </div>

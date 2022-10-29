@@ -17,11 +17,6 @@ export default function IntroductionVideo({ isOpen, setIsOpen, language }: Intro
     const { setLanguage } = useLanguageContext()
 
     const [video, setVideo] = useState<HTMLVideoElement | null>(null)
-    const [length, setLength] = useState(0);
-    const [time, setTime] = useState(0);
-    const [volume, setVolume] = useState(0.8);
-    const [rate, setRate] = useState(1);
-    const [end, setEnd] = useState(false);
 
     const close = () => {
         // if (end) setIsOpen(false)
@@ -32,39 +27,11 @@ export default function IntroductionVideo({ isOpen, setIsOpen, language }: Intro
             video?.pause();
 
             setVideo(null)
-            setLength(0)
-            setTime(0)
-            setEnd(false)
         };
     }, [])
 
     const setVideoRef = (video: HTMLVideoElement) => {
-        if (video) {
-            const setVideoData = () => {
-                setLength(video.duration);
-                setTime(video.currentTime);
-            };
-
-            const setVideoTime = () => {
-                const curTime = video.currentTime;
-                setTime(curTime);
-            };
-
-            const setVideoVolume = () => setVolume(video.volume);
-
-            const setVideoRate = () => setRate(video.playbackRate);
-
-            const setVideoEnd = () => setEnd(true);
-
-            // events on video object
-            video.addEventListener("loadeddata", setVideoData);
-            video.addEventListener("timeupdate", setVideoTime);
-            video.addEventListener("volumechange", setVideoVolume);
-            video.addEventListener("ratechange", setVideoRate);
-            video.addEventListener("ended", setVideoEnd);
-
-            setVideo(video)
-        }
+        if (video) setVideo(video)
     }
 
     const getStartedSubmitHandler = (e: FormEvent) => {
@@ -83,9 +50,9 @@ export default function IntroductionVideo({ isOpen, setIsOpen, language }: Intro
                 <Transition.Child as={Fragment} enter="ease-out duration-300" enterFrom="opacity-0 scale-95" enterTo="opacity-100 scale-100" leave="ease-in duration-200" leaveFrom="opacity-100 scale-100" leaveTo="opacity-0 scale-95">
                     <div className="container">
                         <Dialog.Panel className="mx-auto max-w-xs md:max-w-4xl w-full relative">
-                            {end && <div className="absolute -translate-y-full -top-[120px] md:-top-[51px] right-0 md:-right-[14px] md:translate-x-full">
+                            <div className="absolute -translate-y-full -top-[120px] md:-top-[51px] right-0 md:-right-[14px] md:translate-x-full">
                                 <div onClick={() => setIsOpen(false)} className="w-[60px] h-[60px] rounded-full flex items-center justify-center cursor-pointer bg-white/20"><div><XMarkIcon className='w-10 text-white' /></div></div>
-                            </div>}
+                            </div>
 
                             <div className="bg-secondary-800">
                                 <video ref={setVideoRef} autoPlay src="/videos/Raffle Draw Motion Graphics.mp4" className='w-full' />
@@ -96,7 +63,7 @@ export default function IntroductionVideo({ isOpen, setIsOpen, language }: Intro
             </Dialog>
         </Transition>
 
-        {end && isOpen && <div className="fixed z-[100] left-1/2 -translate-x-1/2 bottom-12" onClick={() => setLanguage(language)}>
+        {isOpen && <div className="fixed z-[100] left-1/2 -translate-x-1/2 bottom-12" onClick={() => setLanguage(language)}>
             <GetStarted onSubmit={getStartedSubmitHandler} color="white" />
         </div>}
     </div>

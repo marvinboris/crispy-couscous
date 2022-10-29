@@ -4,10 +4,10 @@ import { classNames } from "../../../../app/helpers/utils";
 import TicketType from "../../../../app/types/ticket";
 
 export default function TicketCard({ draw, expiry, num, status, target }: TicketType) {
-    return <div className={classNames(status === 'won' || status === 'claimed' ? "border-green" : "border-blue", "bg-white rounded-[18.956px] pt-[13.9px] pl-[18.32px] pb-[13.91px] pr-[9.59px] border-[1.26px] flex")}>
+    return <div className={classNames(status === 'won' || status === 'claimed' ? "border-green" : "border-blue", "bg-white rounded-[18.956px] pt-[17.16px] md:pt-[13.9px] pl-[22.22px] md:pl-[18.32px] pb-[16.56px] md:pb-[13.91px] pr-[27.02px] md:pr-[9.59px] border-[1.26px] flex")}>
         <div className="flex-1">
-            <div className="font-bold text-[11.37px] mb-[3.06px]">{num}</div>
-            <div className={classNames(status === 'won' ? "text-green bg-green/10 font-bold" : status === 'claimed' ? "text-red bg-red/10 font-bold" : "bg-blue/10", status === 'pending' ? "text-blue" : "", 'py-1 w-[104.26px] h-[17.26px] rounded-[3.79121px] inline-flex items-center justify-center text-[7.58px] mb-[6.32px]')}>
+            <div className="font-bold text-[14.04px] md:text-[11.37px] mb-[4.04px] md:mb-[3.06px]">{num}</div>
+            <div className={classNames(status === 'won' ? "text-green bg-green/10 font-bold" : status === 'claimed' ? "text-red bg-red/10 font-bold" : "bg-blue/10", status === 'pending' ? "text-blue" : "", 'py-1 w-[104.26px] h-[21.06px] md:h-[17.26px] rounded-[3.79121px] inline-flex items-center justify-center text-[9.36px] md:text-[7.58px] mb-[6.32px]')}>
                 {status === 'won' ? "You Won !!!" :
                     status === 'claimed' ? "Already Claimed" :
                         status === 'pending' ? <div className='font-medium'>
@@ -20,7 +20,7 @@ export default function TicketCard({ draw, expiry, num, status, target }: Ticket
                             </span> Draw Date : {draw.toLocaleDateString()}
                         </div>}
             </div>
-            <div className={classNames(status === 'won' ? "bg-green text-white" : "relative text-green", "h-[27.8px] font-bold rounded-[5.05494px] text-[10px] overflow-hidden mb-[12.3px] flex items-center justify-center")}>
+            <div className={classNames(status === 'won' ? "bg-green text-white" : "relative text-green", "h-[34.32px] md:h-[27.8px] font-bold rounded-[5.05494px] text-[12.34px] md:text-[10px] overflow-hidden mb-[14.46px] md:mb-[12.3px] flex items-center justify-center")}>
                 {status === 'won' ? <span>
                     Claim your prize !!!
                 </span> : status === 'claimed' ? <>
@@ -31,7 +31,7 @@ export default function TicketCard({ draw, expiry, num, status, target }: Ticket
                     <img src='/images/logo.svg' alt='Logo' className='h-full w-auto z-10' />
                 </>}
             </div>
-            <div className="text-[10.11px]">
+            <div className="text-[12.48px] md:text-[10.11px]">
                 {status === 'won' || status === 'claimed' ? <>
                     <span className="font-bold">Expiry :</span> {expiry?.toLocaleDateString()}
                 </> : <>
@@ -40,8 +40,8 @@ export default function TicketCard({ draw, expiry, num, status, target }: Ticket
             </div>
         </div>
 
-        <div className="ml-[15.8px] pt-[4.42px]">
-            <img src={`/images/backend/${status === 'won' || status === 'claimed' ? "qr-green.svg" : "qr-blue.svg"}`} alt="QR code" className="w-[65.6px] h-auto" />
+        <div className="ml-12 md:ml-[15.8px] pt-[4.42px]">
+            <img src={`/images/backend/${status === 'won' || status === 'claimed' ? "qr-green.svg" : "qr-blue.svg"}`} alt="QR code" className="w-20 md:w-[65.6px] h-auto" />
         </div>
     </div>
 }

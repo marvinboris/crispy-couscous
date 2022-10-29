@@ -21,7 +21,7 @@ export default function Layout({ children }: LayoutProps) {
 
         <div className="w-24 h-24 rounded-full border-[7px] border-primary border-t-primary/20 animate-spin" />
     </div> : <SideDrawerContext.Provider value={{ open, setOpen }}>
-        <div className='h-screen flex relative overflow-hidden'>
+        <div className='h-screen flex relative overflow-hidden font-body'>
             <SideDrawer />
 
             <div className='flex-1 h-screen flex flex-col bg-secondary-100 overflow-y-auto'>

@@ -24,7 +24,7 @@ export default function PageTitle({ title, subtitle: defaultSubtitle, animated, 
         </div>
 
         <div>
-            <div className="text-lg font-medium">{title}</div>
+            <div className="text-lg font-medium font-display">{title}</div>
             <div className='transition-all duration-200 text-green'>{subtitle}</div>
         </div>
     </div>

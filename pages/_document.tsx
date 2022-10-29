@@ -7,8 +7,8 @@ export default function Document() {
         <Html>
             <Head>
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/plus-jakarta-display.min.css" />
-                <link href="http://fonts.cdnfonts.com/css/euclid-circular-a" rel="stylesheet" />
-                <link href="http://fonts.cdnfonts.com/css/euclid-circular-b" rel="stylesheet" />
+                <link href="https://fonts.cdnfonts.com/css/euclid-circular-a" rel="stylesheet" />
+                <link href="https://fonts.cdnfonts.com/css/euclid-circular-b" rel="stylesheet" />
                 <link rel="icon" href="/images/logo-512x512.png" />
 
                 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />

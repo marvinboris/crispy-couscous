@@ -2,7 +2,7 @@
 import { Fragment, ComponentProps } from 'react'
 import Link from 'next/link'
 import { Popover, Transition } from '@headlessui/react'
-import { XMarkIcon, HomeIcon, IdentificationIcon, Bars3BottomRightIcon, PhoneIcon, QuestionMarkCircleIcon } from '@heroicons/react/24/outline'
+import { XMarkIcon, HomeIcon, IdentificationIcon, Bars3BottomRightIcon, PhoneIcon, QuestionMarkCircleIcon, ArrowLeftOnRectangleIcon } from '@heroicons/react/24/outline'
 
 import Logo from '../../../ui/Logo'
 
@@ -10,6 +10,7 @@ import NavItem from './NavItem'
 import LanguageSelect from './LanguageSelect'
 import Dropdown from './Dropdown'
 import Resource from './Resource'
+import Button from '../../ui/form/Button'
 
 const listItems = [
     { href: '/about/mission', label: 'Mission' },
@@ -68,6 +69,8 @@ export default function Toolbar() {
                             <div>
                                 <LanguageSelect />
                             </div>
+
+                            <div className='hidden md:block ml-[26px]'><Button size='sm'><span className='font-medium'>Sign In</span><span><ArrowLeftOnRectangleIcon className='ml-2 inline-block w-5 text-white/60 group-hover:text-white transition-all duration-200' /></span></Button></div>
 
                             <div className="md:hidden ml-auto md:ml-4">
                                 <Popover.Button className="flex h-10 items-center justify-center rounded-md p-2 text-primary bg-primary/10 -m-2 focus:outline-none">

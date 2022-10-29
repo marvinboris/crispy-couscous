@@ -1,4 +1,5 @@
 import { ArrowRightIcon } from '@heroicons/react/20/solid';
+import { ArrowLeftOnRectangleIcon } from '@heroicons/react/24/outline';
 import { useState } from 'react'
 
 import { useLanguageContext } from '../app/contexts/language';
@@ -39,8 +40,9 @@ export default function ScreenPage() {
 
             <IntroductionVideo isOpen={isOpen} setIsOpen={setIsOpen} language={language} />
 
-            <div className="w-full mt-[30px] md:mt-[37px]">
-                <Logo />
+            <div className="w-full mt-[30px] md:mt-[37px] flex justify-between items-center">
+                <div><Logo /></div>
+                <div className='hidden md:block'><Button size='sm'><span className='font-medium'>Sign In</span><span><ArrowLeftOnRectangleIcon className='ml-2 inline-block w-5 text-white/60 group-hover:text-white transition-all duration-200' /></span></Button></div>
             </div>
 
             <div className="flex flex-1 flex-col items-center mt-[101.98px] md:mt-[77px] pb-12">
@@ -61,6 +63,8 @@ export default function ScreenPage() {
 
                 <div className="absolute left-1/2 -translate-x-1/2 bottom-12">
                     <Button onClick={onClick} icon={ArrowRightIcon}>Get Started</Button>
+
+                    <div className='md:hidden font-medium font-body text-center mt-[25px]'>Or <span className="font-bold text-primary">Sign In</span></div>
                 </div>
             </div>
         </div>

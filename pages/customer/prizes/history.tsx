@@ -1,4 +1,4 @@
-import { CheckCircleIcon, ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon, DocumentMagnifyingGlassIcon, DocumentPlusIcon, EyeIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline'
+import { CalendarIcon, CheckCircleIcon, ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon, DocumentMagnifyingGlassIcon, DocumentPlusIcon, DocumentTextIcon, EyeIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import { ReactElement, useEffect, useState } from 'react'
 
@@ -46,7 +46,7 @@ const MyTicketsPage: NextPageWithLayout = () => {
         <main className='flex-1'>
             <PageTitle animated icon={DocumentPlusIcon} title='My Prizes' subtitle='Check your prizes here' />
 
-            <div className="px-[33px] md:px-[42px] pt-[29px] md:pt-[47px] pb-[54px]">
+            <div className="px-[33px] md:px-[42px] pt-[29px] md:pt-[47px] pb-[54px] hidden md:block">
                 <div className="bg-white rounded-[30px] py-8 px-[38.36px] shadow-2xl mb-[25px]">
                     <div className="mb-[30.89px] flex items-center justify-between">
                         <div>
@@ -121,6 +121,32 @@ const MyTicketsPage: NextPageWithLayout = () => {
                         <div className='w-[20.45px] h-[20.45px] cursor-pointer rounded-full flex items-center justify-center bg-green text-white'><ChevronRightIcon className='w-2.5' /></div>
                     </div>
                 </div>
+            </div>
+            
+            <div className='md:hidden pb-[144px] md:pb-0'>
+                <div className="pt-8 pb-6 px-8 flex items-center space-x-[17px]">
+                    <div><Input type="search" icon={MagnifyingGlassIcon} placeholder="Search..." /></div>
+                    <div><Link href='/customer/prizes'><a><Button icon={DocumentMagnifyingGlassIcon} color='green'>View Prizes</Button></a></Link></div>
+                </div>
+
+                {prizesHistory && <div className="divide-y divide-secondary-700/10 border-y border-secondary-700/10">
+                    {prizesHistory.map((item, index) => <div key={`prizes-history-item${item.ticket_num}-${index}`} className='px-8 pt-[15px] pb-[19px] bg-green/10'>
+                        <div className="flex h-9 items-center justify-between">
+                            <div className='font-bold'>{item.ticket_num}</div>
+                            <div className="rounded-lg bg-green/10 text-[10.52px] text-green font-medium h-8 px-2.5 flex items-center space-x-1"><CheckCircleIcon className='w-[14px] -mx-0.5' /><span>{item.type === 'product' ? 'Collected' : 'Credited'}</span></div>
+                        </div>
+                        <div className="space-y-2.5 text-sm">
+                            <div className='space-x-1.5 flex items-center'><CalendarIcon className='w-5 opacity-20' /><span>Exp : {item.date.toLocaleDateString()}</span></div>
+                            <div className='space-x-1.5 flex items-center'><DocumentTextIcon className='w-5 opacity-20' /><span>{item.type === 'voucher' ? 'Credited to Wallet' : 'Item collected'}</span></div>
+                            <div>
+                                <div className='w-[138.32px] bg-secondary-100/10 relative h-8 rounded-[5.05494px] overflow-hidden flex items-center justify-center text-green text-xs'>
+                                    <img src={`/images/backend/claimed-ticket.svg`} alt='BG Pending ticket' className='image-cover absolute z-0 opacity-40' />
+                                    {item.type === 'product' ? <span className='font-bold'>{item.price}</span> : <span><span className='font-bold'>{item.price} AED</span> VOUCHER</span>}
+                                </div>
+                            </div>
+                        </div>
+                    </div>)}
+                </div>}
             </div>
         </main>
     </>

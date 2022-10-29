@@ -153,7 +153,7 @@ const CustomerDashboardPage: NextPageWithLayout = () => {
                     <div className='md:hidden mb-6'>
                         <AsideTitle title={<>Prizes Won</>} subtitle='Check your prizes' />
 
-                        <div className="mt-[41px] space-x-[11px] flex items-stretch w-screen md:w-auto overflow-auto -mx-[33px] px-[33px] pb-5">
+                        <div className="mt-[41px] space-x-[11px] flex items-stretch w-screen md:w-auto overflow-x-auto -mx-[33px] px-[33px] pb-5">
                             <div>
                                 <PrizeCard claimed valid_date='12/09/2023' title={<><span className="text-night">50 AED</span> Gift Card</>} />
                             </div>
@@ -170,14 +170,12 @@ const CustomerDashboardPage: NextPageWithLayout = () => {
                     </div>
 
                     <div className="md:px-[57px] relative">
-                        <div className="absolute left-0 top-1/2 -translate-y-1/2 rounded-full flex items-center justify-center w-8 h-8 bg-secondary-500 bg-opacity-10 hover:bg-opacity-20 transition-all duration-200 cursor-pointer"><ChevronLeftIcon className='w-4' /></div>
-                        <div className="absolute right-0 top-1/2 -translate-y-1/2 rounded-full flex items-center justify-center w-8 h-8 bg-secondary-500 bg-opacity-10 hover:bg-opacity-20 transition-all duration-200 cursor-pointer"><ChevronRightIcon className='w-4' /></div>
+                        <div className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 rounded-full items-center justify-center w-8 h-8 bg-secondary-500 bg-opacity-10 hover:bg-opacity-20 transition-all duration-200 cursor-pointer"><ChevronLeftIcon className='w-4' /></div>
+                        <div className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 rounded-full items-center justify-center w-8 h-8 bg-secondary-500 bg-opacity-10 hover:bg-opacity-20 transition-all duration-200 cursor-pointer"><ChevronRightIcon className='w-4' /></div>
 
-                        <div className="grid gap-2.5 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+                        <div className="w-screen -mx-[33px] px-[33px] md:w-auto md:mx-0 md:px-0 pb-5 md:pb-0 flex overflow-x-auto md:grid gap-2.5 grid-cols-3">
                             {tutorialsContent}
                         </div>
-                    </div>
-                    <div className="flex items-stretch -mx-[33px] px-[33px] md:mx-0 md:px-0 pb-5 md:pb-0 w-screen md:w-auto overflow-auto md:overflow-visible space-x-[22px] md:space-x-0 md:grid md:gap-2.5 md:grid-cols-3">
                     </div>
                 </div>
             </div>

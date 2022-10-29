@@ -4,4 +4,6 @@ export default interface TicketType {
     expiry: Date | null
     draw: Date
     target: number
+    type?: 'voucher' | 'product'
+    price?: string | number
 }

@@ -3,6 +3,7 @@ import { ArrowLeftOnRectangleIcon } from '@heroicons/react/24/outline';
 import { useState } from 'react'
 
 import { useLanguageContext } from '../app/contexts/language';
+import { classNames } from '../app/helpers/utils';
 import LanguageType from '../app/types/language';
 import { Head } from '../components/frontend/navigation/Layout';
 import IntroductionVideo from '../components/frontend/screen/IntroductionVideo';
@@ -61,7 +62,7 @@ export default function ScreenPage() {
                     {languagesContent}
                 </div>
 
-                <div className="absolute left-1/2 -translate-x-1/2 bottom-12">
+                <div className={classNames(isOpen ? "opacity-0" : "opacity-100", "transition-all duration-200")}>
                     <Button onClick={onClick} icon={ArrowRightIcon}>Get Started</Button>
 
                     <div className='md:hidden font-medium font-body text-center mt-[25px]'>Or <span className="font-bold text-primary">Sign In</span></div>

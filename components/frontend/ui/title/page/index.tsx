@@ -4,7 +4,7 @@ interface PageTitleProps {
 }
 
 export default function PageTitle({ title, breadcrumb }: PageTitleProps) {
-    return <div className='mb-[30px] md:-ml-[19px] relative flex items-center'>
+    return <div className='mb-[30px] md:-ml-[19px] relative flex'>
         <div className='mr-[9px]'>
             <img src="/images/dots.svg" alt="Dots" className='w-[58px] md:w-[106px]' />
         </div>

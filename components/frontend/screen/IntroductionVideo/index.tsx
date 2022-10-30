@@ -55,7 +55,7 @@ export default function IntroductionVideo({ isOpen, setIsOpen, language }: Intro
                             </div>
 
                             <div className="bg-secondary-800">
-                                <video ref={setVideoRef} autoPlay src="/videos/Raffle Draw Motion Graphics.mp4" playsInline className='w-full' />
+                                <video ref={setVideoRef} autoPlay src="/videos/Raffle Draw Motion Graphics.mp4" playsInline muted className='w-full' />
                             </div>
                         </Dialog.Panel>
                     </div>

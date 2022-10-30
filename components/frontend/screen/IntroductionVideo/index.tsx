@@ -16,22 +16,14 @@ interface IntroductionVideoProps {
 export default function IntroductionVideo({ isOpen, setIsOpen, language }: IntroductionVideoProps) {
     const { setLanguage } = useLanguageContext()
 
-    const [video, setVideo] = useState<HTMLVideoElement | null>(null)
-
     const close = () => {
         // if (end) setIsOpen(false)
     }
 
-    useEffect(() => {
-        return () => {
-            video?.pause();
-
-            setVideo(null)
-        };
-    }, [])
-
     const setVideoRef = (video: HTMLVideoElement) => {
-        if (video) setVideo(video)
+        if (video) {
+            video.muted = false
+        }
     }
 
     const getStartedSubmitHandler = (e: FormEvent) => {

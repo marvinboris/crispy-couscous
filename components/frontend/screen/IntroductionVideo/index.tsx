@@ -24,7 +24,7 @@ export default function IntroductionVideo({ isOpen, setIsOpen, language }: Intro
         if (video) {
             setTimeout(() => {
                 video.muted = false
-            }, 1000);
+            }, 3000);
         }
     }
 

@@ -22,7 +22,9 @@ export default function IntroductionVideo({ isOpen, setIsOpen, language }: Intro
 
     const setVideoRef = (video: HTMLVideoElement) => {
         if (video) {
-            video.muted = false
+            setTimeout(() => {
+                video.muted = false
+            }, 1000);
         }
     }
 

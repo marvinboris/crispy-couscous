@@ -50,9 +50,9 @@ const MyTicketsPage: NextPageWithLayout = () => {
                 <div className="bg-white rounded-[30px] py-8 px-[38.36px] shadow-2xl mb-[25px]">
                     <div className="mb-[30.89px] flex items-center justify-between">
                         <div>
-                            <div className="font-bold mb-[4.63px] text-[16.43px]">My Ticket History</div>
+                            <div className="font-bold mb-[4.63px] text-[16.43px]">My Prize History</div>
 
-                            <div className="text-[10.52px] mb-[13.6068px]">Ticket history</div>
+                            <div className="text-[10.52px] mb-[13.6068px]">Prize history</div>
 
                             <div className="w-[30.24px] h-[6.5732px] rounded-xl bg-green" />
                         </div>
@@ -77,7 +77,7 @@ const MyTicketsPage: NextPageWithLayout = () => {
 
                             <div className='pl-3 space-y-3 md:pl-0 md:space-y-0'>
                                 <div className='md:hidden'><Input type="search" icon={MagnifyingGlassIcon} placeholder="Search..." /></div>
-                                <Link href='/customer/tickets'><a><Button icon={DocumentMagnifyingGlassIcon} color='green'>View Prizes</Button></a></Link>
+                                <Link href='/customer/prizes'><a><Button icon={DocumentMagnifyingGlassIcon} color='green'>View Prizes</Button></a></Link>
                             </div>
                         </div>
                     </div>

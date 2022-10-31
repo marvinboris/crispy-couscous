@@ -16,6 +16,7 @@ export default function Toolbar() {
     const [copiedLink, setCopiedLink] = useState(false)
 
     const copyId = () => {
+        setCopiedLink(false)
         setCopiedId(true)
         setTimeout(() => {
             setCopiedId(false)
@@ -23,6 +24,7 @@ export default function Toolbar() {
     }
 
     const copyLink = () => {
+        setCopiedId(false)
         setCopiedLink(true)
         setTimeout(() => {
             setCopiedLink(false)
@@ -30,16 +32,16 @@ export default function Toolbar() {
     }
 
     const idCopyIcon = <CopyToClipboard text={account?.aid!} onCopy={copyId}>
-        <div className="relative">
-            <img src="/images/backend/copy-id.svg" alt="Copy icon" className="inline-block" />
-            <div className={classNames(copiedId ? 'opacity-100 scale-100' : 'opacity-0 scale-0', "bg-secondary-800 origin-top-right transition-all duration-200 text-white p-1 rounded absolute top-full mt-1 right-0")}>Copied</div>
+        <div className="inline-block relative">
+            <img src="/images/backend/copy-id.svg" alt="Copy icon" className="inline-block cursor-pointer" />
+            <div className={classNames(copiedId ? 'opacity-100 scale-100' : 'opacity-0 scale-0', "bg-secondary-800 text-xs origin-top-right transition-all duration-200 text-white p-1 rounded absolute top-full mt-1 right-0")}>Copied</div>
         </div>
     </CopyToClipboard >
 
     const LinkCopy = ({ children }: { children: ReactNode }) => <CopyToClipboard text='https://www.valyouae.com/ref=?FHKO57' onCopy={copyLink}>
-        <div className="relative">
-            {children}
-            <div className={classNames(copiedId ? 'opacity-100 scale-100' : 'opacity-0 scale-0', "bg-secondary-800 origin-top-right transition-all duration-200 text-white p-1 rounded absolute top-full mt-1 right-0")}>Copied</div>
+        <div className="inline-block relative">
+            <div className="cursor-pointer">{children}</div>
+            <div className={classNames(copiedLink ? 'opacity-100 scale-100' : 'opacity-0 scale-0', "bg-secondary-800 text-xs origin-top-right transition-all duration-200 text-white p-1 rounded absolute top-full mt-1 right-0")}>Copied</div>
         </div>
     </CopyToClipboard >
 

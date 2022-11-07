@@ -50,7 +50,7 @@ export default function Toolbar() {
             <div className="cursor-pointer" onClick={() => setOpen(!open)}><Bars3BottomLeftIcon className='w-10 text-primary' /></div>
 
             <div className="flex ml-auto">
-                <div className="hidden md:block mr-[42px]"><LinkCopy><div className="bg-secondary-500/10 rounded-lg py-2.5 px-[14px] flex md:items-center md:space-x-2.5 text-sm"><div>https://www.valyouae.com/ref=?FHKO57</div><ArrowTopRightOnSquareIcon className="text-green w-6" /></div></LinkCopy></div>
+                <div className="hidden xl:block mr-[42px]"><LinkCopy><div className="bg-secondary-500/10 rounded-lg py-2.5 px-[14px] flex md:items-center md:space-x-2.5 text-sm"><div>https://www.valyouae.com/ref=?FHKO57</div><ArrowTopRightOnSquareIcon className="text-green w-6" /></div></LinkCopy></div>
                 <div className="mr-5 md:mr-[51.69px]"><LanguageSelect /></div>
                 <div className="cursor-pointer relative z-0 group after:block after:absolute after:w-[12.72px] after:h-[12.72px] after:rounded-full after:bg-green after:top-0 after:right-0 mr-3">
                     <BellIcon className="w-[31px]" />
@@ -100,7 +100,7 @@ export default function Toolbar() {
                             <div className="flex cursor-pointer md:hidden items-center justify-between">
                                 <span className="text-green">ID : <span className="font-bold">{account?.aid}</span></span><span>{idCopyIcon}</span>
                             </div>
-                            <div className="flex cursor-pointer md:hidden items-center justify-between">
+                            <div className="flex cursor-pointer xl:hidden items-center justify-between">
                                 <span className="text-night font-medium">Referal Link</span><span><LinkCopy><img src="/images/backend/copy-link.svg" alt="Copy icon" className="inline-block" /></LinkCopy></span>
                             </div>
                             <div className="flex cursor-pointer items-center space-x-[7px]">

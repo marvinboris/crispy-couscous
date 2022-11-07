@@ -64,8 +64,8 @@ const StatCard = ({ color, title, children }: StatCardProps) => <div className={
 </div>
 
 const Tutorial = ({ photo, title, subtitle }: TutorialType) => <div>
-    <div className='w-[205.35px] cursor-pointer md:w-auto h-full px-4 group pt-[18.5px] pb-[25.64px] rounded-[24px] md:rounded-[20px] bg-white border border-secondary-700/10 shadow-none hover:shadow-lg hover:border-transparent transition-all duration-200'>
-        <div className="ratio-16by9 rounded-[20px] md:rounded-[17.3446px] overflow-hidden">
+    <div className='w-[205.35px] cursor-pointer xl:w-auto h-full px-4 group pt-[18.5px] pb-[25.64px] rounded-[24px] xl:rounded-[20px] bg-white border border-secondary-700/10 shadow-none hover:shadow-lg hover:border-transparent transition-all duration-200'>
+        <div className="ratio-16by9 rounded-[20px] xl:rounded-[17.3446px] overflow-hidden">
             <View empty action={<>
                 <div className="absolute z-10 bg-white inset-0" />
                 <img src={photo} alt="Banner" className="absolute top-0 z-20 image-cover scale-110" />
@@ -84,8 +84,8 @@ const Tutorial = ({ photo, title, subtitle }: TutorialType) => <div>
             </View>
         </div>
 
-        <div className='mt-[20.24px] md:mt-[21px]'>
-            <div className="text-xs md:text-sm">{title}</div>
+        <div className='mt-[20.24px] xl:mt-[21px]'>
+            <div className="text-xs xl:text-sm">{title}</div>
         </div>
     </div>
 </div>
@@ -107,8 +107,8 @@ const CustomerDashboardPage: NextPageWithLayout = () => {
             <div className="flex-1">
                 <PageTitle animated icon={HomeIcon} title='Dashboard' subtitle='Welcome!' animationSubtitle={<>You just got a free raffle ticket ! <span className="font-bold">Stay tuned for the draw date</span></>} />
 
-                <div className="pl-[33px] md:pl-[42px] pr-[33px] md:pr-[90px] pt-[29px] md:pt-[47px] pb-[54px]">
-                    <div className="grid gap-2.5 md:grid-cols-4 mb-[51px] md:mb-[35.08px]">
+                <div className="pl-[33px] xl:pl-[42px] pr-[33px] xl:pr-[90px] pt-[29px] xl:pt-[47px] pb-[54px]">
+                    <div className="grid gap-2.5 md:grid-cols-2 xl:grid-cols-4 mb-[51px] lg:mb-[35.08px]">
                         <StatCard color='orange' title='Total Raffle Tickets'>
                             <div className="flex items-end justify-between">
                                 <div className='pb-[7px] md:pb-[5px]'>
@@ -181,13 +181,15 @@ const CustomerDashboardPage: NextPageWithLayout = () => {
                             </div>
 
                             <div className='flex ml-auto space-x-[15px]'>
-                                <div className="hidden md:flex rounded-full items-center justify-center w-8 h-8 bg-secondary-500 bg-opacity-10 hover:bg-opacity-20 transition-all duration-200 cursor-pointer"><ChevronLeftIcon className='w-4' /></div>
-                                <div className="hidden md:flex rounded-full items-center justify-center w-8 h-8 bg-secondary-500 bg-opacity-10 hover:bg-opacity-20 transition-all duration-200 cursor-pointer"><ChevronRightIcon className='w-4' /></div>
+                                <div className="hidden xl:flex rounded-full items-center justify-center w-8 h-8 bg-secondary-500 bg-opacity-10 hover:bg-opacity-20 transition-all duration-200 cursor-pointer"><ChevronLeftIcon className='w-4' /></div>
+                                <div className="hidden xl:flex rounded-full items-center justify-center w-8 h-8 bg-secondary-500 bg-opacity-10 hover:bg-opacity-20 transition-all duration-200 cursor-pointer"><ChevronRightIcon className='w-4' /></div>
                             </div>
                         </div>
 
-                        <div className="w-screen -mx-[33px] px-[33px] md:w-auto md:mx-0 md:px-0 pb-5 flex overflow-x-auto md:grid gap-2.5 md:gap-[30px] grid-cols-3">
-                            {tutorialsContent}
+                        <div className='w-full overflow-x-auto'>
+                            <div className="max-w-xs -mx-[33px] px-[33px] xl:max-w-none xl:w-auto xl:mx-0 xl:px-0 pb-5 flex xl:grid gap-2.5 xl:gap-[30px] grid-cols-3">
+                                {tutorialsContent}
+                            </div>
                         </div>
                     </div>
                 </div>

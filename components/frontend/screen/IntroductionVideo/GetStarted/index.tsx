@@ -33,7 +33,7 @@ export default function GetStarted({ color = 'primary', onSubmit }: GetStartedPr
         first_name: '',
         last_name: '',
         email: '',
-        code: '',
+        code: '971',
         phone: '',
         password: '',
         password_confirmation: '',

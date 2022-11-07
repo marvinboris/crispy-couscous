@@ -11,6 +11,7 @@ import LanguageSelect from './LanguageSelect'
 import Dropdown from './Dropdown'
 import Resource from './Resource'
 import Button from '../../ui/form/Button'
+import SignIn from './sign-in'
 
 const listItems = [
     { href: '/about/mission', label: 'Mission' },
@@ -70,7 +71,9 @@ export default function Toolbar() {
                                 <LanguageSelect />
                             </div>
 
-                            <div className='hidden md:block ml-[26px]'><Button size='sm'><span className='font-medium'>Sign In</span><span><ArrowLeftOnRectangleIcon className='ml-2 inline-block w-5 text-white/60 group-hover:text-white transition-all duration-200' /></span></Button></div>
+                            <div className='hidden md:block ml-[26px]'>
+                                <SignIn />
+                            </div>
 
                             <div className="md:hidden ml-auto md:ml-4">
                                 <Popover.Button className="flex h-10 items-center justify-center rounded-md p-2 text-primary bg-primary/10 -m-2 focus:outline-none">

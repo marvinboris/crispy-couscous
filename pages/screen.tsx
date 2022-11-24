@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { useLanguageContext } from '../app/contexts/language';
 import { classNames } from '../app/helpers/utils';
 import LanguageType from '../app/types/language';
+
 import { Head } from '../components/frontend/navigation/Layout';
 import IntroductionVideo from '../components/frontend/screen/IntroductionVideo';
 import LanguageBlock from "../components/frontend/screen/LanguageBlock";
@@ -23,7 +24,7 @@ export default function ScreenPage() {
     const { languages } = useLanguageContext()
     const [abbr, setAbbr] = useState(languages![0].abbr)
 
-    const languagesContent = languages?.map(language => <LanguageBlock key={`language-${language.abbr}`} language={language} selected={language.abbr === abbr} select={setAbbr} />)
+    const languagesContent = languages?.map(language => <LanguageBlock key={`language-${language.abbr}`} language={language} selected={language.abbr === abbr || (language.items && language.items.find(item => item.abbr === abbr)) !== undefined} select={setAbbr} />)
 
     const onClick = () => {
         const language = languages?.find(l => l.abbr === abbr)
@@ -62,7 +63,7 @@ export default function ScreenPage() {
                     {languagesContent}
                 </div>
 
-                <div className={classNames(isOpen ? "opacity-0" : "opacity-100", "transition-all duration-200")}>
+                <div className={classNames(isOpen ? "opacity-0" : "opacity-100", "transition-all duration-200 sticky -bottom-8")}>
                     <Button onClick={onClick} icon={ArrowRightIcon}>Get Started</Button>
 
                     <div className='md:hidden font-medium font-body text-center mt-[25px]'>Or <span className="font-bold text-primary">Sign In</span></div>

@@ -2,7 +2,7 @@ import React, { type ReactNode } from 'react'
 
 import { classNames } from '../../../../../app/helpers/utils'
 
-interface ButtonProps {
+type ButtonProps = React.ComponentProps<'button'> & {
     color?: string
     size?: '' | 'sm' | 'lg' | 'xl'
     icon?: (props: React.ComponentProps<'svg'>) => JSX.Element
@@ -10,10 +10,10 @@ interface ButtonProps {
     onClick?: () => void
 }
 
-export default function Button({ color = 'primary', size = '', icon, children, onClick }: ButtonProps) {
+export default function Button({ color = 'primary', size = '', icon, children, onClick, ...props }: ButtonProps) {
     const Icon = icon
 
-    return <button onClick={onClick} className={classNames(`btn btn-${color} group`, icon ? 'btn-icon' : '', size === 'sm' ? 'btn-sm' : '')}>
+    return <button onClick={onClick} className={classNames(`btn btn-${color} group`, icon ? 'btn-icon' : '', size === 'sm' ? 'btn-sm' : '', props.className || '')}>
         <span className={size === 'sm' ? '' : 'font-bold'}>{children}</span>
 
         {Icon && <span className='inline-flex items-center'>

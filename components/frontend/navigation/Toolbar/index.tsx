@@ -2,7 +2,9 @@
 import { Fragment, ComponentProps } from 'react'
 import Link from 'next/link'
 import { Popover, Transition } from '@headlessui/react'
-import { XMarkIcon, HomeIcon, IdentificationIcon, Bars3BottomRightIcon, PhoneIcon, QuestionMarkCircleIcon, ArrowLeftOnRectangleIcon } from '@heroicons/react/24/outline'
+import { XMarkIcon, HomeIcon, Bars3BottomRightIcon, PhoneIcon, QuestionMarkCircleIcon } from '@heroicons/react/24/outline'
+
+import { classNames } from '../../../../app/helpers/utils'
 
 import Logo from '../../../ui/Logo'
 
@@ -10,7 +12,6 @@ import NavItem from './NavItem'
 import LanguageSelect from './LanguageSelect'
 import Dropdown from './Dropdown'
 import Resource from './Resource'
-import Button from '../../ui/form/Button'
 import SignIn from './sign-in'
 
 const listItems = [
@@ -42,9 +43,13 @@ const renderResourceNavItem = (item: { name: string, href: string }, close: () =
     <Resource {...item} />
 </div>
 
-export default function Toolbar() {
+type ToolbarProps = {
+    light?: boolean
+}
+
+export default function Toolbar({ light }: ToolbarProps) {
     return (
-        <Popover className="fixed w-full top-0 z-40 bg-white dark:bg-secondary-900">
+        <Popover className={classNames("fixed w-full top-0 z-40 dark:bg-secondary-900", light ? "bg-secondary-50" : "bg-white")}>
             {({ close }) => <>
                 <div className="container">
                     <div className="flex items-center py-[30px] md:py-[10px]">
@@ -62,6 +67,7 @@ export default function Toolbar() {
                                 <Popover.Group as="nav" className="hidden space-x-8 md:flex">
                                     <NavItem href="/" icon={HomeIcon}>Home</NavItem>
                                     <Dropdown basePath='/about' list={listItems}>About Us</Dropdown>
+                                    <NavItem href="/products">Products</NavItem>
                                     <NavItem href="/contact">Contact Us</NavItem>
                                     <NavItem href="/faq">FAQ</NavItem>
                                 </Popover.Group>

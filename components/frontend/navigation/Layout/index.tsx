@@ -6,9 +6,10 @@ import { useLanguageContext } from '../../../../app/contexts/language'
 
 interface LayoutProps {
     children: ReactNode
+    light?: boolean
 }
 
-export default function Layout({ children }: LayoutProps) {
+export default function Layout({ children, light }: LayoutProps) {
     const { language } = useLanguageContext()
 
     return language === null ? <div className='fixed inset-0 flex items-center justify-center'>
@@ -16,7 +17,7 @@ export default function Layout({ children }: LayoutProps) {
 
         <div className="w-24 h-24 rounded-full border-[7px] border-primary border-t-primary/20 animate-spin" />
     </div> : <div className='min-h-screen flex flex-col relative'>
-        <Toolbar />
+        <Toolbar light={light} />
 
         <div className="main-wrapper">
             {children}
